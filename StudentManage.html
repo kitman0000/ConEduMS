@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" href="css/bootstrap.css">  
+	<link rel="stylesheet" href="css/bootstrap.min.css">  
+	<link rel="stylesheet" href="css/webStyle.css">  
+	<link rel="stylesheet" href="css/bootstrap-datetimepicker.css">
+	<link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css">
+	
+	<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+	<script src="js/bootstrap-datetimepicker.js"></script>
+	<script src="js/bootstrap-datetimepicker.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/bootstrap-datetimepicker.zh-CN.js"></script>
+	
+</head>
+<body>
+	<div class="page">
+		
+    	<!-- 标题 -->
+        <nav class="navbar navbar-default" role="navigation" class="titlebar">
+            <div class="container-fluid container" > 
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse"
+                        data-target="#example-navbar-collapse">
+                    <span class="sr-only">切换导航</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">继续教育管理系统(管理端)</a>
+            </div>
+            <div class="collapse navbar-collapse" id="example-navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li role="presentation"><a href="#">专业管理</a></li>
+   					<li role="presentation"><a href="#">教学点管理</a></li>
+					<li role="presentation"><a href="#">课程管理</a></li>
+					<li role="presentation"><a href="#">教师管理</a></li>
+					<li role="presentation"><a href="#">教学班管理</a></li>
+					<li role="presentation"  class="active"><a href="#">学生管理</a></li>
+					<li role="presentation"><a href="#">成绩管理</a></li>
+					<li role="presentation"><a href="#">学生查询</a></li>
+				</ul>  
+            </div>
+            </div>
+        </nav>
+        <!-- 标题结束 -->
+						
+		<!-- 内容开始 -->
+		<div class="container">
+			<!-- 导航开始 -->
+			<div class="alert alert-info" role="alert">
+				学生信息
+			</div>
+			<!-- 导航结束 -->
+			<!--教学班列表-->
+			<div class="listAdd" align="right">
+				<button id="addItem"  data-toggle="modal" data-target="#addModal" class="btn btn-primary">添加</button>
+			</div>
+			<div class="bs-example" data-example-id="simple-table">
+				<table class="table" id="ClassList">
+					<thead class="row">
+						<th class="col-sm-1 col-xs-1 ">
+							ID
+						</th>
+						<th class="col-sm-1 col-xs-1 ">
+							班级
+						</th>
+						<th class="col-sm-1 col-xs-1 ">
+							专业
+						</th>
+						<th class="col-sm-1 col-xs-1 ">
+							性别
+						</th>
+						<th class="col-sm-1 col-xs-1 ">
+							出生日期
+						</th>
+						<th class="col-sm-1 col-xs-1 ">
+							证件号码
+						</th>
+						<th class="col-sm-1 col-xs-1 ">
+							联系电话
+						</th>
+						<th class="col-sm-2 col-xs-2 ">
+							学生通讯地址
+						</th>
+						<th class="col-sm-2 col-xs-2 ">
+							备注信息
+						</th>
+					</thead>
+					<tbody id="studentListBody">
+						
+					</tbody>
+				</table>
+				<!-- 分页开始 -->
+				<div style="width: 100%;" align="center">
+					<ul class="pagination" id="pageDevider" style="margin-top: 10%;">
+						
+					</ul>
+				</div>
+				<!-- 分页结束 -->
+			</div>
+			<!--教学班列表结束-->
+
+		</div>
+		
+		<!-- 内容结束 -->
+	</div>
+	
+	<!-- 增加模态框 -->
+	<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog" style="width: 50%;">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						&times;
+					</button>
+					<h4 class="modal-title" id="myModalLabel" style="text-align: left;">
+						添加学生信息
+					</h4>
+				</div>
+				<div class="modal-body" style="text-align: left; padding-left: 15%;" align="center">
+					<div class="form-group form-inline">
+						<label for="basic-url" style="margin-right: 6%;">ID:</label>
+						<div class="input-group">
+							<input type="text" class="form-control" id="addStuID" aria-describedby="basic-addon3">
+						</div>
+						<label for="basic-url" style="margin-right: 10.2%;">班级:</label>
+						<div class="input-group">
+							<input type="text" class="form-control" id="addClassID" aria-describedby="basic-addon3">
+						</div>
+					</div>
+					
+					<div class="form-group form-inline">
+						<label for="basic-url" style="margin-right: 4%;">专业:</label>
+						<div class="input-group">
+							<input type="text" class="form-control" id="addMajorID" aria-describedby="basic-addon3">
+						</div>
+						
+						<label for="basic-url" style="margin-right: 10.1%;">性别:</label>
+						<div class="input-group">
+							<input type="text" class="form-control" id="addStuGender" aria-describedby="basic-addon3">
+						</div>
+					</div>
+					
+					<div class="form-group form-inline">
+						<label for="basic-url" style="margin-right: 0.7%;">出生日期:</label>
+						<div class="input-group date form_date col-md-4" style="width: 30%;" data-date="" data-date-format="yyyy年mm月dd日" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+							<input class="form-control" id="addBirthDate" size="16" type="text" value="" readonly="readonly" style="background: #fff;">
+							<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+						</div>
+						<label for="basic-url"style="margin-right: 6%;">证件号码:</label>
+						<div class="input-group">
+							<input type="text" class="form-control" id="addStuSocialID" aria-describedby="basic-addon3">
+						</div>
+					</div>
+					
+					<div class="form-group form-inline">
+						<label for="basic-url" style="margin-right: 0%;">联系电话:</label>
+						<div class="input-group">
+							<input type="text" class="form-control" id="addStuTel" aria-describedby="basic-addon3">
+						</div>
+						
+						<label for="basic-url" style="margin-right: 1%;">学生通讯地址:</label>
+						<div class="input-group">
+							<input type="text" class="form-control" id="addStuAddress" aria-describedby="basic-addon3">
+						</div>
+					</div>
+					
+					<div class="form-group form-inline">
+						<label for="basic-url" style="margin-right: 0%;">备注信息:</label>
+						<div class="input-group">
+							<input type="text" class="form-control" id="addStuRemark" aria-describedby="basic-addon3">
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="modal-footer">
+								
+					<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+					</button>
+					<button type="button" class="btn btn-primary" id="addStudent">
+						确定
+					</button>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal -->
+	</div>
+	<!-- 结束增加模态框 -->
+	
+	<!-- 删除警告模态框 -->
+	<div class="modal fade" id="DeleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog" style="width: 10%;">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						&times;
+					</button>
+					<h4 class="modal-title" id="myModalLabel" style="text-align: left;">
+						警告
+					</h4>
+				</div>
+				<div class="modal-body" style="text-align: left;">
+					确认要删除此班级？
+				</div>
+				<div class="modal-footer" style=" 	width: 100%;display: table; text-align: center;">
+					
+					<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+					</button>
+					<button type="button" id="confirmDelete" class="btn btn-danger" data-dismiss="modal">
+						删除
+					</button>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal -->
+	</div>
+	<!-- 结束删除警告模态框 -->
+	
+			
+	<!-- 修改模态框 -->
+	<div class="modal fade" id="ChangeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog" style="width: 50%;">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						&times;
+					</button>
+					<h4 class="modal-title" id="myModalLabel" style="text-align: left;">
+						修改班级
+					</h4>
+				</div>
+				<div class="modal-body" style="text-align: left;padding-left: 25%;">
+
+					<div class="form-group form-inline">
+						<label for="basic-url" style="margin-right: 6%;">ID:</label>
+						<div class="input-group">
+							<input type="text" class="form-control" id="editStuID" aria-describedby="basic-addon3" readonly="readonly">
+						</div>
+						<label for="basic-url" style="margin-right: 10.2%;">班级:</label>
+						<div class="input-group">
+							<input type="text" class="form-control" id="editClassID" aria-describedby="basic-addon3">
+						</div>
+					</div>
+					
+					<div class="form-group form-inline">
+						<label for="basic-url" style="margin-right: 4%;">专业:</label>
+						<div class="input-group">
+							<input type="text" class="form-control" id="editMajorID" aria-describedby="basic-addon3">
+						</div>
+						
+						<label for="basic-url" style="margin-right: 10.1%;">性别:</label>
+						<div class="input-group">
+							<input type="text" class="form-control" id="editStuGender" aria-describedby="basic-addon3">
+						</div>
+					</div>
+					
+					<div class="form-group form-inline">
+						
+						<label for="basic-url" style="margin-right: 0.7%;">出生日期:</label>
+						<div class="input-group date form_date col-md-4" style="width: 24%;" data-date="" data-date-format="yyyy年mm月dd日" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+							<input class="form-control" id="editStuBirthDate" size="16" type="text" value="" readonly="readonly" style="background: #fff;">
+							<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+						</div>
+						<label for="basic-url" style="margin-right: 6%;">证件号码:</label>
+						<div class="input-group">
+							<input type="text" class="form-control" id="editStuSocialID" aria-describedby="basic-addon3">
+						</div>
+					</div>
+					
+					<div class="form-group form-inline">
+						<label for="basic-url" style="margin-right: 0%;">联系电话:</label>
+						<div class="input-group">
+							<input type="text" class="form-control" id="editStuTel" aria-describedby="basic-addon3">
+						</div>
+						
+						<label for="basic-url" style="margin-right: 1%;">学生通讯地址:</label>
+						<div class="input-group">
+							<input type="text" class="form-control" id="editStuAddrss" aria-describedby="basic-addon3">
+						</div>
+					</div>
+					
+					<div class="form-group form-inline">
+						<label for="basic-url" style="margin-right: 0%;">备注信息:</label>
+						<div class="input-group">
+							<input type="text" class="form-control" id="editStuRemark" aria-describedby="basic-addon3">
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="modal-footer">
+					
+					<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+					</button>
+					<button type="button" class="btn btn-primary" id="editStudent">
+						提交更改
+					</button>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal -->
+	</div>
+	<!-- 结束修改模态框 -->
+	
+	<!-- 警告信息模态框 -->
+	<div class="modal fade" id="warningInfoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog" style="width: 40%;">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						&times;
+					</button>
+					<h4 class="modal-title" id="myModalLabel" style="text-align: left;">
+						警告
+					</h4>
+				</div>
+				<div class="modal-body" style="text-align: center;">
+					<span id="warningInfo"></span>
+				</div>
+				<div class="modal-footer" style="width: 100%;display: table; text-align: center;">
+					
+					<button type="button" class="btn btn-default" data-dismiss="modal">确定
+					</button>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal -->
+	</div>
+	<!-- 结束删除警告模态框 -->
+</body>
+
+<script>
+var obj;
+
+$(function(){
+	$.ajax({
+		type: "POST",
+		url: "ClassManage.aspx/getAllClasses",
+		datatype: "json",
+		contentType: "application/json;charset=utf-8",
+		data:
+		{
+			
+		},
+		success:
+			function (data, textStatus) {
+				showClasses(data.d);
+			},
+	});
+	
+	$("#addStudent").click(function(){
+		//warningInfo
+		if($("#addStuID").val().length !=8)
+		{
+			$("#warningInfo").html("学生编号为8位，入学年（4位）+序号（4位）");
+			$("#warningInfoModal").modal("show");
+			return;
+		}
+		
+		if($("#addClassID").val().length !=8)
+		{
+			$("#warningInfo").html("班级编号为8位");
+			$("#warningInfoModal").modal("show");
+			return;
+		}
+		
+		if($("#addMajorID").val().length !=4)
+		{
+			$("#warningInfo").html("专业编号为4位");
+			$("#warningInfoModal").modal("show");
+			return;
+		}
+		
+		if($("#addStuGender").val().length !=1)
+		{
+			$("#warningInfo").html("学生性别为1位");
+			$("#warningInfoModal").modal("show");
+			return;
+		}
+		
+		if($("#addStuBirthDate").val().length ==0)
+		{
+			$("#warningInfo").html("出生日期");
+			$("#warningInfoModal").modal("show");
+			return;
+		}
+
+		if($("#addStuSocialID").val().length !=18)
+		{
+			$("#warningInfo").html("学生身份证号。若是外籍学生则为护照号，在护照号的前面补0，使其构成18位。");
+			$("#warningInfoModal").modal("show");
+			return;
+		}
+
+		
+		if($("#addStuTel").val() >30 || $("#addStuTel").val() ==0)
+		{
+			$("#warningInfo").html("学生电话号码");
+			$("#warningInfoModal").modal("show");
+			return;
+		}
+		
+		if($("#addStuAddress").val().length >50 || $("#addStuAddress").val().length ==0)
+		{
+			$("#warningInfo").html("学生通讯（住）地址");
+			$("#warningInfoModal").modal("show");
+			return;
+		}
+		
+		if($("#addStuRemark").val().length >500)
+		{
+			$("#warningInfo").html("备注信息");
+			$("#warningInfoModal").modal("show");
+			return;
+		}
+		
+		for(i = 0;i<obj.length;i++)
+		{
+			if(obj[i].StuID == $("#addStuID").val())
+			{
+				$("#warningInfo").html("该学生ID已经被占用");
+				$("#warningInfoModal").modal("show");
+				return;
+			}
+		}
+
+		$("#addModal").modal("hide");
+		
+		$.ajax({
+			type: "POST",
+			url: "ClassManage.aspx/addClass",
+			datatype: "json",
+			contentType: "application/json;charset=utf-8",
+			data:
+				"{"+
+				"'stuID':'" + $("#addStuID").val()+"',"+
+				"'classID':'" + $("#addClassID").val()+"',"+
+				"'majorID':'" + $("#addMajorID").val()+"',"+
+				"'stuGender':'" + $("#addStuGender").val()+"',"+
+				"'stuBirthDate':'" + $("#addStuBirthDate").val()+"',"+
+				"'stuSocialID':'" + $("#addStuSocialID").val()+"',"+
+				"'stuTel':'" + $("#addStuTel").val()+"',"+
+				"'stuAddress':'" + $("#addStuAddress").val()+"',"+
+				"'stuRemark':'" + $("#addStuRemark").val()+"'"
+				+"}"
+			,
+			success:
+				function (data, textStatus) {
+					setCookie("add",1);
+					location.reload();
+				},
+		});
+	});
+	
+	$("#confirmDelete").click(function(){
+		$.ajax({
+			type: "POST",
+			url: "ClassManage.aspx/delClass",
+			datatype: "json",
+			contentType: "application/json;charset=utf-8",
+			data:
+				"{"+
+				"'stuID':'" + delStuID +"'"+
+				"}"
+			,
+			success:
+				function (data, textStatus) {
+					if(data.d == "success")
+					{
+						deleteSuccess();
+					}
+				},
+		});
+	});
+	
+	$("#editStudent").click(function(){
+		
+		if($("#editStuID").val().length !=8)
+		{
+			$("#warningInfo").html("学生编号为8位，入学年（4位）+序号（4位）");
+			$("#warningInfoModal").modal("show");
+			return;
+		}
+		
+		if($("#editClassID").val().length !=8)
+		{
+			$("#warningInfo").html("班级编号为4位");
+			$("#warningInfoModal").modal("show");
+			return;
+		}
+		
+		if($("#editMajorID").val().length !=4)
+		{
+			$("#warningInfo").html("专业编号为4位");
+			$("#warningInfoModal").modal("show");
+			return;
+		}
+		
+		if($("#editStuGender").val() !=1)
+		{
+			$("#warningInfo").html("学生性别为1位");
+			$("#warningInfoModal").modal("show");
+			return;
+		}
+		
+		if($("#editBirthDate").val()==0)
+		{
+			$("#warningInfo").html("出生年月日，例如：19800125");
+			$("#warningInfoModal").modal("show");
+			return;
+		}
+
+		if($("#editStuSocialID").val().length !=18)
+		{
+			$("#warningInfo").html("学生身份证号。若是外籍学生则为护照号，在护照号的前面补0，使其构成18位。");
+			$("#warningInfoModal").modal("show");
+			return;
+		}
+
+		if($("#editStuTel").val().length >30 || $("#editStuTel").val().length ==0)
+		{
+			$("#warningInfo").html("学生电话号码");
+			$("#warningInfoModal").modal("show");
+			return;
+		}
+		
+		
+		if($("#editStuAddress").val().length >50 || $("#editStuAddress").val().length ==0)
+		{
+			$("#warningInfo").html("学生通讯（住）地址");
+			$("#warningInfoModal").modal("show");
+			return;
+		}
+		
+		if($("#editStuRemark").val() >500)
+		{
+			$("#warningInfo").html("备注信息");
+			$("#warningInfoModal").modal("show");
+			return;
+		}
+		
+
+		$("#ChangeModal").modal("hide");
+		
+		$.ajax({
+			type: "POST",
+			url: "ClassManage.aspx/editClass",
+			datatype: "json",
+			contentType: "application/json;charset=utf-8",
+			data:
+				"{"+
+				"'stuID':'" + $("#editStuID").val()+"',"+
+				"'classID':'" + $("#editClassID").val()+"',"+
+				"'majorID':'" + $("#editMajorID").val()+"',"+
+				"'stuGender':'" + $("#editStuGender").val()+"',"+
+				"'stuBirthDate':'" + $("#editBirthDate").val()+"',"+
+				"'stuSocialID':'" + $("#editStuSocialID").val()+"',"+
+				"'stuTel':'" + $("#editStuTel").val()+"',"+
+				"'stuAddress':'" + $("#editStuAddress").val()+"',"+
+				"'stuRemark':'" + $("#editStuRemark").val()+"'"
+				+"}"
+			,
+			success:
+				function (data, textStatus) {
+					if(data.d == "success")
+					{
+						editSuccess();
+					}
+				},
+		});
+	});
+});
+	
+function showClasses(data)
+{
+	obj = JSON.parse(data);
+	_data = data;
+	for(i=0;i<obj.length&&i<5;i++)
+	{
+		try{
+			insert = "<tr><td>"+
+			obj[i].stuID+
+			"</td><td "+obj[i].stuID+">"+
+			obj[i].classID+
+			"</td><td "+obj[i].stuID+">"+
+			obj[i].majorID+
+			"</td><td "+obj[i].stuID+">"+
+			obj[i].stuGender+
+			"</td><td "+obj[i].stuID+">"+
+			obj[i].stuBirthDate+
+			"</td><td "+obj[i].stuID+">"+
+			obj[i].stuSocialID+
+			"</td><td "+obj[i].stuID+">"+
+			obj[i].stuTel+
+			"</td><td "+obj[i].stuID+">"+
+			obj[i].stuAddress+
+			"</td><td "+obj[i].stuID+">"+
+			obj[i].stuRemark+
+			"</td><td>"+
+			"<button type=\"button\"  data-toggle=\"modal\" data-target=\"#ChangeModal\" class=\"btn btn-primary btn-xs ClassListButton\" onclick=\"edit(\'" + obj[i].classID + "\')\">修改</button>"+
+			"<button type=\"button\" class=\"btn btn-danger ClassListButton  btn-xs \" data-toggle=\"modal\" data-target=\"#DeleteModal\"  onclick=\"del(\'" + obj[i].classID + "\')\">删除</button>"+
+			"</th></tr>";
+			$("#studentListBody").append(insert);
+		}
+		catch(err){}
+		
+	}
+	$("#pageDevider").append("<li><a onclick=\"prePage()\" href=\"#\">&laquo;</a></li>")
+	for(i=1;i<obj.length/5;i++)
+	{
+		$("#pageDevider").append("<li><a onclick=\"switchPage("	+i+")\" href=\"#\">"+i+"</a></li>");
+	}
+	$("#pageDevider").append("<li><a onclick=\"switchPage("+i+")\" href=\"#\">"+i+"</a></li>");
+	$("#pageDevider").append("<li><a onclick=\"nextPage()\" href=\"#\">&raquo;</a></li>")
+	nowPage = 1;
+	if(getCookie("add")==1)
+	{
+		page = Math.floor(obj.length / 5);
+		if(obj.length % 5 != 0)
+		{
+			page++;
+		}
+		switchPage(page);
+		setCookie("add",0);
+	}
+	if(getCookie("delete")!=0)
+	{
+		switchPage(getCookie("delete"));
+		setCookie("delete",0);
+	}
+	
+	$('.form_date').datetimepicker({
+		language:  'zh-CN',
+		weekStart: 1,
+		todayBtn:  1,
+		autoclose: 1,
+		todayHighlight: 1,
+		startView: 2,
+		minView: 2,
+		forceParse: 0
+	});
+}
+
+
+
+function deleteSuccess()
+{
+	setCookie("delete",nowPage);
+	location.reload();
+}
+
+function editSuccess()
+{
+	for(i = 0;i<obj.length;i++)
+	{
+		if(obj[i].stuID == $("#editStuID").val())
+		{
+			obj[i].classID = $("#editClassID").val();
+			obj[i].majorID = $("#editMajorID").val();
+			obj[i].stuGender = $("#editStuGender").val();
+			obj[i].stuBirthDate = $("#editStuBirthDate").val();
+			obj[i].stuSocialID = $("#editStuSocialID").val();
+			obj[i].stuTel = $("#editStuTel").val();
+			obj[i].stuAddress = $("#editStuAddress").val();
+			obj[i].stuRemark = $("#editStuRemark").val();
+			switchPage(nowPage);
+		}
+	}
+}
+
+function switchPage(num)
+{
+	nowPage = num;
+	$("#studentListBody").html("");
+	//obj = JSON.parse(_data);
+	s=0;
+	console.log(num);
+	for(i=(num-1)*5;i<obj.length&&s<5;i++)
+	{
+		try{
+			insert = "<tr><th>"+
+			obj[i].stuID+
+			"</th><th "+obj[i].stuID+">"+
+			obj[i].classID+
+			"</th><th "+obj[i].stuID+">"+
+			obj[i].majorID+
+			"</th><th "+obj[i].stuID+">"+
+			obj[i].stuGender+
+			"</th><th "+obj[i].stuID+">"+
+			obj[i].stuBirthDate+
+			"</th><th "+obj[i].stuID+">"+
+			obj[i].startDate+
+			"</th><th "+obj[i].stuID+">"+
+			obj[i].stuSocialID+
+			"</th><th "+obj[i].stuID+">"+
+			obj[i].stuTel+
+			"</th><th "+obj[i].stuID+">"+
+			obj[i].stuAddress+
+			"</th><th "+obj[i].stuID+">"+
+			obj[i].stuRemark+
+			"</th><th>"+
+			"<button type=\"button\"  data-toggle=\"modal\" data-target=\"#ChangeModal\" class=\"btn btn-primary btn-xs ClassListButton\" onclick=\"edit(\'" + obj[i].classID + "\')\">修改</button>"+
+			"<button type=\"button\" class=\"btn btn-danger ClassListButton  btn-xs \" data-toggle=\"modal\" data-target=\"#DeleteModal\"  onclick=\"del(\'" + obj[i].classID + "\')\">删除</button>"+
+			"</th></tr>";
+			$("#studentListBody").append(insert);
+		}
+		catch(err){}
+		s++;
+	}
+}
+
+function edit(id)
+{
+	console.log(id);
+	for(i = 0;i<obj.length;i++)
+	{
+		if(obj[i].stuID == id)
+		{
+			$("#editStuID").val(obj[i].stuID);
+			$("#editClassID").val(obj[i].classID);
+			$("#editMajorID").val(obj[i].majorID);
+			$("#editStuGender").val(obj[i].stuGender);
+			$("#editStuBirthDate").val(obj[i].stuBirthDate);
+			$("#editStuSocialID").val(obj[i].stuSocialID);
+			$("#editStuTel").val(obj[i].stuTel);
+			$("#editStuAddress").val(obj[i].stuAddress);
+			$("#editStuRemark").val(obj[i].stuRemark);
+			break;
+		}
+	}
+}
+
+function del(id)
+{
+	delStuID = id;
+}
+
+function prePage()
+{
+	if(nowPage!=1)
+	{
+		switchPage(nowPage - 1);
+	}
+}
+
+function nextPage()
+{
+	obj = JSON.parse(_data);
+	if(nowPage!=obj.length/5 + 1)
+	{
+		switchPage(nowPage + 1);
+	}
+}
+
+function getCookie(cname)
+{
+  var name = cname + "=";
+  var ca = document.cookie.split(';');
+  for(var i=0; i<ca.length; i++) 
+  {
+    var c = ca[i].trim();
+    if (c.indexOf(name)==0) return c.substring(name.length,c.length);
+  }
+  return "";
+}
+
+function setCookie(name,value)
+{
+     document.cookie = name + "=" + value + "; ";
+} 
+</script>
+</html>

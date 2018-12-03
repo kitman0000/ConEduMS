@@ -1,0 +1,36 @@
+.page
+{
+	font-family: 微软雅黑;
+	width: 100%;
+}
+
+.titlebar
+{
+	width: 100%;
+	
+}
+
+.barItem
+{
+	font-size: 13px;
+}
+
+.listAdd
+{
+	width: 100%;
+}
+
+.addMenuLeftItem
+{
+	float: left;
+}
+
+.addMenuRightItem
+{
+	float: right; margin-left: 10%;	
+}
+
+.ListOperButton
+{
+	margin-right: 4%;
+}
