@@ -1,13 +1,12 @@
+<!--author:冼圣杰 -->
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
 	<meta charset="utf-8" />
-	<link rel="stylesheet" href="css/bootstrap.css">  
 	<link rel="stylesheet" href="css/bootstrap.min.css">  
 	<link rel="stylesheet" href="css/webStyle.css">  
-	<link rel="stylesheet" href="css/bootstrap-datetimepicker.css">
 	<link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css">
 	
 	<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
@@ -122,63 +121,84 @@
 						添加学生信息
 					</h4>
 				</div>
-				<div class="modal-body" style="text-align: left; padding-left: 15%;" align="center">
-					<div class="form-group form-inline">
-						<label for="basic-url" style="margin-right: 6%;">ID:</label>
-						<div class="input-group">
+				<table align="center">
+					<tr>
+						<td class="listItem" style="width: 100px;">
+							<label for="addStuID" style="margin-right: 6%;">ID:</label>
+						</td>
+						<td class="listItem">
 							<input type="text" class="form-control" id="addStuID" aria-describedby="basic-addon3">
-						</div>
-						<label for="basic-url" style="margin-right: 10.2%;">班级:</label>
-						<div class="input-group">
+						</td>
+						<td class="listItem" style="width: 100px;">
+							<label for="addClassID" style="margin-right: 10.2%;">班级:</label>
+						</td>
+						<td class="listItem">
 							<input type="text" class="form-control" id="addClassID" aria-describedby="basic-addon3">
-						</div>
-					</div>
+						</td>
+					</tr>	
 					
-					<div class="form-group form-inline">
-						<label for="basic-url" style="margin-right: 4%;">专业:</label>
-						<div class="input-group">
+					<tr>
+						<td class="listItem">
+							<label for="addMajorID" style="margin-right: 4%;">专业:</label>
+						</td>
+						<td class="listItem">
 							<input type="text" class="form-control" id="addMajorID" aria-describedby="basic-addon3">
-						</div>
-						
-						<label for="basic-url" style="margin-right: 10.1%;">性别:</label>
-						<div class="input-group">
+						</td>
+						<td class="listItem">
+							<label for="addStuGender" style="margin-right: 10.1%;">性别:</label>
+						</td>
+						<td class="listItem">
 							<input type="text" class="form-control" id="addStuGender" aria-describedby="basic-addon3">
-						</div>
-					</div>
+						</td>
+						
+					</tr>
 					
-					<div class="form-group form-inline">
-						<label for="basic-url" style="margin-right: 0.7%;">出生日期:</label>
-						<div class="input-group date form_date col-md-4" style="width: 30%;" data-date="" data-date-format="yyyy年mm月dd日" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
-							<input class="form-control" id="addBirthDate" size="16" type="text" value="" readonly="readonly" style="background: #fff;">
-							<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
-						</div>
-						<label for="basic-url"style="margin-right: 6%;">证件号码:</label>
-						<div class="input-group">
+					<tr>
+						<td class="listItem">
+							<label for="addBirthDate" style="margin-right: 0.7%;">出生日期:</label>
+						</td>
+						<td class="listItem">
+							<div class="input-group date form_date col-md-4" style="width: 100%;" data-date="" data-date-format="yyyy年mm月dd日" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+								<input class="form-control" id="addBirthDate" size="16" type="text" value="" readonly="readonly" style="background: #fff;">
+								<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+							</div>
+						</td>
+						<td class="listItem">
+							<label for="addStuSocialID"style="margin-right: 6%;">证件号码:</label>
+						</td>
+						<td class="listItem">
 							<input type="text" class="form-control" id="addStuSocialID" aria-describedby="basic-addon3">
-						</div>
-					</div>
+						</td>
 					
-					<div class="form-group form-inline">
-						<label for="basic-url" style="margin-right: 0%;">联系电话:</label>
-						<div class="input-group">
+					</tr>
+					
+					<tr>
+						<td class="listItem">
+							<label for="addStuTel" style="margin-right: 0%;">联系电话:</label>
+						</td>
+						<td class="listItem">
 							<input type="text" class="form-control" id="addStuTel" aria-describedby="basic-addon3">
-						</div>
-						
-						<label for="basic-url" style="margin-right: 1%;">学生通讯地址:</label>
-						<div class="input-group">
+						</td>
+						<td class="listItem">
+							<label for="addStuAddress" style="margin-right: 1%;">学生通讯地址:</label>
+						</td>
+						<td class="listItem">
 							<input type="text" class="form-control" id="addStuAddress" aria-describedby="basic-addon3">
-						</div>
-					</div>
+						</td>
 					
-					<div class="form-group form-inline">
-						<label for="basic-url" style="margin-right: 0%;">备注信息:</label>
-						<div class="input-group">
+					</tr>
+					
+					<tr>
+						<td class="listItem">
+							<label for="addStuRemark" style="margin-right: 0%;">备注信息:</label>
+						</td>
+						<td class="listItem">
 							<input type="text" class="form-control" id="addStuRemark" aria-describedby="basic-addon3">
-						</div>
+						</td>
 						
-					</div>
+					</tr>
 					
-				</div>
+				</table>
 				<div class="modal-footer">
 								
 					<button type="button" class="btn btn-default" data-dismiss="modal">关闭
@@ -233,65 +253,82 @@
 						修改班级
 					</h4>
 				</div>
-				<div class="modal-body" style="text-align: left;padding-left: 25%;">
-
-					<div class="form-group form-inline">
-						<label for="basic-url" style="margin-right: 6%;">ID:</label>
-						<div class="input-group">
-							<input type="text" class="form-control" id="editStuID" aria-describedby="basic-addon3" readonly="readonly">
-						</div>
-						<label for="basic-url" style="margin-right: 10.2%;">班级:</label>
-						<div class="input-group">
-							<input type="text" class="form-control" id="editClassID" aria-describedby="basic-addon3">
-						</div>
-					</div>
+					<table>
+						<tr>
+							<td class="listItem" style="widows: 100px;">
+								<label for="editStuID" style="margin-right: 6%;">ID:</label>
+							</td>
+							<td class="listItem">
+								<input type="text" class="form-control" id="editStuID" aria-describedby="basic-addon3" readonly="readonly">
+							</td>
+							<td class="listItem" style="widows: 100px;">
+								<label for="editClassID" style="margin-right: 10.2%;">班级:</label>
+							</td>
+							<td class="listItem">
+								<input type="text" class="form-control" id="editClassID" aria-describedby="basic-addon3">
+							</td>
+						</tr>
 					
-					<div class="form-group form-inline">
-						<label for="basic-url" style="margin-right: 4%;">专业:</label>
-						<div class="input-group">
-							<input type="text" class="form-control" id="editMajorID" aria-describedby="basic-addon3">
-						</div>
-						
-						<label for="basic-url" style="margin-right: 10.1%;">性别:</label>
-						<div class="input-group">
-							<input type="text" class="form-control" id="editStuGender" aria-describedby="basic-addon3">
-						</div>
-					</div>
+						<tr>
+							<td class="listItem">
+								<label for="editMajorID" style="margin-right: 4%;">专业:</label>
+							</td>
+							<td class="listItem">
+								<input type="text" class="form-control" id="editMajorID" aria-describedby="basic-addon3">
+							</td>
+							<td class="listItem">
+								<label for="editStuGender" style="margin-right: 10.1%;">性别:</label>
+							</td>
+							<td class="listItem">
+								<input type="text" class="form-control" id="editStuGender" aria-describedby="basic-addon3">
+							</td>
+						</tr>
 					
-					<div class="form-group form-inline">
-						
-						<label for="basic-url" style="margin-right: 0.7%;">出生日期:</label>
-						<div class="input-group date form_date col-md-4" style="width: 24%;" data-date="" data-date-format="yyyy年mm月dd日" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
-							<input class="form-control" id="editStuBirthDate" size="16" type="text" value="" readonly="readonly" style="background: #fff;">
-							<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
-						</div>
-						<label for="basic-url" style="margin-right: 6%;">证件号码:</label>
-						<div class="input-group">
-							<input type="text" class="form-control" id="editStuSocialID" aria-describedby="basic-addon3">
-						</div>
-					</div>
+						<tr>
+							<td class="listItem">
+								<label for="editStuBirthDate" style="margin-right: 0.7%;">出生日期:</label>
+							</td>
+							<td class="listItem">
+								<div class="input-group date form_date col-md-4" style="width: 100%;" data-date="" data-date-format="yyyy年mm月dd日" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+									<input class="form-control" id="editStuBirthDate" size="16" type="text" value="" readonly="readonly" style="background: #fff;">
+									<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+								</div>
+							</td>
+							<td class="listItem">
+								<label for="editStuSocialID" style="margin-right: 6%;">证件号码:</label>
+							</td>
+							<td class="listItem">
+								<input type="text" class="form-control" id="editStuSocialID" aria-describedby="basic-addon3">
+							</td>
+						</tr>
 					
-					<div class="form-group form-inline">
-						<label for="basic-url" style="margin-right: 0%;">联系电话:</label>
-						<div class="input-group">
-							<input type="text" class="form-control" id="editStuTel" aria-describedby="basic-addon3">
-						</div>
-						
-						<label for="basic-url" style="margin-right: 1%;">学生通讯地址:</label>
-						<div class="input-group">
-							<input type="text" class="form-control" id="editStuAddrss" aria-describedby="basic-addon3">
-						</div>
-					</div>
 					
-					<div class="form-group form-inline">
-						<label for="basic-url" style="margin-right: 0%;">备注信息:</label>
-						<div class="input-group">
-							<input type="text" class="form-control" id="editStuRemark" aria-describedby="basic-addon3">
-						</div>
-						
-					</div>
+						<tr>
+							<td class="listItem">
+								<label for="editStuTel" style="margin-right: 0%;">联系电话:</label>
+							</td>
+							<td class="listItem">
+								<input type="text" class="form-control" id="editStuTel" aria-describedby="basic-addon3">
+							</td>
+							<td class="listItem">
+								<label for="editStuAddrss" style="margin-right: 1%;">学生通讯地址:</label>
+							</td>
+							<td class="listItem">
+								<input type="text" class="form-control" id="editStuAddrss" aria-describedby="basic-addon3">
+							</td>
+						</tr>
 					
-				</div>
+					
+						<tr>
+							<td class="listItem">
+								<label for="editStuRemark" style="margin-right: 0%;">备注信息:</label>
+							</td>
+							<td class="listItem">
+								<input type="text" class="form-control" id="editStuRemark" aria-describedby="basic-addon3">
+							</td>
+						</tr>
+					
+				</table>
 				<div class="modal-footer">
 					
 					<button type="button" class="btn btn-default" data-dismiss="modal">关闭
