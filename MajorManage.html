@@ -111,14 +111,14 @@
 					<table align="center">
 						<tbody>
 							<tr>
-								<td class="listItem">
-									<label for="basic-url" style="margin-right: 1%;">专业编号:</label>
+								<td class="listItem" style="width: 100px;">
+									<label for="addMajorID">专业编号:</label>
 								</td>
 								<td>
 										<input type="text" class="form-control" id="addMajorID" aria-describedby="basic-addon3">
 								</td>
-								<td class="listItem">
-									<label for="basic-url" style="margin-right: 1%;">名称:</label>
+								<td class="listItem" style="width: 100px;">
+									<label for="addMajorName">名称:</label>
 								</td>
 								<td>
 										<input type="text" class="form-control" id="addMajorName" aria-describedby="basic-addon3">
@@ -127,10 +127,10 @@
 							
 							<tr>
 								<td class="listItem">
-									<label for="basic-url" style="margin-right:5.6% ;">备注:</label>
+									<label for="addMajorRemark">备注:</label>
 								</td>
 								<td>
-										<input type="text" class="form-control" id="addMajorRemark" aria-describedby="basic-addon3">
+									<input type="text" class="form-control" id="addMajorRemark" aria-describedby="basic-addon3">
 								</td>
 							</tr>
 						</tbody>
@@ -192,35 +192,43 @@
 				</div>
 				<div class="modal-body" style="text-align: left;padding-left: 25%;">
 
-					<div class="form-group form-inline">
-						<label for="basic-url" style="margin-right: 3%;">专业编号:</label>
-						<div class="input-group">
-							<input type="text" class="form-control" id="editMajorID" aria-describedby="basic-addon3" readonly="readonly">
-						</div>
-						<label for="basic-url" style="margin-right: 4.3%;">名称:</label>
-						<div class="input-group">
-							<input type="text" class="form-control" id="editMajorName" aria-describedby="basic-addon3">
-						</div>
-					</div>
-					
-					
-						<label for="basic-url" style="margin-right: 5.6%;">备注:</label>
-						<div class="input-group">
-							<input type="text" class="form-control" id="addMajorRemark" aria-describedby="basic-addon3">
-						</div>
-					</div>
+					<table>
+						<tbody>
+						<tr>
+							<td>
+								<label for="editMajorID">专业编号:</label>
+							</td>
+							<td>
+								<input type="text" class="form-control" id="editMajorID" aria-describedby="basic-addon3" readonly="readonly">
+							</td>
+							<td>
+								<label for="editMajorName">名称:</label>
+							</td>
+							<td>
+								<input type="text" class="form-control" id="editMajorName" aria-describedby="basic-addon3">
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<label for="addMajorRemark">备注:</label>
+							</td>
+							<td>
+								<input type="text" class="form-control" id="addMajorRemark" aria-describedby="basic-addon3">
+							</td>
+						</tr>
+						</tbody>
+					</table>
 				
-			
-			<div class="modal-footer">
-				</div>
-					
-					<button type="button" class="btn btn-default" data-dismiss="modal">关闭
-					</button>
-					<button type="button" class="btn btn-primary" id="editMajor">
-						提交更改
-					</button>
-				</div>
-			</div><!-- /.modal-content -->
+				<div class="modal-footer">
+					</div>
+						
+						<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+						</button>
+						<button type="button" class="btn btn-primary" id="editMajor">
+							提交更改
+						</button>
+					</div>
+				</div><!-- /.modal-content -->
 		</div><!-- /.modal -->
 	</div>
 	<!-- 结束修改模态框 -->
