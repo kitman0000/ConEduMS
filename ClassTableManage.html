@@ -121,65 +121,82 @@
 						添加课程表
 					</h4>
 				</div>
-				<div class="modal-body" style="text-align: left; padding-left: 15%;" align="center">
-					<div class="form-group form-inline">
-						<label for="basic-url" style="margin-right: 3%;">班级编号:</label>
-						<div class="input-group">
-							<input type="text" class="form-control" id="addClassID" aria-describedby="basic-addon3">
-						</div>
-						<label for="basic-url" style="margin-right: 4.3%;">课程编号:</label>
-						<div class="input-group">
-							<input type="text" class="form-control" id="addCourseID" aria-describedby="basic-addon3">
-						</div>
-					</div>
-					
-					<div class="form-group form-inline">
-						<label for="basic-url" style="margin-right: 3%;">所属学期:</label>
-						<div class="input-group">
-							<input type="text" class="form-control" id="addSemesterID" aria-describedby="basic-addon3">
-						</div>
+					<table align="center">
+						<tr>
+							<td class="listItem" style="width: 100px;">
+								<label for="basic-url" style="margin-right: 3%;">班级编号:</label>
+							</td>
+							<td class="listItem">
+								<input type="text" class="form-control" id="addClassID" aria-describedby="basic-addon3">
+							</td>
+							<td class="listItem" style="width: 100px;">
+								<label for="basic-url" style="margin-right: 4.3%;">课程编号:</label>
+							</td>
+							<td class="listItem">
+								<input type="text" class="form-control" id="addCourseID" aria-describedby="basic-addon3">
+							</td>
+						</tr>
 						
-						<label for="basic-url" style="margin-right: 4.3%;">教师编号:</label>
-						<div class="input-group">
-							<input type="text" class="form-control" id="addTeacherID" aria-describedby="basic-addon3">
-						</div>
-					</div>
+						<tr>
+							<td class="listItem">
+								<label for="basic-url" style="margin-right: 3%;">所属学期:</label>
+							</td>
+							<td class="listItem">
+								<input type="text" class="form-control" id="addSemesterID" aria-describedby="basic-addon3">
+							</td>
+							<td class="listItem">
+								<label for="basic-url" style="margin-right: 4.3%;">教师编号:</label>
+							</td>
+							<td class="listItem">
+								<input type="text" class="form-control" id="addTeacherID" aria-describedby="basic-addon3">
+							</td>
+						</tr>	
 					
-					<div class="form-group form-inline">
-						<label for="basic-url"style="margin-right: 3%;">上课地点:</label>
-						<div class="input-group">
-							<input type="text" class="form-control" id="addClassRoom" aria-describedby="basic-addon3">
-						</div>
-						<label for="basic-url" style="margin-right: 4.3%;">上课日期:</label>
-						<div class="input-group">
-							<input type="text" class="form-control" id="addClassDate" aria-describedby="basic-addon3">
-						</div>
-					</div>
+						<tr>
+							<td class="listItem">
+								<label for="basic-url"style="margin-right: 3%;">上课地点:</label>
+							</td>
+							<td class="listItem">
+								<input type="text" class="form-control" id="addClassRoom" aria-describedby="basic-addon3">
+							</td>
+							<td class="listItem">
+								<label for="basic-url" style="margin-right: 4.3%;">上课日期:</label>
+							</td>
+							<td class="listItem">
+								<input type="text" class="form-control" id="addClassDate" aria-describedby="basic-addon3">
+							</td>
+						</tr>
 					
-					<div class="form-group form-inline">
-						
-						<label for="basic-url" style="margin-right: 7.3%;">星期:</label>
-						<div class="input-group">
-							<input type="text" class="form-control" id="addClassWeekDay" aria-describedby="basic-addon3">
-						</div>
-					</div>
+						<tr>
+							<td class="listItem">
+								<label for="basic-url" style="margin-right: 7.3%;">星期:</label>
+							</td>
+							<td class="listItem">
+								<input type="text" class="form-control" id="addClassWeekDay" aria-describedby="basic-addon3">
+							</td>
+						</tr>
 					
-					<div class="form-group form-inline">
-						<label for="basic-url" style="margin-right: 2.5%;">开始日期:</label>
-						<div class="input-group date form_date col-md-4" style="width: 32%;" data-date="" data-date-format="yyyy年mm月dd日" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
-							<input class="form-control" id="addClassStartTime" size="16" type="text" value="" readonly="readonly" style="background: #fff;">
-							<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
-						</div>
-						<label for="basic-url" style="margin-right: 3.7%;">结束日期:</label>
-						<div class="input-group date form_date col-md-4" style="width: 32%;" data-date="" data-date-format="yyyy年mm月dd日" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
-							<input class="form-control" id="addClassEndTime" size="16" type="text" value="" readonly="readonly" style="background: #fff;">
-							<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
-						</div>
-					</div>
-					
-					
-					
-				</div>
+						<tr>
+							<td class="listItem">
+								<label for="basic-url" style="margin-right: 2.5%;">开始日期:</label>
+							</td>
+							<td class="listItem">
+								<div class="input-group date form_date col-md-4" style="width: 100%;" data-date="" data-date-format="yyyy年mm月dd日" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+									<input class="form-control" id="addClassStartTime" size="16" type="text" value="" readonly="readonly" style="background: #fff;">
+									<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+								</div>
+							</td>
+							<td class="listItem">
+								<label for="basic-url" style="margin-right: 3.7%;">结束日期:</label>
+							</td>
+							<td class="listItem">
+								<div class="input-group date form_date col-md-4" style="width: 100%;" data-date="" data-date-format="yyyy年mm月dd日" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+									<input class="form-control" id="addClassEndTime" size="16" type="text" value="" readonly="readonly" style="background: #fff;">
+									<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+								</div>
+							</td>
+						</tr>
+					</table>
 				<div class="modal-footer">
 								
 					<button type="button" class="btn btn-default" data-dismiss="modal">关闭
@@ -234,62 +251,83 @@
 						修改班级
 					</h4>
 				</div>
-				<div class="modal-body" style="text-align: left;padding-left: 25%;">
-
-					<div class="form-group form-inline">
-						<label for="basic-url" style="margin-right: 3%;">班级编号:</label>
-						<div class="input-group">
-							<input type="text" class="form-control" id="editClassID" aria-describedby="basic-addon3" readonly="readonly">
-						</div>
-						<label for="basic-url" style="margin-right: 4.3%;">课程编号:</label>
-						<div class="input-group">
-							<input type="text" class="form-control" id="editClassID" aria-describedby="basic-addon3">
-						</div>
-					</div>
+					<table align="center">
+						<tr>
+							<td class="listItem" style="width: 100px;">
+								<label for="basic-url" style="margin-right: 3%;">班级编号:</label>
+							</td>
+							<td class="listItem">
+								<input type="text" class="form-control" id="editClassID" aria-describedby="basic-addon3" readonly="readonly">
+							</td>
+							<td class="listItem" style="width: 100px;">
+								<label for="basic-url" style="margin-right: 4.3%;">课程编号:</label>
+							</td>
+							<td class="listItem">
+								<input type="text" class="form-control" id="editClassID" aria-describedby="basic-addon3">
+							</td>
+						</tr>
 					
-					<div class="form-group form-inline">
-						<label for="basic-url" style="margin-right: 3%;">所属学期:</label>
-						<div class="input-group">
-							<input type="text" class="form-control" id="editSemesterID" aria-describedby="basic-addon3">
-						</div>
+					
+						<tr>
+							<td class="listItem">
+								<label for="basic-url" style="margin-right: 3%;">所属学期:</label>
+							</td>
+							<td class="listItem">
+								<input type="text" class="form-control" id="editSemesterID" aria-describedby="basic-addon3">
+							</td>
+							<td class="listItem">
+								<label for="basic-url" style="margin-right: 2.4%;">教师编号:</label>
+							</td>
+							<td class="listItem">
+								<input type="text" class="form-control" id="editTeacherID" aria-describedby="basic-addon3">
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="listItem">
+								<label for="basic-url" style="margin-right: 1%;">上课地点:</label>
+							</td>
+							<td class="listItem">
+								<input type="text" class="form-control" id="editClassRoom" aria-describedby="basic-addon3">
+							</td>	
+							<td class="listItem">
+								<label for="basic-url" style="margin-right: 1%;">上课日期:</label>
+							</td>	
+							<td class="listItem">
+								<input type="text" class="form-control" id="editClassDate" aria-describedby="basic-addon3">
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="listItem">
+								<label for="basic-url" style="margin-right: 1%;">星期:</label>
+							</td>
+							<td class="listItem">
+								<input type="text" class="form-control" id="editClassWeekDay" aria-describedby="basic-addon3">
+							</td>
+						</tr>
 						
-						<label for="basic-url" style="margin-right: 2.4%;">教师编号:</label>
-						<div class="input-group">
-							<input type="text" class="form-control" id="editTeacherID" aria-describedby="basic-addon3">
-						</div>
-					</div>
-					
-					<div class="form-group form-inline">
-						<label for="basic-url" style="margin-right: 1%;">上课地点:</label>
-						<div class="input-group">
-							<input type="text" class="form-control" id="editClassRoom" aria-describedby="basic-addon3">
-						</div>
-						<label for="basic-url" style="margin-right: 1%;">上课日期:</label>
-						<div class="input-group">
-							<input type="text" class="form-control" id="editClassDate" aria-describedby="basic-addon3">
-						</div>
-					</div>
-					
-					<div class="form-group form-inline">
-						<label for="basic-url" style="margin-right: 1%;">星期:</label>
-						<div class="input-group">
-							<input type="text" class="form-control" id="editClassWeekDay" aria-describedby="basic-addon3">
-						</div>
-					</div>
-						
-					<div class="form-group form-inline">
-						<label for="basic-url" style="margin-right: 0.5%;">开始时间:</label>
-						<div class="input-group date form_date col-md-4" style="width: 24%;" data-date="" data-date-format="yyyy年mm月dd日" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
-							<input class="form-control" id="editClassStartTime" size="16" type="text" value="" readonly="readonly" style="background: #fff;">
-							<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
-						</div>
-						<label for="basic-url" style="margin-right: 3%;">结束时间:</label>
-						<div class="input-group date form_date col-md-4" style="width: 24%;" data-date="" data-date-format="yyyy年mm月dd日" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
-							<input class="form-control" id="editClassEndTime" size="16" type="text" value="" readonly="readonly" style="background: #fff;">
-							<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
-						</div>
-					</div>
-				</div>
+						<tr>
+							<td class="listItem">
+								<label for="basic-url" style="margin-right: 0.5%;">开始时间:</label>
+							</td>
+							<td class="listItem">
+								<div class="input-group date form_date col-md-4" style="width: 100%;" data-date="" data-date-format="yyyy年mm月dd日" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+									<input class="form-control" id="editClassStartTime" size="16" type="text" value="" readonly="readonly" style="background: #fff;">
+									<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+								</div>
+							</td>
+							<td class="listItem">
+								<label for="basic-url" style="margin-right: 3%;">结束时间:</label>
+							</td>
+							<td class="listItem">
+								<div class="input-group date form_date col-md-4" style="width: 100%;" data-date="" data-date-format="yyyy年mm月dd日" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+									<input class="form-control" id="editClassEndTime" size="16" type="text" value="" readonly="readonly" style="background: #fff;">
+									<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+								</div>
+							</td>
+						</tr>
+					</table>
 				<div class="modal-footer">
 					
 					<button type="button" class="btn btn-default" data-dismiss="modal">关闭
@@ -592,7 +630,7 @@ function showClasses(data)
 	for(i=0;i<obj.length&&i<5;i++)
 	{
 		try{
-			insert = "<tr><td>"+
+			insert = "<tr><td class="listItem">"+
 			obj[i].classID+
 			"</td><td "+obj[i].classID+">"+
 			obj[i].courseID+
