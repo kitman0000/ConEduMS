@@ -112,42 +112,56 @@
 						添加成绩
 					</h4>
 				</div>
-				<div class="modal-body" style="text-align: left; padding-left: 25%;" align="center">
+				<table align="center">
 					
-					<div class="form-group form-inline">
-						<label for="basic-url" style="margin-right: 3%;">学籍号:</label>
-						<div class="input-group">
-							<input type="text" class="form-control" id="addStuID" aria-describedby="basic-addon3">
-						</div>
-						<label for="basic-url" style="margin-right: 1%;">课程编号:</label>
-						<div class="input-group">
-							<input type="text" class="form-control" id="addCourseID" aria-describedby="basic-addon3">
-						</div>
-					</div>
-					
-					<div class="form-group form-inline">
-						<label for="basic-url"style="margin-right: 1%;">学期编号:</label>
-						<div class="input-group">
-							<input type="text" class="form-control" id="addSemesterID" aria-describedby="basic-addon3">
-						</div>
-						<label for="basic-url" style="margin-right: 1%;">教师编号:</label>
-						<div class="input-group">
-							<input type="text" class="form-control" id="addTeacherID" aria-describedby="basic-addon3">
-						</div>					
-					</div>
-					
-					<div class="form-group form-inline">
-						<label for="basic-url"style="margin-right: 5%;">成绩:</label>
-						<div class="input-group">
-							<input type="text" class="form-control" id="addScore" aria-describedby="basic-addon3">
-						</div>
-						<label for="basic-url" style="margin-right: 1%;">班级编号:</label>
-						<div class="input-group">
-							<input type="text" class="form-control" id="addClassID" aria-describedby="basic-addon3">
-						</div>
-					</div>
+						<tr>
+							<td class="listItem" style="width: 100px;">
+								<label for="addStuID" style="margin-right: 3px;">学籍号:</label>
+							</td>
+							<td class="listItem" >
+								<input type="text" class="form-control" id="addStuID" aria-describedby="basic-addon3">
+							</td>
+							
+							<td class="listItem" style="width: 100px;">
+								<label for="addCourseID" style="margin-right: 3px;">课程编号:</label>
+							</td>
+							<td class="listItem">
+								<input type="text" class="form-control" id="addCourseID" aria-describedby="basic-addon3">
+							</td>
+						</tr>
+						
+						<tr>
+							<td class="listItem">
+								<label for="addSemesterID" style="margin-right: 3px;">学期编号:</label>
+							</td>
+							<td class="listItem">
+								<input type="text" class="form-control" id="addSemesterID" aria-describedby="basic-addon3">
+							</td>
+							
+							<td class="listItem">
+								<label for="addTeacherID" style="margin-right: 3px;">教师编号:</label>
+							</td>
+							<td class="listItem">
+								<input type="text" class="form-control" id="addTeacherID" aria-describedby="basic-addon3">
+							</td>
+						</tr>					
+							
+						<tr>
+							<td class="listItem">
+								<label for="addScore" style="margin-right: 3px;">成绩:</label>
+							</td>
+							<td class="listItem">
+								<input type="text" class="form-control" id="addScore" aria-describedby="basic-addon3">
+							</td>
 
-				</div>
+							<td class="listItem">
+								<label for="addClassID" style="margin-right: 3px;">班级编号:</label>
+							</td>
+							<td class="listItem">
+								<input type="text" class="form-control" id="addClassID" aria-describedby="basic-addon3">
+							</td>
+						</tr>					
+				</table>	
 				
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">关闭
@@ -203,41 +217,52 @@
 						修改成绩
 					</h4>
 				</div>
-				<div class="modal-body" style="text-align: left;padding-left: 25%;">
-
-					<div class="form-group form-inline">
-						<label for="basic-url" style="margin-right: 3%;">学籍号:</label>
-						<div class="input-group">
+				<table align="center">
+					<tr>
+						<td>
+							<label for="editStuID" style="margin-right: 3%;">学籍号:</label>
+						</td>
+						<td>
 							<input type="text" class="form-control" id="editStuID" aria-describedby="basic-addon3" readonly="readonly">
-						</div>
-						
-						<label for="basic-url" style="margin-right: 1%;">课程编号:</label>
-						<div class="input-group">
+						</td>
+						<td>
+							<label for="editCourseID" style="margin-right: 1%;">课程编号:</label>
+						</td>
+						<td>
 							<input type="text" class="form-control" id="editCourseID" aria-describedby="basic-addon3">
-						</div>
-					</div>
-
-					<div class="form-group form-inline">
-						<label for="basic-url"style="margin-right: 1%;">学期编号:</label>
-						<div class="input-group">
-							<input type="text" class="form-control" id="editSemesterID" aria-describedby="basic-addon3">
-						</div>
-						<label for="basic-url" style="margin-right: 1%;">教师编号:</label>
-						<div class="input-group">
+						</td>
+					</tr>
+				
+					<tr>
+						<td>
+							<label for="editSemesterID" style="margin-right: 1%;">学期编号:</label>
+						</td>
+						<td>
+							<input type="text" class="form-control" id="editSemesterID" aria-describedby="basic-addon3" readonly="readonly">
+						</td>
+						<td>
+							<label for="editTeacherID" style="margin-right: 1%;">教师编号:</label>
+						</td>
+						<td>
 							<input type="text" class="form-control" id="editTeacherID" aria-describedby="basic-addon3">
-						</div>
-					</div>
+						</td>
+					</tr>
 
-					<div class="form-group form-inline">
-						<label for="basic-url"style="margin-right: 5%;">成绩:</label>
-						<div class="input-group">
-							<input type="text" class="form-control" id="editScore" aria-describedby="basic-addon3">
-						</div>
-						<label for="basic-url" style="margin-right: 1%;">班级编号:</label>
-						<div class="input-group">
+					<tr>
+						<td>
+							<label for="editScore" style="margin-right: 5%;">成绩:</label>
+						</td>
+						<td>
+							<input type="text" class="form-control" id="editScore" aria-describedby="basic-addon3" readonly="readonly">
+						</td>
+						<td>
+							<label for="editClassID" style="margin-right: 1%;">班级编号:</label>
+						</td>
+						<td>
 							<input type="text" class="form-control" id="editClassID" aria-describedby="basic-addon3">
-						</div>
-				</div>
+						</td>
+					</tr>
+				</table>
 					
 				</div>
 				<div class="modal-footer">
