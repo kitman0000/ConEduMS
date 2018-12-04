@@ -34,3 +34,10 @@
 {
 	margin-right: 4%;
 }
+
+.listItem
+{
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+}
