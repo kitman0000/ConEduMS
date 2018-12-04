@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+	
+	<link rel="stylesheet" href="css/bootstrap.min.css">  
+	<link rel="stylesheet" href="css/webStyle.css">  
+	<link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css">
+	<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/bootstrap-datetimepicker.zh-CN.js"></script>
+	
+</head>
+<body>
+	<div class="page">
+		
+    	<!-- 标题 -->
+        <nav class="navbar navbar-default" role="navigation" class="titlebar">
+            <div class="container-fluid container" > 
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse"
+                        data-target="#example-navbar-collapse">
+                    <span class="sr-only">切换导航</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">继续教育管理系统(管理端)</a>
+            </div>
+            <div class="collapse navbar-collapse" id="example-navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li role="presentation"><a href="#">专业管理</a></li>
+   					<li role="presentation"><a href="#">教学点管理</a></li>
+					<li role="presentation"   class="active"><a href="#">课程管理</a></li>
+					<li role="presentation"><a href="#">教师管理</a></li>
+					<li role="presentation"><a href="#">教学班管理</a></li>
+					<li role="presentation"><a href="#">学生管理</a></li>
+					<li role="presentation"><a href="#">成绩管理</a></li>
+					<li role="presentation"><a href="#">学生查询</a></li>
+				</ul>  
+            </div>
+            </div>
+        </nav>
+        <!-- 标题结束 -->
+						
+		<!-- 内容开始 -->
+		<div class="container">
+			<!-- 导航开始 -->
+			<div class="alert alert-info" role="alert">
+				课程表
+			</div>
+			<!-- 导航结束 -->
+			<!--教学班列表-->
+			<div class="listAdd" align="right">
+				<button id="addItem"  data-toggle="modal" data-target="#addModal" class="btn btn-primary">添加</button>
+			</div>
+			<div class="bs-example" data-example-id="simple-table">
+				<table class="table" id="ClassList">
+					<thead class="row">
+						<th class="col-sm-1 col-xs-1 ">
+							班级编号
+						</th>
+						<th class="col-sm-1 col-xs-1 ">
+							课程编号
+						</th>
+						<th class="col-sm-1 col-xs-1 ">
+							所属学期
+						</th>
+						<th class="col-sm-1 col-xs-1 ">
+							教师编号
+						</th>
+						<th class="col-sm-1 col-xs-1 ">
+							上课地点
+						</th>
+						<th class="col-sm-1 col-xs-1 ">
+							上课日期
+						</th>
+						<th class="col-sm-1 col-xs-1 ">
+							星期
+						</th>
+						<th class="col-sm-1 col-xs-1 ">
+							开始时间
+						</th>
+						<th class="col-sm-1 col-xs-1 ">
+							结束时间
+						</th>
+						<th class="col-sm-2 col-xs-2 ">
+							
+						</th>
+					</thead>
+					<tbody id="classListBody">
+						
+					</tbody>
+				</table>
+				<!-- 分页开始 -->
+				<div style="width: 100%;" align="center">
+					<ul class="pagination" id="pageDevider" style="margin-top: 10%;">
+						
+					</ul>
+				</div>
+				<!-- 分页结束 -->
+			</div>
+			<!--教学班列表结束-->
+
+		</div>
+		
+		<!-- 内容结束 -->
+	</div>
+	
+	<!-- 增加模态框 -->
+	<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog" style="width: 50%;">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						&times;
+					</button>
+					<h4 class="modal-title" id="myModalLabel" style="text-align: left;">
+						添加课程表
+					</h4>
+				</div>
+				<div class="modal-body" style="text-align: left; padding-left: 15%;" align="center">
+					<div class="form-group form-inline">
+						<label for="basic-url" style="margin-right: 3%;">班级编号:</label>
+						<div class="input-group">
+							<input type="text" class="form-control" id="addClassID" aria-describedby="basic-addon3">
+						</div>
+						<label for="basic-url" style="margin-right: 4.3%;">课程编号:</label>
+						<div class="input-group">
+							<input type="text" class="form-control" id="addCourseID" aria-describedby="basic-addon3">
+						</div>
+					</div>
+					
+					<div class="form-group form-inline">
+						<label for="basic-url" style="margin-right: 3%;">所属学期:</label>
+						<div class="input-group">
+							<input type="text" class="form-control" id="addSemesterID" aria-describedby="basic-addon3">
+						</div>
+						
+						<label for="basic-url" style="margin-right: 4.3%;">教师编号:</label>
+						<div class="input-group">
+							<input type="text" class="form-control" id="addTeacherID" aria-describedby="basic-addon3">
+						</div>
+					</div>
+					
+					<div class="form-group form-inline">
+						<label for="basic-url"style="margin-right: 3%;">上课地点:</label>
+						<div class="input-group">
+							<input type="text" class="form-control" id="addClassRoom" aria-describedby="basic-addon3">
+						</div>
+						<label for="basic-url" style="margin-right: 4.3%;">上课日期:</label>
+						<div class="input-group">
+							<input type="text" class="form-control" id="addClassDate" aria-describedby="basic-addon3">
+						</div>
+					</div>
+					
+					<div class="form-group form-inline">
+						
+						<label for="basic-url" style="margin-right: 7.3%;">星期:</label>
+						<div class="input-group">
+							<input type="text" class="form-control" id="addClassWeekDay" aria-describedby="basic-addon3">
+						</div>
+					</div>
+					
+					<div class="form-group form-inline">
+						<label for="basic-url" style="margin-right: 2.5%;">开始日期:</label>
+						<div class="input-group date form_date col-md-4" style="width: 32%;" data-date="" data-date-format="yyyy年mm月dd日" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+							<input class="form-control" id="addClassStartTime" size="16" type="text" value="" readonly="readonly" style="background: #fff;">
+							<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+						</div>
+						<label for="basic-url" style="margin-right: 3.7%;">结束日期:</label>
+						<div class="input-group date form_date col-md-4" style="width: 32%;" data-date="" data-date-format="yyyy年mm月dd日" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+							<input class="form-control" id="addClassEndTime" size="16" type="text" value="" readonly="readonly" style="background: #fff;">
+							<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+						</div>
+					</div>
+					
+					
+					
+				</div>
+				<div class="modal-footer">
+								
+					<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+					</button>
+					<button type="button" class="btn btn-primary" id="addClassTable">
+						确定
+					</button>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal -->
+	</div>
+	<!-- 结束增加模态框 -->
+	
+	<!-- 删除警告模态框 -->
+	<div class="modal fade" id="DeleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog" style="width: 10%;">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						&times;
+					</button>
+					<h4 class="modal-title" id="myModalLabel" style="text-align: left;">
+						警告
+					</h4>
+				</div>
+				<div class="modal-body" style="text-align: left;">
+					确认要删除此班级？
+				</div>
+				<div class="modal-footer" style=" 	width: 100%;display: table; text-align: center;">
+					
+					<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+					</button>
+					<button type="button" id="confirmDelete" class="btn btn-danger" data-dismiss="modal">
+						删除
+					</button>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal -->
+	</div>
+	<!-- 结束删除警告模态框 -->
+	
+			
+	<!-- 修改模态框 -->
+	<div class="modal fade" id="ChangeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog" style="width: 50%;">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						&times;
+					</button>
+					<h4 class="modal-title" id="myModalLabel" style="text-align: left;">
+						修改班级
+					</h4>
+				</div>
+				<div class="modal-body" style="text-align: left;padding-left: 25%;">
+
+					<div class="form-group form-inline">
+						<label for="basic-url" style="margin-right: 3%;">班级编号:</label>
+						<div class="input-group">
+							<input type="text" class="form-control" id="editClassID" aria-describedby="basic-addon3" readonly="readonly">
+						</div>
+						<label for="basic-url" style="margin-right: 4.3%;">课程编号:</label>
+						<div class="input-group">
+							<input type="text" class="form-control" id="editClassID" aria-describedby="basic-addon3">
+						</div>
+					</div>
+					
+					<div class="form-group form-inline">
+						<label for="basic-url" style="margin-right: 3%;">所属学期:</label>
+						<div class="input-group">
+							<input type="text" class="form-control" id="editSemesterID" aria-describedby="basic-addon3">
+						</div>
+						
+						<label for="basic-url" style="margin-right: 2.4%;">教师编号:</label>
+						<div class="input-group">
+							<input type="text" class="form-control" id="editTeacherID" aria-describedby="basic-addon3">
+						</div>
+					</div>
+					
+					<div class="form-group form-inline">
+						<label for="basic-url" style="margin-right: 1%;">上课地点:</label>
+						<div class="input-group">
+							<input type="text" class="form-control" id="editClassRoom" aria-describedby="basic-addon3">
+						</div>
+						<label for="basic-url" style="margin-right: 1%;">上课日期:</label>
+						<div class="input-group">
+							<input type="text" class="form-control" id="editClassDate" aria-describedby="basic-addon3">
+						</div>
+					</div>
+					
+					<div class="form-group form-inline">
+						<label for="basic-url" style="margin-right: 1%;">星期:</label>
+						<div class="input-group">
+							<input type="text" class="form-control" id="editClassWeekDay" aria-describedby="basic-addon3">
+						</div>
+					</div>
+						
+					<div class="form-group form-inline">
+						<label for="basic-url" style="margin-right: 0.5%;">开始时间:</label>
+						<div class="input-group date form_date col-md-4" style="width: 24%;" data-date="" data-date-format="yyyy年mm月dd日" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+							<input class="form-control" id="editClassStartTime" size="16" type="text" value="" readonly="readonly" style="background: #fff;">
+							<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+						</div>
+						<label for="basic-url" style="margin-right: 3%;">结束时间:</label>
+						<div class="input-group date form_date col-md-4" style="width: 24%;" data-date="" data-date-format="yyyy年mm月dd日" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+							<input class="form-control" id="editClassEndTime" size="16" type="text" value="" readonly="readonly" style="background: #fff;">
+							<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					
+					<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+					</button>
+					<button type="button" class="btn btn-primary" id="editClassTable">
+						提交更改
+					</button>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal -->
+	</div>
+	<!-- 结束修改模态框 -->
+	
+	<!-- 警告信息模态框 -->
+	<div class="modal fade" id="warningInfoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog" style="width: 40%;">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						&times;
+					</button>
+					<h4 class="modal-title" id="myModalLabel" style="text-align: left;">
+						警告
+					</h4>
+				</div>
+				<div class="modal-body" style="text-align: center;">
+					<span id="warningInfo"></span>
+				</div>
+				<div class="modal-footer" style="width: 100%;display: table; text-align: center;">
+					
+					<button type="button" class="btn btn-default" data-dismiss="modal">确定
+					</button>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal -->
+	</div>
+	<!-- 结束删除警告模态框 -->
+</body>
+
+<script>
+var obj;
+
+$(function(){
+	$.ajax({
+		type: "POST",
+		url: "ClassManage.aspx/getAllClasses",
+		datatype: "json",
+		contentType: "application/json;charset=utf-8",
+		data:
+		{
+			
+		},
+		success:
+			function (data, textStatus) {
+				showClasses(data.d);
+			},
+	});
+	
+	$("#addClassTable").click(function(){
+		//warningInfo
+		if($("#addClassID").val().length !=8)
+		{
+			$("#warningInfo").html("班级编号为8位，开班年月（6位）+序号（2位）");
+			$("#warningInfoModal").modal("show");
+			return;
+		}
+		
+		if($("#addCourseID").val().length !=5)
+		{
+			$("#warningInfo").html("课程编号");
+			$("#warningInfoModal").modal("show");
+			return;
+		}
+		
+		if($("#addSemesterID").val().length !=6)
+		{
+			$("#warningInfo").html("学期编号。年（4位）+序号（2位）");
+			$("#warningInfoModal").modal("show");
+			return;
+		}
+		
+		if($("#addTeacherID").val().length !=6)
+		{
+			$("#warningInfo").html("上课教师编号");
+			$("#warningInfoModal").modal("show");
+			return;
+		}
+		
+		if($("#addClassRoom").val().length >30 || $("#addClassRoom").val().length ==0)
+		{
+			$("#warningInfo").html("上课地点");
+			$("#warningInfoModal").modal("show");
+			return;
+		}
+		
+		if($("#addClassDate").val().length !=8)
+		{
+			$("#warningInfo").html("上课日期（8位）例如：19800125");
+			$("#warningInfoModal").modal("show");
+			return;
+		}
+		
+		if($("#addClassWeekDay").val().length !=1)
+		{
+			$("#warningInfo").html("星期几");
+			$("#warningInfoModal").modal("show");
+			return;
+		}
+		
+		if($("#addClassStartTime").val().length ==0)
+		{
+			$("#warningInfo").html("开始时间（时：分）");
+			$("#warningInfoModal").modal("show");
+			return;
+		}
+		
+		if($("#addClassStartTime").val().length ==0)
+		{
+			$("#warningInfo").html("结束时间（时：分）");
+			$("#warningInfoModal").modal("show");
+			return;
+		}
+		
+		
+		if($("#addClassEndTime").val() < $("#addClassStartTime").val())
+		{
+			$("#warningInfo").html("开班结班时间错误");
+			$("#warningInfoModal").modal("show");
+			return;
+		}
+		
+		
+		for(i = 0;i<obj.length;i++)
+		{
+			if(obj[i].classID == $("#addClassID").val())
+			{
+				$("#warningInfo").html("该班级ID已经被占用");
+				$("#warningInfoModal").modal("show");
+				return;
+			}
+		}
+
+		$("#addModal").modal("hide");
+		
+		$.ajax({
+			type: "POST",
+			url: "ClassManage.aspx/addClass",
+			datatype: "json",
+			contentType: "application/json;charset=utf-8",
+			data:
+				"{"+
+				"'classID':'" + $("#addClassID").val()+"',"+
+				"'courseID':'" + $("#addCourseID").val()+"',"+
+				"'semesterID':'" + $("#addSemesterID").val()+"',"+
+				"'teacherID':'" + $("#addTeacherID").val()+"',"+
+				"'classRoom':'" + $("#addClassRoom").val()+"',"+
+				"'classDate':'" + $("#addClassDate").val()+"',"+
+				"'classWeekDay':'" + $("#addClassWeekDay").val()+"',"+
+				"'classStartTime':'" + $("#addClassStartTime").val()+"',"+
+				"'classEndTime':'" + $("#addClassEndTime").val()+"'"
+				+"}"
+			,
+			success:
+				function (data, textStatus) {
+					setCookie("add",1);
+					location.reload();
+				},
+		});
+	});
+	
+	$("#confirmDelete").click(function(){
+		$.ajax({
+			type: "POST",
+			url: "ClassManage.aspx/delClass",
+			datatype: "json",
+			contentType: "application/json;charset=utf-8",
+			data:
+				"{"+
+				"'classID':'" + delClassID +"'"+
+				"}"
+			,
+			success:
+				function (data, textStatus) {
+					if(data.d == "success")
+					{
+						deleteSuccess();
+					}
+				},
+		});
+	});
+	
+	$("#editClassTable").click(function(){
+		
+		if($("#editClassID").val().length !=8)
+		{
+			$("#warningInfo").html("班级编号为8位，开班年月（6位）+序号（2位）");
+			$("#warningInfoModal").modal("show");
+			return;
+		}
+		
+		if($("#editCourseID").val().length !=5)
+		{
+			$("#warningInfo").html("课程编号");
+			$("#warningInfoModal").modal("show");
+			return;
+		}
+		
+		if($("#editSemesterID").val().length !=6)
+		{
+			$("#warningInfo").html("学期编号。年（4位）+序号（2位）");
+			$("#warningInfoModal").modal("show");
+			return;
+		}
+		
+		if($("#editTeacherID").val().length !=6)
+		{
+			$("#warningInfo").html("上课教师编号");
+			$("#warningInfoModal").modal("show");
+			return;
+		}
+		
+		if($("#editClassRoom").val().length >30||$("#editCounselorTel").val().length ==0)
+		{
+			$("#warningInfo").html("上课地点");
+			$("#warningInfoModal").modal("show");
+			return;
+		}
+
+		if($("#editClassDate").val().length !=8)
+		{
+			$("#warningInfo").html("上课日期（8位）例如：19800125");
+			$("#warningInfoModal").modal("show");
+			return;
+		}
+
+		if($("#editClassWeekDay").val().length !=1)
+		{
+			$("#warningInfo").html("星期几");
+			$("#warningInfoModal").modal("show");
+			return;
+		}
+		
+		if($("#editClassStartTime").val().length !=5)
+		{
+			$("#warningInfo").html("开始时间（时：分），5位");
+			$("#warningInfoModal").modal("show");
+			return;
+		}
+		
+		if($("#editClassEndTime").val().length !=5)
+		{
+			$("#warningInfo").html("结束时间（时：分），5位");
+			$("#warningInfoModal").modal("show");
+			return;
+		}
+		
+		if($("#editClassEndTime").val() < $("#editClassStartTime").val())
+		{
+			$("#warningInfo").html("开班结班时间错误");
+			$("#warningInfoModal").modal("show");
+			return;
+		}
+		
+
+		$("#ChangeModal").modal("hide");
+		
+		$.ajax({
+			type: "POST",
+			url: "ClassManage.aspx/editClass",
+			datatype: "json",
+			contentType: "application/json;charset=utf-8",
+			data:
+				"{"+
+				"'classID':'" + $("#editClassID").val()+"',"+
+				"'courseID':'" + $("#editCourseID").val()+"',"+
+				"'semesterID':'" + $("#editSemesterID").val()+"',"+
+				"'teacherID':'" + $("#editTeacherID").val()+"',"+
+				"'classRoom':'" + $("#editClassRoom").val()+"',"+
+				"'classDate':'" + $("#editClassDate").val()+"',"+
+				"'classWeekDay':'" + $("#editClassWeekDay").val()+"',"+
+				"'classStartTime':'" + $("#editClassStartTime").val()+"',"+
+				"'classEndTime':'" + $("#editClassEndTime").val()+"'"
+				+"}"
+			,
+			success:
+				function (data, textStatus) {
+					if(data.d == "success")
+					{
+						editSuccess();
+					}
+				},
+		});
+	});
+});
+	
+function showClasses(data)
+{
+	obj = JSON.parse(data);
+	_data = data;
+	for(i=0;i<obj.length&&i<5;i++)
+	{
+		try{
+			insert = "<tr><td>"+
+			obj[i].classID+
+			"</td><td "+obj[i].classID+">"+
+			obj[i].courseID+
+			"</td><td "+obj[i].classID+">"+
+			obj[i].semesterID+
+			"</td><td "+obj[i].classID+">"+
+			obj[i].teacherID+
+			"</td><td "+obj[i].classID+">"+
+			obj[i].classRoom+
+			"</td><td "+obj[i].classID+">"+
+			obj[i].classDate+
+			"</td><td "+obj[i].classID+">"+
+			obj[i].classWeekDay+
+			"</td><td "+obj[i].classID+">"+
+			obj[i].classStartTime+
+			"</td><td "+obj[i].classID+">"+
+			obj[i].classEndTime+
+			"</td><td>"+
+			"<button type=\"button\"  data-toggle=\"modal\" data-target=\"#ChangeModal\" class=\"btn btn-primary btn-xs ClassListButton\" onclick=\"edit(\'" + obj[i].classID + "\')\">修改</button>"+
+			"<button type=\"button\" class=\"btn btn-danger ClassListButton  btn-xs \" data-toggle=\"modal\" data-target=\"#DeleteModal\"  onclick=\"del(\'" + obj[i].classID + "\')\">删除</button>"+
+			"</td></tr>";
+			$("#classListBody").append(insert);
+		}
+		catch(err){}
+		
+	}
+	$("#pageDevider").append("<li><a onclick=\"prePage()\" href=\"#\">&laquo;</a></li>")
+	for(i=1;i<obj.length/5;i++)
+	{
+		$("#pageDevider").append("<li><a onclick=\"switchPage("	+i+")\" href=\"#\">"+i+"</a></li>");
+	}
+	$("#pageDevider").append("<li><a onclick=\"switchPage("+i+")\" href=\"#\">"+i+"</a></li>");
+	$("#pageDevider").append("<li><a onclick=\"nextPage()\" href=\"#\">&raquo;</a></li>")
+	nowPage = 1;
+	if(getCookie("add")==1)
+	{
+		page = Math.floor(obj.length / 5);
+		if(obj.length % 5 != 0)
+		{
+			page++;
+		}
+		switchPage(page);
+		setCookie("add",0);
+	}
+	if(getCookie("delete")!=0)
+	{
+		switchPage(getCookie("delete"));
+		setCookie("delete",0);
+	}
+	
+	$('.form_date').datetimepicker({
+		language:  'zh-CN',
+		weekStart: 1,
+		todayBtn:  1,
+		autoclose: 1,
+		todayHighlight: 1,
+		startView: 2,
+		minView: 2,
+		forceParse: 0
+	});
+}
+
+
+
+function deleteSuccess()
+{
+	setCookie("delete",nowPage);
+	location.reload();
+}
+
+function editSuccess()
+{
+	for(i = 0;i<obj.length;i++)
+	{
+		if(obj[i].classID == $("#editClassID").val())
+		{
+			obj[i].courseID = $("#editCourseID").val();
+			obj[i].semesterID = $("#editSemesterID").val();
+			obj[i].teacherID = $("#editTeacherID").val();
+			obj[i].classRoom = $("#editClassRoom").val();
+			obj[i].classDate = $("#editClassDate").val();
+			obj[i].classWeekDay = $("#editClassWeekDay").val();
+			obj[i].classStartTime = $("#editClassStartTime").val();
+			obj[i].classEndTime = $("#editClassEndTime").val();
+			switchPage(nowPage);
+		}
+	}
+}
+
+function switchPage(num)
+{
+	nowPage = num;
+	$("#classListBody").html("");
+	//obj = JSON.parse(_data);
+	s=0;
+	console.log(num);
+	for(i=(num-1)*5;i<obj.length&&s<5;i++)
+	{
+		try{
+			insert = "<tr><td>"+
+			obj[i].classID+
+			"</td><td "+obj[i].classID+">"+
+			obj[i].courseID+
+			"</td><td "+obj[i].classID+">"+
+			obj[i].semesterID+
+			"</td><td "+obj[i].classID+">"+
+			obj[i].teacherID+
+			"</td><td "+obj[i].classID+">"+
+			obj[i].classRoom+
+			"</td><td "+obj[i].classID+">"+
+			obj[i].classDate+
+			"</td><td "+obj[i].classID+">"+
+			obj[i].classWeekDay+
+			"</td><td "+obj[i].classID+">"+
+			obj[i].classEndTime+
+			"</td><td "+obj[i].classID+">"+
+			obj[i].classWeekDay+
+			"</td><td>"+
+			"<button type=\"button\"  data-toggle=\"modal\" data-target=\"#ChangeModal\" class=\"btn btn-primary btn-xs ClassListButton\" onclick=\"edit(\'" + obj[i].classID + "\')\">修改</button>"+
+			"<button type=\"button\" class=\"btn btn-danger ClassListButton  btn-xs \" data-toggle=\"modal\" data-target=\"#DeleteModal\"  onclick=\"del(\'" + obj[i].classID + "\')\">删除</button>"+
+			"</th></tr>";
+			$("#classListBody").append(insert);
+		}
+		catch(err){}
+		s++;
+	}
+}
+
+function edit(id)
+{
+	console.log(id);
+	for(i = 0;i<obj.length;i++)
+	{
+		if(obj[i].classID == id)
+		{
+			$("#editClassID").val(obj[i].classID);
+			$("#editCourseID").val(obj[i].courseID);
+			$("#editSemesterID").val(obj[i].semesterID);
+			$("#editTeacherID").val(obj[i].teacherID);
+			$("#editClassRoom").val(obj[i].classRoom);
+			$("#editClassDate").val(obj[i].classDate);
+			$("#editClassWeekDay").val(obj[i].classWeekDay);
+			$("#editClassStartTime").val(obj[i].classStartTime);
+			$("#editClassEndTime").val(obj[i].classEndTime);
+			break;
+		}
+	}
+}
+
+function del(id)
+{
+	delClassID = id;
+}
+
+function prePage()
+{
+	if(nowPage!=1)
+	{
+		switchPage(nowPage - 1);
+	}
+}
+
+function nextPage()
+{
+	obj = JSON.parse(_data);
+	if(nowPage!=obj.length/5 + 1)
+	{
+		switchPage(nowPage + 1);
+	}
+}
+
+function getCookie(cname)
+{
+  var name = cname + "=";
+  var ca = document.cookie.split(';');
+  for(var i=0; i<ca.length; i++) 
+  {
+    var c = ca[i].trim();
+    if (c.indexOf(name)==0) return c.substring(name.length,c.length);
+  }
+  return "";
+}
+
+function setCookie(name,value)
+{
+     document.cookie = name + "=" + value + "; ";
+} 
+</script>
+</html>
