@@ -133,7 +133,7 @@
 									<input type="text" class="form-control" id="addMajorRemark" aria-describedby="basic-addon3">
 								</td>
 							</tr>
-						</tbody>
+						
 					</table>
 				</div>
 				<div class="modal-footer">
@@ -411,8 +411,8 @@ function showMajors(data)
 			"</th><th>"+
 			obj[i].majorRemark+
 			"</th><th>"+
-			"<button type=\"button\"  data-toggle=\"modal\" data-target=\"#ChangeModal\" class=\"btn btn-primary btn-xs ClassListButton\" onclick=\"edit(\'" + obj[i].classID + "\')\">修改</button>"+
-			"<button type=\"button\" class=\"btn btn-danger ClassListButton  btn-xs \" data-toggle=\"modal\" data-target=\"#DeleteModal\"  onclick=\"del(\'" + obj[i].classID + "\')\">删除</button>"+
+			"<button type=\"button\"  data-toggle=\"modal\" data-target=\"#ChangeModal\" major=\"btn btn-primary btn-xs MajorListButton\" onclick=\"edit(\'" + obj[i].majorID + "\')\">修改</button>"+
+			"<button type=\"button\" major=\"btn btn-danger MajorListButton  btn-xs \" data-toggle=\"modal\" data-target=\"#DeleteModal\"  onclick=\"del(\'" + obj[i].majorID + "\')\">删除</button>"+
 			"</th></tr>";
 			$("#majorListBody").append(insert);
 		}
@@ -493,8 +493,8 @@ function switchPage(num)
 			"</th><th>"+
 			obj[i].majorRemark+
 			"</th><th>"+
-			"<button type=\"button\"  data-toggle=\"modal\" data-target=\"#ChangeModal\" class=\"btn btn-primary btn-xs ClassListButton\" onclick=\"edit(\'" + obj[i].classID + "\')\">修改</button>"+
-			"<button type=\"button\" class=\"btn btn-danger ClassListButton  btn-xs \" data-toggle=\"modal\" data-target=\"#DeleteModal\"  onclick=\"del(\'" + obj[i].classID + "\')\">删除</button>"+
+			"<button type=\"button\"  data-toggle=\"modal\" data-target=\"#ChangeModal\" major=\"btn btn-primary btn-xs MajorListButton\" onclick=\"edit(\'" + obj[i].majorID + "\')\">修改</button>"+
+			"<button type=\"button\" major=\"btn btn-danger MajorListButton  btn-xs \" data-toggle=\"modal\" data-target=\"#DeleteModal\"  onclick=\"del(\'" + obj[i].majorID + "\')\">删除</button>"+
 			"</th></tr>";
 			$("#majorListBody").append(insert);
 		}
