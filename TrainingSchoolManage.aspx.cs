@@ -101,7 +101,7 @@ public partial class TrainingSchoolManage : System.Web.UI.Page
         SqlConnection sqlcon = null;
         SQLserverOper.open(ref sqlcon);
 
-        SqlCommand cmd = new SqlCommand("UPDATE DB_ConEduMS.dbo.tb_trainingSchool SET schoolName = @schoolName,schoolAddress = @schoolAddress,schoolTel = @schoolTel,schoolRemark = @schoolRemark;", sqlcon);
+        SqlCommand cmd = new SqlCommand("UPDATE DB_ConEduMS.dbo.tb_trainingSchool SET schoolName = @schoolName,schoolAddress = @schoolAddress,schoolTel = @schoolTel,schoolRemark = @schoolRemark WHERE schoolID = @schoolID;", sqlcon);
         cmd.Parameters.AddWithValue("@schoolID", schoolID);
         cmd.Parameters.AddWithValue("@schoolName", schoolName);
         cmd.Parameters.AddWithValue("@schoolAddress", schoolAddress);
