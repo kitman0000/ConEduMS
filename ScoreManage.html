@@ -202,53 +202,68 @@
 					</h4>
 				</div>
 				<div class="modal-body" style="text-align: left;padding-left: 25%;">
+								
+					<table>
+						<tbody>
+							<tr>
+								<td>
+									<label for="basic-url" style="margin-right: 3%;">学籍号:</label>
+								</td>
+								<td>
+									<input type="text" class="form-control" id="editStuID" aria-describedby="basic-addon3" readonly="readonly">
+								</td>
+								<td>
+									<label for="basic-url" style="margin-right: 1%;">课程编号:</label>
+								</td>
+								<td>
+									<input type="text" class="form-control" id="editCourseID" aria-describedby="basic-addon3">
+								</td>
+							</tr>
 
-					<div class="form-group form-inline">
-						<label for="basic-url" style="margin-right: 3%;">学籍号:</label>
-						<div class="input-group">
-							<input type="text" class="form-control" id="editStuID" aria-describedby="basic-addon3" readonly="readonly">
-						</div>
+							<tr>
+								<td>
+									<label for="basic-url"style="margin-right: 1%;">学期编号:</label>
+								</td>
+								<td>
+									<input type="text" class="form-control" id="editSemesterID" aria-describedby="basic-addon3">
+								</td>
+								<td>
+									<label for="basic-url" style="margin-right: 1%;">教师编号:</label>
+								</td>
+								<td>
+									<input type="text" class="form-control" id="editTeacherID" aria-describedby="basic-addon3">
+								</td>
+							</tr>
+
+							<tr>
+								<td>
+									<label for="basic-url"style="margin-right: 5%;">成绩:</label>
+								</td>
+								<td>
+									<input type="text" class="form-control" id="editScore" aria-describedby="basic-addon3">
+								</td>
+								<td>
+									<label for="basic-url" style="margin-right: 1%;">班级编号:</label>
+								</td>
+								<td>
+									<input type="text" class="form-control" id="editClassID" aria-describedby="basic-addon3">
+								</td>
+							</tr>
+							
+						</tbody>
+					</table>
+	
+					<div class="modal-footer">
 						
-						<label for="basic-url" style="margin-right: 1%;">课程编号:</label>
-						<div class="input-group">
-							<input type="text" class="form-control" id="editCourseID" aria-describedby="basic-addon3">
-						</div>
+						<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+						</button>
+						<button type="button" class="btn btn-primary" id="confirmEdit">
+							提交更改
+						</button>
 					</div>
-
-					<div class="form-group form-inline">
-						<label for="basic-url"style="margin-right: 1%;">学期编号:</label>
-						<div class="input-group">
-							<input type="text" class="form-control" id="editSemesterID" aria-describedby="basic-addon3">
-						</div>
-						<label for="basic-url" style="margin-right: 1%;">教师编号:</label>
-						<div class="input-group">
-							<input type="text" class="form-control" id="editTeacherID" aria-describedby="basic-addon3">
-						</div>
-					</div>
-
-					<div class="form-group form-inline">
-						<label for="basic-url"style="margin-right: 5%;">成绩:</label>
-						<div class="input-group">
-							<input type="text" class="form-control" id="editScore" aria-describedby="basic-addon3">
-						</div>
-						<label for="basic-url" style="margin-right: 1%;">班级编号:</label>
-						<div class="input-group">
-							<input type="text" class="form-control" id="editClassID" aria-describedby="basic-addon3">
-						</div>
-				</div>
-					
-				</div>
-				<div class="modal-footer">
-					
-					<button type="button" class="btn btn-default" data-dismiss="modal">关闭
-					</button>
-					<button type="button" class="btn btn-primary" id="confirmEdit">
-						提交更改
-					</button>
-				</div>
-			</div><!-- /.modal-content -->
-		</div><!-- /.modal -->
-	</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal -->
+		</div>
 	<!-- 结束修改模态框 -->
 	
 	<!-- 警告信息模态框 -->
