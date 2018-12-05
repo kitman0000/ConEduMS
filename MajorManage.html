@@ -265,7 +265,7 @@ var obj;
 $(function(){
 	$.ajax({
 		type: "POST",
-		url: "ClassManage.aspx/getAllClasses",
+		url: "MajorManage.aspx/getAllMajors",
 		datatype: "json",
 		contentType: "application/json;charset=utf-8",
 		data:
@@ -308,7 +308,7 @@ $(function(){
 		
 		$.ajax({
 			type: "POST",
-			url: "ClassManage.aspx/addClass",
+			url: "MajorManage.aspx/addMajor",
 			datatype: "json",
 			contentType: "application/json;charset=utf-8",
 			data:
@@ -329,7 +329,7 @@ $(function(){
 	$("#confirmDelete").click(function(){
 		$.ajax({
 			type: "POST",
-			url: "ClassManage.aspx/delClass",
+			url: "MajorManage.aspx/delMajor",
 			datatype: "json",
 			contentType: "application/json;charset=utf-8",
 			data:
@@ -376,7 +376,7 @@ $(function(){
 		
 		$.ajax({
 			type: "POST",
-			url: "ClassManage.aspx/editClass",
+			url: "MajorManage.aspx/editMajor",
 			datatype: "json",
 			contentType: "application/json;charset=utf-8",
 			data:
@@ -409,7 +409,7 @@ function showMajors(data)
 			"</th><th>"+
 			obj[i].majorName+
 			"</th><th>"+
-			obj[i].schoolRemark+
+			obj[i].majorRemark+
 			"</th><th>"+
 			"<button type=\"button\"  data-toggle=\"modal\" data-target=\"#ChangeModal\" class=\"btn btn-primary btn-xs ClassListButton\" onclick=\"edit(\'" + obj[i].classID + "\')\">修改</button>"+
 			"<button type=\"button\" class=\"btn btn-danger ClassListButton  btn-xs \" data-toggle=\"modal\" data-target=\"#DeleteModal\"  onclick=\"del(\'" + obj[i].classID + "\')\">删除</button>"+
@@ -508,7 +508,7 @@ function edit(id)
 	console.log(id);
 	for(i = 0;i<obj.length;i++)
 	{
-		if(obj[i].classID == id)
+		if(obj[i].majorID == id)
 		{
 			$("#editMajorID").val(obj[i].majorID);
 			$("#editMajorName").val(obj[i].majorName);
@@ -520,7 +520,7 @@ function edit(id)
 
 function del(id)
 {
-	delClassID = id;
+	del	MajorID = id;
 }
 
 function prePage()
