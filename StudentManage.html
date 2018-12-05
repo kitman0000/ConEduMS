@@ -383,7 +383,7 @@ $(function(){
 		},
 		success:
 			function (data, textStatus) {
-				showClasses(data.d);
+				showStudents(data.d);
 			},
 	});
 	
@@ -636,8 +636,8 @@ function showStudents(data)
 			"</td><td "+obj[i].stuID+">"+
 			obj[i].stuRemark+
 			"</td><td>"+
-			"<button type=\"button\"  data-toggle=\"modal\" data-target=\"#ChangeModal\" class=\"btn btn-primary btn-xs ClassListButton\" onclick=\"edit(\'" + obj[i].classID + "\')\">修改</button>"+
-			"<button type=\"button\" class=\"btn btn-danger ClassListButton  btn-xs \" data-toggle=\"modal\" data-target=\"#DeleteModal\"  onclick=\"del(\'" + obj[i].classID + "\')\">删除</button>"+
+			"<button type=\"button\"  data-toggle=\"modal\" data-target=\"#ChangeModal\" class=\"btn btn-primary btn-xs ClassListButton\" onclick=\"edit(\'" + obj[i].stuID + "\')\">修改</button>"+
+			"<button type=\"button\" class=\"btn btn-danger StudentListButton  btn-xs \" data-toggle=\"modal\" data-target=\"#DeleteModal\"  onclick=\"del(\'" + obj[i].stuID + "\')\">删除</button>"+
 			"</th></tr>";
 			$("#studentListBody").append(insert);
 		}
@@ -738,8 +738,8 @@ function switchPage(num)
 			"</th><th "+obj[i].stuID+">"+
 			obj[i].stuRemark+
 			"</th><th>"+
-			"<button type=\"button\"  data-toggle=\"modal\" data-target=\"#ChangeModal\" class=\"btn btn-primary btn-xs ClassListButton\" onclick=\"edit(\'" + obj[i].classID + "\')\">修改</button>"+
-			"<button type=\"button\" class=\"btn btn-danger ClassListButton  btn-xs \" data-toggle=\"modal\" data-target=\"#DeleteModal\"  onclick=\"del(\'" + obj[i].classID + "\')\">删除</button>"+
+			"<button type=\"button\"  data-toggle=\"modal\" data-target=\"#ChangeModal\" student=\"btn btn-primary btn-xs StudentListButton\" onclick=\"edit(\'" + obj[i].stuID + "\')\">修改</button>"+
+			"<button type=\"button\" student=\"btn btn-danger StudentListButton  btn-xs \" data-toggle=\"modal\" data-target=\"#DeleteModal\"  onclick=\"del(\'" + obj[i].stuID + "\')\">删除</button>"+
 			"</th></tr>";
 			$("#studentListBody").append(insert);
 		}
