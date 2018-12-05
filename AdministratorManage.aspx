@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="TeacherManage.aspx.cs" Inherits="TeacherManage" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="AdministratorManage.aspx.cs" Inherits="AdministratorManage" %>
 
 <!DOCTYPE html>
 
@@ -9,9 +9,8 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
-    
-    </div>
+        <div>
+        </div>
     </form>
 </body>
 </html>
