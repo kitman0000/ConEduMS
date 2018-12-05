@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" href="css/bootstrap.min.css">  
+	<link rel="stylesheet" href="css/webStyle.css">  
+	<link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css">
+	
+	<script src="js/System.js"></script>
+	<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+	<script src="js/bootstrap-datetimepicker.js"></script>
+	<script src="js/bootstrap-datetimepicker.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/bootstrap-datetimepicker.zh-CN.js"></script>
+	
+</head>
+<body>
+	<div class="page">
+		
+    	<!-- 标题 -->
+        <nav class="navbar navbar-default" role="navigation" class="titlebar">
+            <div class="container-fluid container" > 
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse"
+                        data-target="#example-navbar-collapse">
+                    <span class="sr-only">切换导航</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">继续教育管理系统(管理端)</a>
+            </div>
+            <div class="collapse navbar-collapse" id="example-navbar-collapse">
+                <ul class="nav navbar-nav" id="navbar">
+                  
+				</ul>  
+            </div>
+            </div>
+        </nav>
+        <!-- 标题结束 -->
+						
+		<!-- 内容开始 -->
+		<div class="container">
+			<!-- 导航开始 -->
+			<div class="alert alert-info" role="alert">
+				成绩管理
+			</div>
+			<!-- 导航结束 -->
+			<!--教学班列表-->
+			<div class="listAdd" align="right">
+				<button id="addItem"  data-toggle="modal" data-target="#addModal" class="btn btn-primary">添加</button>
+			</div>
+			<div class="bs-example" data-example-id="simple-table">
+				<table class="table" id="ClassList">
+					<thead class="row">
+						<th class="col-sm-2 col-xs-2 ">
+							学籍号
+						</th>
+						<th class="col-sm-2 col-xs-2 ">
+							课程编号
+						</th>
+						<th class="col-sm-2 col-xs-2 ">
+							学期编号
+						</th>
+						<th class="col-sm-2 col-xs-2 ">
+							教师编号
+						</th>
+						<th class="col-sm-2 col-xs-2 ">
+							班级编号
+						</th>
+						<th class="col-sm-1 col-xs-1 ">
+							成绩
+						</th>
+						<th class="col-sm-2 col-xs-2 ">
+							
+						</th>
+					</thead>
+					<tbody id="scoreListBody">
+						
+					</tbody>
+				</table>
+				<!-- 分页开始 -->
+				<div style="width: 100%;" align="center">
+					<ul class="pagination" id="pageDevider" style="margin-top: 10%;">
+						
+					</ul>
+				</div>
+				<!-- 分页结束 -->
+			</div>
+			<!--教学班列表结束-->
+
+		</div>
+		
+		<!-- 内容结束 -->
+	</div>
+
+	
+	<!-- 增加模态框 -->
+	<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog" style="width: 50%;">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						&times;
+					</button>
+					<h4 class="modal-title" id="myModalLabel" style="text-align: left;">
+						添加成绩
+					</h4>
+				</div>
+				
+				<div class="modal-body" style="text-align: left; padding-left: 25%;" align="center">
+					<table>
+						<tbody>
+							<tr>
+								<td class="listItem">
+									<label for="basic-url" style="width: 100px;">学籍号:</label>
+								</td>
+								<td class="listItem">
+									<input type="text" class="form-control" id="addStuID" aria-describedby="basic-addon3">
+								</td>
+								<td class="listItem">
+									<label for="basic-url" style="width: 100px;">课程编号:</label>
+								</td>
+								<td class="listItem">
+									<input type="text" class="form-control" id="addCourseID" aria-describedby="basic-addon3">
+								</td>
+							</tr>
+							<tr>
+								<td class="listItem">
+									<label for="basic-url">学期编号:</label>
+								</td>
+								<td class="listItem">
+									<input type="text" class="form-control" id="addSemesterID" aria-describedby="basic-addon3">
+								</td>
+								<td class="listItem">
+									<label for="basic-url">教师编号:</label>
+								</td>
+								<td class="listItem">
+									<input type="text" class="form-control" id="addTeacherID" aria-describedby="basic-addon3">
+								</td>
+							</tr>
+
+
+							<tr>
+								<td class="listItem">
+								<label for="basic-url">成绩:</label>
+								</td>
+								<td class="listItem">
+								<input type="text" class="form-control" id="addScore" aria-describedby="basic-addon3">
+								</td>
+								<td class="listItem">
+								<label for="basic-url">班级编号:</label>
+								</td>
+								<td class="listItem">
+								<input type="text" class="form-control" id="addClassID" aria-describedby="basic-addon3">
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+					</button>
+					<button type="button" class="btn btn-primary" id="confirmAdd">
+						确定
+					</button>
+				</div>
+				
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal -->
+	</div>
+	<!-- 结束增加模态框 -->
+	
+	<!-- 删除警告模态框 -->
+	<div class="modal fade" id="DeleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog" style="width: 10%;">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						&times;
+					</button>
+					<h4 class="modal-title" id="myModalLabel" style="text-align: left;">
+						警告
+					</h4>
+				</div>
+				<div class="modal-body" style="text-align: left;">
+					确认要删除此学生的成绩？
+				</div>
+				<div class="modal-footer" style=" 	width: 100%;display: table; text-align: center;">
+					
+					<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+					</button>
+					<button type="button" id="confirmDelete" class="btn btn-danger" data-dismiss="modal">
+						删除
+					</button>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal -->
+	</div>
+	<!-- 结束删除警告模态框 -->
+	
+			
+	<!-- 修改模态框 -->
+	<div class="modal fade" id="ChangeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog" style="width: 50%;">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						&times;
+					</button>
+					<h4 class="modal-title" id="myModalLabel" style="text-align: left;">
+						修改成绩
+					</h4>
+				</div>
+				<div class="modal-body" style="text-align: left;padding-left: 25%;">
+								
+					<table>
+						<tbody>
+							<tr>
+								<td>
+									<label for="basic-url" style="margin-right: 3%;">学籍号:</label>
+								</td>
+								<td>
+									<input type="text" class="form-control" id="editStuID" aria-describedby="basic-addon3" readonly="readonly">
+								</td>
+								<td>
+									<label for="basic-url" style="margin-right: 1%;">课程编号:</label>
+								</td>
+								<td>
+									<input type="text" class="form-control" id="editCourseID" aria-describedby="basic-addon3">
+								</td>
+							</tr>
+
+							<tr>
+								<td>
+									<label for="basic-url"style="margin-right: 1%;">学期编号:</label>
+								</td>
+								<td>
+									<input type="text" class="form-control" id="editSemesterID" aria-describedby="basic-addon3">
+								</td>
+								<td>
+									<label for="basic-url" style="margin-right: 1%;">教师编号:</label>
+								</td>
+								<td>
+									<input type="text" class="form-control" id="editTeacherID" aria-describedby="basic-addon3">
+								</td>
+							</tr>
+
+							<tr>
+								<td>
+									<label for="basic-url"style="margin-right: 5%;">成绩:</label>
+								</td>
+								<td>
+									<input type="text" class="form-control" id="editScore" aria-describedby="basic-addon3">
+								</td>
+								<td>
+									<label for="basic-url" style="margin-right: 1%;">班级编号:</label>
+								</td>
+								<td>
+									<input type="text" class="form-control" id="editClassID" aria-describedby="basic-addon3">
+								</td>
+							</tr>
+							
+						</tbody>
+					</table>
+				
+				</div>
+				<div class="modal-footer">
+					
+					<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+					</button>
+					<button type="button" class="btn btn-primary" id="confirmEdit">
+						提交更改
+					</button>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal -->
+	</div>
+	<!-- 结束修改模态框 -->
+	
+	<!-- 警告信息模态框 -->
+	<div class="modal fade" style="z-index: 1600;" id="warningInfoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog" style="width: 40%;">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						&times;
+					</button>
+					<h4 class="modal-title" id="myModalLabel" style="text-align: left;">
+						警告
+					</h4>
+				</div>
+				<div class="modal-body" style="text-align: center;">
+					<span id="warningInfo"></span>
+				</div>
+				<div class="modal-footer" style="width: 100%;display: table; text-align: center;">
+					
+					<button type="button" class="btn btn-default" data-dismiss="modal">确定
+					</button>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal -->
+	</div>
+	<!-- 结束删除警告模态框 -->
+	
+</body>
+
+<script>
+var obj;
+$(function(){
+	$("#navbar").html(getNavbar());
+	$("#ScoreManage").addClass("active");
+	
+	$.ajax({
+		type: "POST",
+		url: "ScoreManage.aspx/getAllScores",
+		datatype: "json",
+		contentType: "application/json;charset=utf-8",
+		data:
+		{
+			
+		},
+		success:
+			function (data, textStatus) {
+				showScores(data.d);
+			},
+	});
+	
+	$("#confirmAdd").click(function(){
+		//warningInfo
+		if($("#addStuID").val().length !=8)
+		{
+			$("#warningInfo").html("学生编号为8位，入学年（4位）+序号（4位）");
+			$("#warningInfoModal").modal("show");
+			return;
+		}
+		
+		if($("#addCourseID").val().length !=5)
+		{
+			$("#warningInfo").html("课程编号必须为5位");
+			$("#warningInfoModal").modal("show");
+			return;
+		}
+		
+		if($("#addSemesterID").val().length !=6)
+		{
+			$("#warningInfo").html("学期编号为6位，年（4位）+序号（2位）");
+			$("#warningInfoModal").modal("show");
+			return;
+		}
+		
+		if($("#addTeacherID").val().length !=6)
+		{
+			$("#warningInfo").html("教师编号必须为6位）");
+			$("#warningInfoModal").modal("show");
+			return;
+		}
+		
+		if($("#addScore").val().length ==0)
+		{
+			$("#warningInfo").html("分数未填写");
+			$("#warningInfoModal").modal("show");
+			return;
+		}
+		
+		if($("#addClassID").val().length !=6)
+		{
+			$("#warningInfo").html("班级编号必须为6位）");
+			$("#warningInfoModal").modal("show");
+			return;
+		}
+		
+		for(i = 0;i<obj.length;i++)
+		{
+			if(obj[i].stuID == $("#addStuID").val())
+			{
+				$("#warningInfo").html("该学生ID已经被占用");
+				$("#warningInfoModal").modal("show");
+				return;
+			}
+		}
+		$("#addModal").modal("hide");
+		
+		$.ajax({
+			type: "POST",
+			url: "ScoreManage.aspx/addScore",
+			datatype: "json",
+			contentType: "application/json;charset=utf-8",
+			data:
+				"{"+
+				"'stuID':'" + $("#addStuID").val()+"',"+
+				"'courseID':'" + $("#addCourseID").val()+"',"+
+				"'semesterID':'" + $("#addSemesterID").val()+"',"+
+				"'teacherID':'" + $("#addTeacherID").val()+"',"+
+				"'classID':'" + $("#addClassID").val()+"',"+
+				"'score':'" + $("#addScore").val()+"'"
+				+"}"
+			,
+			success:
+				function (data, textStatus) {
+					setCookie("add",1);
+					location.reload();
+				},
+		});
+	});
+	
+	$("#confirmDelete").click(function(){
+		$.ajax({
+			type: "POST",
+			url: "ScoreManage.aspx/delScore",
+			datatype: "json",
+			contentType: "application/json;charset=utf-8",
+			data:
+				"{"+
+				"'stuID':'" + delStuID +"'"+
+				"}"
+			,
+			success:
+				function (data, textStatus) {
+					if(data.d == "success")
+					{
+						deleteSuccess();
+					}
+				},
+		});
+	});
+	
+	$("#confirmEdit").click(function(){
+	
+		if($("#editCourseID").val().length !=5)
+		{
+			$("#warningInfo").html("课程编号必须为5位");
+			$("#warningInfoModal").modal("show");
+			return;
+		}
+		
+		if($("#editSemesterID").val().length !=6)
+		{
+			$("#warningInfo").html("学期编号为6位，年（4位）+序号（2位）");
+			$("#warningInfoModal").modal("show");
+			return;
+		}
+		
+		if($("#editTeacherID").val().length !=6)
+		{
+			$("#warningInfo").html("教师编号必须为6位）");
+			$("#warningInfoModal").modal("show");
+			return;
+		}
+		
+		if($("#editClassID").val().length !=6)
+		{
+			$("#warningInfo").html("班级编号必须为6位）");
+			$("#warningInfoModal").modal("show");
+			return;
+		}
+	
+		$("#ChangeModal").modal("hide");
+		
+		$.ajax({
+			type: "POST",
+			url: "ScoreManage.aspx/editScore",
+			datatype: "json",
+			contentType: "application/json;charset=utf-8",
+			data:
+				"{"+
+				"'stuID':'" + $("#editStuID").val()+"',"+
+				"'courseID':'" + $("#editCourseID").val()+"',"+
+				"'semesterID':'" + $("#editSemesterID").val()+"',"+
+				"'teacherID':'" + $("#editTeacherID").val()+"',"+
+				"'classID':'" + $("#editClassID").val()+"',"+
+				"'score':'" + $("#editScore").val()+"'"
+				+"}"
+			,
+			success:
+				function (data, textStatus) {
+					if(data.d == "success")
+					{
+						editSuccess();
+					}
+				},
+		});
+	});
+});
+	
+function showScores(data)
+{
+	obj = JSON.parse(data);
+	_data = data;
+	for(i=0;i<obj.length&&i<5;i++)
+	{
+		try{
+			insert = "<tr><td>"+
+			obj[i].stuID+
+			"</td><td id=courseID"+obj[i].stuID+">"+
+			obj[i].courseID+
+			"</td><td id=semesterID"+obj[i].stuID+">"+
+			obj[i].semesterID+
+			"</td><td id=teacherID"+obj[i].stuID+">"+
+			obj[i].teacherID+
+			"</td><td id=classID"+obj[i].stuID+">"+
+			obj[i].classID+
+			"</td><td id=score"+obj[i].stuID+">"+
+			obj[i].score+
+			"</td><td>"+
+			"<button type=\"button\"  data-toggle=\"modal\" data-target=\"#ChangeModal\" class=\"btn btn-primary btn-xs ListOperButton\" onclick=\"edit(\'" + obj[i].stuID + "\')\">修改</button>"+
+			"<button type=\"button\" class=\"btn btn-danger ListOperButton  btn-xs \" data-toggle=\"modal\" data-target=\"#DeleteModal\"  onclick=\"del(\'" + obj[i].stuID + "\')\">删除</button>"+
+			"</td></tr>";
+			$("#scoreListBody").append(insert);
+		}
+		catch(err){}
+		
+	}
+	$("#pageDevider").append("<li><a onclick=\"prePage()\" href=\"#\">&laquo;</a></li>")
+	for(i=1;i<obj.length/5;i++)
+	{
+		$("#pageDevider").append("<li><a onclick=\"switchPage("	+i+")\" href=\"#\">"+i+"</a></li>");
+	}
+	$("#pageDevider").append("<li><a onclick=\"switchPage("+i+")\" href=\"#\">"+i+"</a></li>");
+	$("#pageDevider").append("<li><a onclick=\"nextPage()\" href=\"#\">&raquo;</a></li>")
+	nowPage = 1;
+	if(getCookie("add")==1)
+	{
+		page = Math.floor(obj.length / 5);
+		if(obj.length % 5 != 0)
+		{
+			page++;
+		}
+		switchPage(page);
+		setCookie("add",0);
+	}
+	if(getCookie("delete")!=0)
+	{
+		switchPage(getCookie("delete"));
+		setCookie("delete",0);
+	}
+	
+	$('.form_date').datetimepicker({
+		language:  'zh-CN',
+		weekStart: 1,
+		todayBtn:  1,
+		autoclose: 1,
+		todayHighlight: 1,
+		startView: 2,
+		minView: 2,
+		forceParse: 0
+	});
+}
+function deleteSuccess()
+{
+	setCookie("delete",nowPage);
+	location.reload();
+}
+function editSuccess()
+{
+	for(i = 0;i<obj.length;i++)
+	{
+		if(obj[i].stuID == $("#editStuID").val())
+		{
+			obj[i].courseID = $("#editCourseID").val();
+			obj[i].semesterID = $("#editSemesterID").val();
+			obj[i].teacherID = $("#editTeacherID").val();
+			obj[i].classID = $("#editClassID").val();
+			obj[i].score = $("#editScore").val();
+			switchPage(nowPage);
+		}
+	}
+}
+function switchPage(num)
+{
+	nowPage = num;
+	$("#scoreListBody").html("");
+	//obj = JSON.parse(_data);
+	s=0;
+	console.log(num);
+	for(i=(num-1)*5;i<obj.length&&s<5;i++)
+	{
+		try{
+			insert = "<tr><td>"+
+			obj[i].stuID+
+			"</td><td id=courseID"+obj[i].stuID+">"+
+			obj[i].courseID+
+			"</td><td id=semesterID"+obj[i].stuID+">"+
+			obj[i].semesterID+
+			"</td><td id=teacherID"+obj[i].stuID+">"+
+			obj[i].teacherID+
+			"</td><td id=classID"+obj[i].stuID+">"+
+			obj[i].classID+
+			"</td><td id=score"+obj[i].stuID+">"+
+			obj[i].score+
+			"</td><td>"+
+			"<button type=\"button\"  data-toggle=\"modal\" data-target=\"#ChangeModal\" class=\"btn btn-primary btn-xs ListOperButton\" onclick=\"edit(\'" + obj[i].stuID + "\')\">修改</button>"+
+			"<button type=\"button\" class=\"btn btn-danger ListOperButton  btn-xs \" data-toggle=\"modal\" data-target=\"#DeleteModal\"  onclick=\"del(\'" + obj[i].stuID + "\')\">删除</button>"+
+			"</td></tr>";
+			$("#scoreListBody").append(insert);
+		}
+		catch(err){}
+		s++;
+	}
+}
+function edit(id)
+{
+	console.log(id);
+	for(i = 0;i<obj.length;i++)
+	{
+		if(obj[i].stuID == id)
+		{
+			$("#editStuID").val(obj[i].stuID);
+			$("#editCourseID").val(obj[i].courseID);
+			$("#editSemesterID").val(obj[i].semesterID);
+			$("#editTeacherID").val(obj[i].teacherID);
+			$("#editClassID").val(obj[i].classID);
+			$("#editScore").val(obj[i].score);
+			break;
+		}
+	}
+}
+function del(id)
+{
+	delStuID = id;
+}
+function prePage()
+{
+	if(nowPage!=1)
+	{
+		switchPage(nowPage - 1);
+	}
+}
+function nextPage()
+{
+	obj = JSON.parse(_data);
+	if(nowPage!=Math.floor(obj.length/5 + 1))
+	{
+		switchPage(nowPage + 1);
+	}
+}
+function getCookie(cname)
+{
+  var name = cname + "=";
+  var ca = document.cookie.split(';');
+  for(var i=0; i<ca.length; i++) 
+  {
+    var c = ca[i].trim();
+    if (c.indexOf(name)==0) return c.substring(name.length,c.length);
+  }
+  return "";
+}
+function setCookie(name,value)
+{
+     document.cookie = name + "=" + value + "; ";
+} 
+</script>
+</html>
