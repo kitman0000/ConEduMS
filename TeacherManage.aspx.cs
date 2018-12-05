@@ -13,7 +13,7 @@ using System.Net;
 using System.Text;
 using System.IO;
 
-public partial class TeatherManage : System.Web.UI.Page
+public partial class TeacherManage : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
