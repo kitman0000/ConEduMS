@@ -68,7 +68,7 @@ public partial class StudentManage : System.Web.UI.Page
         SqlConnection sqlcon = null;
         SQLserverOper.open(ref sqlcon);
 
-        SqlCommand cmd = new SqlCommand("INSERT INTO DB_ConEduMS.dbo.tb_teacher VALUES (@stuID,@classID,@majorID,@stuGender,@stuBirthDate,@stuSocialID,@stuTel,@stuAddress,@stuRemark);", sqlcon);
+        SqlCommand cmd = new SqlCommand("INSERT INTO DB_ConEduMS.dbo.tb_student VALUES (@stuID,@classID,@majorID,@stuGender,@stuBirthDate,@stuSocialID,@stuTel,@stuAddress,@stuRemark);", sqlcon);
         cmd.Parameters.AddWithValue("@stuID", stuID);
         cmd.Parameters.AddWithValue("@classID", classID);
         cmd.Parameters.AddWithValue("@majorID", majorID);
@@ -91,7 +91,7 @@ public partial class StudentManage : System.Web.UI.Page
 
         SqlConnection sqlcon = null;
         SQLserverOper.open(ref sqlcon);
-        SqlCommand cmd = new SqlCommand("DELETE FROM DB_ConEduMS.dbo.tb_teacher WHERE stuID = @stuID;", sqlcon);
+        SqlCommand cmd = new SqlCommand("DELETE FROM DB_ConEduMS.dbo.tb_student WHERE stuID = @stuID;", sqlcon);
         cmd.Parameters.AddWithValue("@stuID", stuID);
 
         SQLserverOper.executeSql(cmd);
@@ -109,7 +109,7 @@ public partial class StudentManage : System.Web.UI.Page
         SqlConnection sqlcon = null;
         SQLserverOper.open(ref sqlcon);
 
-        SqlCommand cmd = new SqlCommand("UPDATE DB_ConEduMS.dbo.tb_teacher SET classID = @classID,majorID = @majorID, stuGender = @stuGender,stuBirthDate = @stuBirthDate,stuSocialID = @stuSocialID, stuTel = @stuTel,stuAddress = @stuAddress,stuRemark =@stuRemark WHERE stuID = @stuID;", sqlcon);
+        SqlCommand cmd = new SqlCommand("UPDATE DB_ConEduMS.dbo.tb_student SET classID = @classID,majorID = @majorID, stuGender = @stuGender,stuBirthDate = @stuBirthDate,stuSocialID = @stuSocialID, stuTel = @stuTel,stuAddress = @stuAddress,stuRemark =@stuRemark WHERE stuID = @stuID;", sqlcon);
         cmd.Parameters.AddWithValue("@stuID", stuID);
         cmd.Parameters.AddWithValue("@classID", classID);
         cmd.Parameters.AddWithValue("@majorID", majorID);
