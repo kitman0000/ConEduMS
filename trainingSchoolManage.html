@@ -3,16 +3,12 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta charset="utf-8" />
-		<link rel="stylesheet" href="css/bootstrap.css">
 		<link rel="stylesheet" href="css/bootstrap.min.css">
 		<link rel="stylesheet" href="css/webStyle.css">
-		<link rel="stylesheet" href="css/bootstrap-datetimepicker.css">
 		<link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css">
 
 		<script src="js/System.js"></script>
 		<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
-		<script src="js/bootstrap-datetimepicker.js"></script>
-		<script src="js/bootstrap-datetimepicker.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 		<script src="js/bootstrap-datetimepicker.zh-CN.js"></script>
 
@@ -214,13 +210,13 @@
 					<table align="center">
 						<tr>
 							<td class="listItem" style="width: 100px;">
-								<label for="editSchoolID" style="margin-right: 3%;">教学点编号:</label>
+								<label for="editSchoolID" >教学点编号:</label>
 							</td>
 							<td class="listItem">
 								<input type="text" class="form-control" id="editSchoolID" aria-describedby="basic-addon3" readonly="readonly">
 							</td>
 							<td class="listItem" style="width: 100px;">
-								<label for="editSchoolName" style="margin-right: 4.3%;">名称:</label>
+								<label for="editSchoolName" >名称:</label>
 							</td>
 							<td class="listItem">
 								<input type="text" class="form-control" id="editSchoolName" aria-describedby="basic-addon3">
@@ -229,13 +225,13 @@
 
 						<tr>
 							<td class="listItem">
-								<label for="editSchoolAddress" style="margin-right: 3%;">地址:</label>
+								<label for="editSchoolAddress" >地址:</label>
 							</td>
 							<td class="listItem">
 								<input type="text" class="form-control" id="editSchoolAddress" aria-describedby="basic-addon3">
 							</td>
 							<td class="listItem">
-								<label for="editSchoolTel" style="margin-right: 2.4%;">对外咨询电话:</label>
+								<label for="editSchoolTel" >对外咨询电话:</label>
 							</td>
 							<td class="listItem">
 								<input type="text" class="form-control" id="editSchoolTel" aria-describedby="basic-addon3">
@@ -244,7 +240,7 @@
 						
 						<tr>
 							<td class="listItem">
-							<label for="editSchoolRemark" style="margin-right: 1%;">备注:</label>
+							<label for="editSchoolRemark">备注:</label>
 							</td>
 							<td class="listItem">
 								<input type="text" class="form-control" id="editSchoolRemark" aria-describedby="basic-addon3">
@@ -256,7 +252,7 @@
 
 						<button type="button" class="btn btn-default" data-dismiss="modal">关闭
 						</button>
-						<button type="button" class="btn btn-primary" id="editClass">
+						<button type="button" class="btn btn-primary" id="editTrainingSchool">
 							提交更改
 						</button>
 					</div>
@@ -344,7 +340,7 @@
 				}
 
 				for (i = 0; i < obj.length; i++) {
-					if (obj[i].classID == $("#addClassID").val()) {
+					if (obj[i].trainingSchoolID == $("#addClassID").val()) {
 						$("#warningInfo").html("该班级ID已经被占用");
 						$("#warningInfoModal").modal("show");
 						return;
@@ -452,23 +448,23 @@
 				try {
 					insert = "<tr><td>" +
 						obj[i].schoolID +
-						"</td><td id=school" + obj[i].schoolID + ">" +
+						"</td><td " + obj[i].schoolID + ">" +
 						obj[i].schoolID +
-						"</td><td id=schoolName" + obj[i].schoolID + ">" +
+						"</td><td " + obj[i].schoolID + ">" +
 						obj[i].schoolName +
-						"</td><td id=schoolAddress" + obj[i].schoolID + ">" +
+						"</td><td " + obj[i].schoolID + ">" +
 						obj[i].schoolAddress +
-						"</td><td id=schoolTel" + obj[i].schoolID + ">" +
+						"</td><td " + obj[i].schoolID + ">" +
 						obj[i].schoolTel +
-						"</td><td id=schoolRemark" + obj[i].schoolID + ">" +
+						"</td><td " + obj[i].schoolID + ">" +
 						obj[i].schoolRemark +
 						"</td><td>" +
-						"<button type=\"button\"  data-toggle=\"modal\" data-target=\"#ChangeModal\" class=\"btn btn-primary btn-xs ListOperButton\" onclick=\"edit(\'" +
-						obj[i].classID + "\')\">修改</button>" +
-						"<button type=\"button\" class=\"btn btn-danger ListOperButton  btn-xs \" data-toggle=\"modal\" data-target=\"#DeleteModal\"  onclick=\"del(\'" +
-						obj[i].classID + "\')\">删除</button>" +
+						"<button type=\"button\"  data-toggle=\"modal\" data-target=\"#ChangeModal\" trainingSchool=\"btn btn-primary btn-xs ListOperButton\" onclick=\"edit(\'" +
+						obj[i].trainingSchoolID + "\')\">修改</button>" +
+						"<button type=\"button\" trainingSchool=\"btn btn-danger ListOperButton  btn-xs \" data-toggle=\"modal\" data-target=\"#DeleteModal\"  onclick=\"del(\'" +
+						obj[i].trainingSchoolID + "\')\">删除</button>" +
 						"</td></tr>";
-					$("#classListBody").append(insert);
+					$("#trainingSchoolListBody").append(insert);
 				} catch (err) {}
 
 			}
@@ -523,7 +519,7 @@
 
 		function switchPage(num) {
 			nowPage = num;
-			$("#classListBody").html("");
+			$("#trainingSchoolListBody").html("");
 			//obj = JSON.parse(_data);
 			s = 0;
 			console.log(num);
@@ -531,23 +527,23 @@
 				try {
 					insert = "<tr><td>" +
 						obj[i].schoolID +
-						"</td><td id=school" + obj[i].schoolID + ">" +
+						"</td><td " + obj[i].schoolID + ">" +
 						obj[i].schoolID +
-						"</td><td id=schoolName" + obj[i].schoolID + ">" +
+						"</td><td " + obj[i].schoolID + ">" +
 						obj[i].schoolName +
-						"</td><td id=schoolAddress" + obj[i].schoollID + ">" +
+						"</td><td " + obj[i].schoollID + ">" +
 						obj[i].schoolAddress +
-						"</td><td id=schoolTel" + obj[i].schoolID + ">" +
+						"</td><td " + obj[i].schoolID + ">" +
 						obj[i].schoolTel +
-						"</td><td id=schoolRemark" + obj[i].schoolID + ">" +
+						"</td><td " + obj[i].schoolID + ">" +
 						obj[i].schoolRemark +
 						"</td><td>" +
-						"<button type=\"button\"  data-toggle=\"modal\" data-target=\"#ChangeModal\" class=\"btn btn-primary btn-xs ListOperButton\" onclick=\"edit(\'" +
-						obj[i].classID + "\')\">修改</button>" +
-						"<button type=\"button\" class=\"btn btn-danger ListOperButton  btn-xs \" data-toggle=\"modal\" data-target=\"#DeleteModal\"  onclick=\"del(\'" +
-						obj[i].classID + "\')\">删除</button>" +
+						"<button type=\"button\"  data-toggle=\"modal\" data-target=\"#ChangeModal\" trainingSchool=\"btn btn-primary btn-xs ListOperButton\" onclick=\"edit(\'" +
+						obj[i].trainingSchoolID + "\')\">修改</button>" +
+						"<button type=\"button\" trainingSchool=\"btn btn-danger ListOperButton  btn-xs \" data-toggle=\"modal\" data-target=\"#DeleteModal\"  onclick=\"del(\'" +
+						obj[i].trainingSchoolID + "\')\">删除</button>" +
 						"</td></tr>";
-					$("#classListBody").append(insert);
+					$("#trainingSchoolListBody").append(insert);
 				} catch (err) {}
 				s++;
 			}
