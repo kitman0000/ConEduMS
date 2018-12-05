@@ -59,7 +59,7 @@
 				<button id="addItem"  data-toggle="modal" data-target="#addModal" class="btn btn-primary">添加</button>
 			</div>
 			<div class="bs-example" data-example-id="simple-table">
-				<table class="table" id="ClassList">
+				<table class="table" id="CourseList">
 					<thead class="row">
 						<th class="col-sm-2 col-xs-2 ">
 							课程编号
@@ -130,6 +130,7 @@
 							<input type="text" class="form-control" id="addCourseRemark" aria-describedby="basic-addon3">
 						</td>
 					</tr>
+				 </tbody>
 				</table>
 					
 				
@@ -261,7 +262,7 @@ var obj;
 $(function(){
 	$.ajax({
 		type: "POST",
-		url: "ClassManage.aspx/getAllClasses",
+		url: "CourseManage.aspx/getAllCourses",
 		datatype: "json",
 		contentType: "application/json;charset=utf-8",
 		data:
@@ -300,7 +301,7 @@ $(function(){
 		
 		for(i = 0;i<obj.length;i++)
 		{
-			if(obj[i].classID == $("#addCourseID").val())
+			if(obj[i].courseID == $("#addCourseID").val())
 			{
 				$("#warningInfo").html("该课程ID已经被占用");
 				$("#warningInfoModal").modal("show");
@@ -312,7 +313,7 @@ $(function(){
 		
 		$.ajax({
 			type: "POST",
-			url: "ClassManage.aspx/addClass",
+			url: "CourseManage.aspx/addCourse",
 			datatype: "json",
 			contentType: "application/json;charset=utf-8",
 			data:
@@ -333,7 +334,7 @@ $(function(){
 	$("#confirmDelete").click(function(){
 		$.ajax({
 			type: "POST",
-			url: "ClassManage.aspx/delClass",
+			url: "CourseManage.aspx/delCourse",
 			datatype: "json",
 			contentType: "application/json;charset=utf-8",
 			data:
@@ -381,14 +382,14 @@ $(function(){
 		
 		$.ajax({
 			type: "POST",
-			url: "ClassManage.aspx/editClass",
+			url: "CourseManage.aspx/editCourse",
 			datatype: "json",
 			contentType: "application/json;charset=utf-8",
 			data:
 				"{"+
-				"'courseID':'" + $("#editClassID").val()+"',"+
-				"'courseNameID':'" + $("#editMajorID").val()+"',"+
-				"'courseRemarkID':'" + $("#editSchoolID").val()+"',"+
+				"'courseID':'" + $("#editCourseID").val()+"',"+
+				"'courseNameID':'" + $("#editCourseNameID").val()+"',"+
+				"'courseRemarkID':'" + $("#editCourseRemarkID").val()+"',"+
 				+"}"
 			,
 			success:
@@ -402,7 +403,7 @@ $(function(){
 	});
 });
 	
-function showClasses(data)
+function showCourses(data)
 {
 	obj = JSON.parse(data);
 	_data = data;
@@ -416,8 +417,8 @@ function showClasses(data)
 			"</th><th>"+
 			obj[i].courseRemark+
 			"</th><th>"+
-			"<button type=\"button\"  data-toggle=\"modal\" data-target=\"#ChangeModal\" class=\"btn btn-primary btn-xs ClassListButton\" onclick=\"edit(\'" + obj[i].classID + "\')\">修改</button>"+
-			"<button type=\"button\" class=\"btn btn-danger ClassListButton  btn-xs \" data-toggle=\"modal\" data-target=\"#DeleteModal\"  onclick=\"del(\'" + obj[i].classID + "\')\">删除</button>"+
+			"<button type=\"button\"  data-toggle=\"modal\" data-target=\"#ChangeModal\" course=\"btn btn-primary btn-xs CourseListButton\" onclick=\"edit(\'" + obj[i].classID + "\')\">修改</button>"+
+			"<button type=\"button\" course=\"btn btn-danger CourseListButton  btn-xs \" data-toggle=\"modal\" data-target=\"#DeleteModal\"  onclick=\"del(\'" + obj[i].classID + "\')\">删除</button>"+
 			"</th></tr>";
 			$("#courseListBody").append(insert);
 		}
@@ -498,8 +499,8 @@ function switchPage(num)
 			"</th><th>"+
 			obj[i].courseRemark+
 			"</th><th>"+
-			"<button type=\"button\"  data-toggle=\"modal\" data-target=\"#ChangeModal\" class=\"btn btn-primary btn-xs ClassListButton\" onclick=\"edit(\'" + obj[i].classID + "\')\">修改</button>"+
-			"<button type=\"button\" class=\"btn btn-danger ClassListButton  btn-xs \" data-toggle=\"modal\" data-target=\"#DeleteModal\"  onclick=\"del(\'" + obj[i].classID + "\')\">删除</button>"+
+			"<button type=\"button\"  data-toggle=\"modal\" data-target=\"#ChangeModal\" course=\"btn btn-primary btn-xs CourseListButton\" onclick=\"edit(\'" + obj[i].classID + "\')\">修改</button>"+
+			"<button type=\"button\" course=\"btn btn-danger CourseListButton  btn-xs \" data-toggle=\"modal\" data-target=\"#DeleteModal\"  onclick=\"del(\'" + obj[i].classID + "\')\">删除</button>"+
 			"</th></tr>";
 			$("#courseListBody").append(insert);
 		}
@@ -515,9 +516,9 @@ function edit(id)
 	{
 		if(obj[i].courseID == id)
 		{
-			$("#editCourseID").val(obj[i].classID);
-			$("#editCourseName").val(obj[i].majorID);
-			$("#editCourseRemark").val(obj[i].schoolID);
+			$("#editCourseID").val(obj[i].courseID);
+			$("#editCourseName").val(obj[i].courseNameID);
+			$("#editCourseRemark").val(obj[i].courseRemark);
 			break;
 		}
 	}
