@@ -374,7 +374,7 @@ var obj;
 $(function(){
 	$.ajax({
 		type: "POST",
-		url: "ClassManage.aspx/getAllClasses",
+		url: "StudentManage.aspx/getAllStudents",
 		datatype: "json",
 		contentType: "application/json;charset=utf-8",
 		data:
@@ -467,7 +467,7 @@ $(function(){
 		
 		$.ajax({
 			type: "POST",
-			url: "ClassManage.aspx/addClass",
+			url: "StudentManage.aspx/addStudent",
 			datatype: "json",
 			contentType: "application/json;charset=utf-8",
 			data:
@@ -494,7 +494,7 @@ $(function(){
 	$("#confirmDelete").click(function(){
 		$.ajax({
 			type: "POST",
-			url: "ClassManage.aspx/delClass",
+			url: "StudentManage.aspx/delStudent",
 			datatype: "json",
 			contentType: "application/json;charset=utf-8",
 			data:
@@ -583,7 +583,7 @@ $(function(){
 		
 		$.ajax({
 			type: "POST",
-			url: "ClassManage.aspx/editClass",
+			url: "StudentManage.aspx/editStudent",
 			datatype: "json",
 			contentType: "application/json;charset=utf-8",
 			data:
@@ -610,7 +610,7 @@ $(function(){
 	});
 });
 	
-function showClasses(data)
+function showStudents(data)
 {
 	obj = JSON.parse(data);
 	_data = data;
