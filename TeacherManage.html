@@ -1,3 +1,4 @@
+<!-- author:2333 -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,8 +10,6 @@
 	<link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css">
 	
 	<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
-	<script src="js/bootstrap-datetimepicker.js"></script>
-	<script src="js/bootstrap-datetimepicker.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/bootstrap-datetimepicker.zh-CN.js"></script>
 	
@@ -112,59 +111,67 @@
 					<h4 class="modal-title" id="myModalLabel" style="text-align: left;">
 						添加教师
 					</h4>
-				</div>
-				<div class="modal-body" style="text-align: left; padding-left: 15%;" align="center">
-					<div class="form-group form-inline">
-						<label for="basic-url" style="margin-right: 3%;">教师编号:</label>
-						<div class="input-group">
-							<input type="text" class="form-control" id="addTeacherrID" aria-describedby="basic-addon3">
-						</div>
-						<label for="basic-url"style="margin-right: 5.5%;">姓名:</label>
-						<div class="input-group">
-							<input type="text" class="form-control" id="addTeacherName" aria-describedby="basic-addon3">
-						</div>
-					</div>
-					
-					<div class="form-group form-inline">
-						<label for="basic-url" style="margin-right: 3%;">所属专业:</label>
-						<div class="input-group">
-							<input type="text" class="form-control" id="addMajorID" aria-describedby="basic-addon3">
-						</div>
-						<label for="basic-url"style="margin-right: 5.5%;">性别:</label>
-						<div class="input-group">
-							<input type="text" class="form-control" id="addTeacherGender" aria-describedby="basic-addon3">
-						</div>
-					</div>
-					
-					<div class="form-group form-inline">
-						
-						<label for="basic-url" style="margin-right: 1.2%;">出生年月日:</label>
-						<div class="input-group date form_date col-md-4" style="width: 22.7%;" data-date="" data-date-format="yyyy年mm月dd日" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
-							<input class="form-control" id="addTeacherBirthDate" size="16" type="text" value="" readonly="readonly" style="background: #fff;">
-							<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
-						</div>
-						<label for="basic-url" style="margin-right: 1.9%;">证件号码:</label>
-						<div class="input-group">
-							<input type="text" class="form-control" id="addTeacherSocialID" aria-describedby="basic-addon3">
-						</div>
-					</div>
-				</div>
-				<div class="modal-footer">
-								
+					<table align="center">
+						<tr>
+							<td class="listItem" style="width: 100px;">
+								<label for="addTeacherrID">教师编号:</label>
+							</td>
+							<td class="listItem">
+								<input type="text" class="form-control" id="addTeacherrID" aria-describedby="basic-addon3">
+							</td>
+							<td>
+							</td class="listItem">
+							<td class="listItem" style="width: 100px;">
+								<label for="addTeacherName">姓名:</label>
+							</td>
+							<td class="listItem">
+								<input type="text" class="form-control" id="addTeacherName" aria-describedby="basic-addon3">
+						  </td>
+						</tr>
+						<tr class="listItem">
+							<td class="listItem" style="width: 100px;"> 
+								<label for="addMajorID">所属专业:</label>
+							</td>
+							<td class="listItem">
+								<input type="text" class="form-control" id="addMajorID" aria-describedby="basic-addon3">
+							</td>
+							<td></td>
+							<td class="listItem" style="width: 100px;">
+								<label for="addTeacherGender">性别:</label>
+							</td>
+							<td class="listItem">
+								<input type="text" class="form-control" id="addTeacherGender" aria-describedby="basic-addon3">							
+							</td>
+						</tr>
+						<tr class="listItem">
+							<td class="listItem" style="width: 100px;">
+								<label for="addTeacherBirthDate" >出生年月日:</label>
+							</td>	
+							<td class="listItem">
+								<input class="form-control" id="addTeacherBirthDate" size="16" type="text" value="" readonly="readonly" style="background: #fff;">
+							</td>
+							<td class="listItem" style="width: 100px;">
+								<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+							</td>
+							<td>
+								<label for="basic-url" style="margin-right: 1.9%;">证件号码:</label>
+							</td >
+							<td class="listItem">
+								<input type="text" class="form-control" id="addTeacherSocialID" aria-describedby="basic-addon3">	
+							</td>
+						</tr>
+					</table>
 					<button type="button" class="btn btn-default" data-dismiss="modal">关闭
 					</button>
 					<button type="button" class="btn btn-primary" id="addClass">
 						确定
 					</button>
-				</div>
-			</div><!-- /.modal-content -->
-		</div><!-- /.modal -->
-	</div>
 	<!-- 结束增加模态框 -->
 	
 	<!-- 删除警告模态框 -->
 	<div class="modal fade" id="DeleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-		<div class="modal-dialog" style="width: 10%;">
+		<div class="modal-dia
+		log" style="width: 10%;">
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
