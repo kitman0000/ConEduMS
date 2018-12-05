@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="TrainingSchoolManage.aspx.cs" Inherits="_Default" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="TrainingSchoolManage.aspx.cs" Inherits="TrainingSchoolManage" %>
 
 <!DOCTYPE html>
 
