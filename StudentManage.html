@@ -159,7 +159,7 @@
 						</td>
 						<td class="listItem">
 							<div class="input-group date form_date col-md-4" style="width: 100%;" data-date="" data-date-format="yyyy年mm月dd日" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
-								<input class="form-control" id="addBirthDate" size="16" type="text" value="" readonly="readonly" style="background: #fff;">
+								<input class="form-control" id="addStuBirthDate" size="16" type="text" value="" readonly="readonly" style="background: #fff;">
 								<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
 							</div>
 						</td>
@@ -619,21 +619,21 @@ function showStudents(data)
 		try{
 			insert = "<tr><td>"+
 			obj[i].stuID+
-			"</td><td "+obj[i].stuID+">"+
+			"</td><td id=class"+obj[i].stuID+">"+
 			obj[i].classID+
-			"</td><td "+obj[i].stuID+">"+
+			"</td><td id=major"+obj[i].stuID+">"+
 			obj[i].majorID+
-			"</td><td "+obj[i].stuID+">"+
+			"</td><td id=stuGender"+obj[i].stuID+">"+
 			obj[i].stuGender+
-			"</td><td "+obj[i].stuID+">"+
+			"</td><td id=stuBirthDate"+obj[i].stuID+">"+
 			obj[i].stuBirthDate+
-			"</td><td "+obj[i].stuID+">"+
+			"</td><td id=stuSocial"+obj[i].stuID+">"+
 			obj[i].stuSocialID+
-			"</td><td "+obj[i].stuID+">"+
+			"</td><td id=stuTel"+obj[i].stuID+">"+
 			obj[i].stuTel+
-			"</td><td "+obj[i].stuID+">"+
+			"</td><td id=stuAddress"+obj[i].stuID+">"+
 			obj[i].stuAddress+
-			"</td><td "+obj[i].stuID+">"+
+			"</td><td id=stuRemark"+obj[i].stuID+">"+
 			obj[i].stuRemark+
 			"</td><td>"+
 			"<button type=\"button\"  data-toggle=\"modal\" data-target=\"#ChangeModal\" class=\"btn btn-primary btn-xs ClassListButton\" onclick=\"edit(\'" + obj[i].stuID + "\')\">修改</button>"+
@@ -719,23 +719,23 @@ function switchPage(num)
 		try{
 			insert = "<tr><th>"+
 			obj[i].stuID+
-			"</th><th "+obj[i].stuID+">"+
+			"</th><th id=class"+obj[i].stuID+">"+
 			obj[i].classID+
-			"</th><th "+obj[i].stuID+">"+
+			"</th><th id=major"+obj[i].stuID+">"+
 			obj[i].majorID+
-			"</th><th "+obj[i].stuID+">"+
+			"</th><th id=stuGender"+obj[i].stuID+">"+
 			obj[i].stuGender+
-			"</th><th "+obj[i].stuID+">"+
+			"</th><th id=stuBirthDate"+obj[i].stuID+">"+
 			obj[i].stuBirthDate+
-			"</th><th "+obj[i].stuID+">"+
+			"</th><th id=startDate"+obj[i].stuID+">"+
 			obj[i].startDate+
-			"</th><th "+obj[i].stuID+">"+
+			"</th><th id=stuSocial"+obj[i].stuID+">"+
 			obj[i].stuSocialID+
-			"</th><th "+obj[i].stuID+">"+
+			"</th><th id=stuTel"+obj[i].stuID+">"+
 			obj[i].stuTel+
-			"</th><th "+obj[i].stuID+">"+
+			"</th><th id=stuAddress"+obj[i].stuID+">"+
 			obj[i].stuAddress+
-			"</th><th "+obj[i].stuID+">"+
+			"</th><th id=stuRemark"+obj[i].stuID+">"+
 			obj[i].stuRemark+
 			"</th><th>"+
 			"<button type=\"button\"  data-toggle=\"modal\" data-target=\"#ChangeModal\" student=\"btn btn-primary btn-xs StudentListButton\" onclick=\"edit(\'" + obj[i].stuID + "\')\">修改</button>"+
