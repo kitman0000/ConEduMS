@@ -355,7 +355,7 @@
 
 		$(function() {
 			$("#navbar").html(getNavbar());
-			$("#ClassManage").addClass("active");
+			$("#AdministratorManage").addAdministrator("active");
 
 			$.ajax({
 				type: "POST",
@@ -366,11 +366,11 @@
 
 				},
 				success: function(data, textStatus) {
-					showClasses(data.d);
+					showAdministrators(data.d);
 				},
 			});
 
-			$("#addClass").click(function() {
+			$("#addAdministrator").click(function() {
 				//warningInfo
 				if ($("#addAdminID").val().length != 6) {
 					$("#warningInfo").html("管理员编号为6位");
@@ -423,7 +423,7 @@
 
 
 				for (i = 0; i < obj.length; i++) {
-					if (obj[i].classID == $("#addAdminID").val()) {
+					if (obj[i].addAdminIDID == $("#addAdminID").val()) {
 						$("#warningInfo").html("该管理员ID已经被占用");
 						$("#warningInfoModal").modal("show");
 						return;
@@ -461,7 +461,7 @@
 					datatype: "json",
 					contentType: "application/json;charset=utf-8",
 					data: "{" +
-						"'classID':'" + delClassID + "'" +
+						"'adminID':'" + delAdminID + "'" +
 						"}",
 					success: function(data, textStatus) {
 						if (data.d == "success") {
@@ -471,7 +471,7 @@
 				});
 			});
 
-			$("#editClass").click(function() {
+			$("#editAdministrator").click(function() {
 
 				if ($("#editAdminID").val().length != 6) {
 					$("#warningInfo").html("管理员编号为6位");
@@ -550,7 +550,7 @@
 			});
 		});
 
-		function showClasses(data) {
+		function showAdministrators(data) {
 			obj = JSON.parse(data);
 			_data = data;
 			for (i = 0; i < obj.length && i < 5; i++) {
@@ -577,7 +577,7 @@
 						"<button type=\"button\" class=\"btn btn-danger ListOperButton  btn-xs \" data-toggle=\"modal\" data-target=\"#DeleteModal\"  onclick=\"del(\'" +
 						obj[i].adminID + "\')\">删除</button>" +
 						"</td></tr>";
-					$("#classListBody").append(insert);
+					$("#administratorListBody").append(insert);
 				} catch (err) {}
 
 			}
@@ -635,7 +635,7 @@
 
 		function switchPage(num) {
 			nowPage = num;
-			$("#classListBody").html("");
+			$("#administratorListBody").html("");
 			//obj = JSON.parse(_data);
 			s = 0;
 			console.log(num);
@@ -664,7 +664,7 @@
 						"<button type=\"button\" class=\"btn btn-danger ListOperButton  btn-xs \" data-toggle=\"modal\" data-target=\"#DeleteModal\"  onclick=\"del(\'" +
 						obj[i].adminID + "\')\">删除</button>" +
 						"</td></tr>";
-					$("#classListBody").append(insert);
+					$("#administratorListBody").append(insert);
 				} catch (err) {}
 				s++;
 			}
@@ -673,7 +673,7 @@
 		function edit(id) {
 			console.log(id);
 			for (i = 0; i < obj.length; i++) {
-				if (obj[i].classID == id) {
+				if (obj[i].adminID == id) {
 					$("#editAdminID").val(obj[i].adminID);
 					$("#editAdminName").val(obj[i].adminName);
 					$("#editAdminGender").val(obj[i].adminGender);
@@ -688,7 +688,7 @@
 		}
 
 		function del(id) {
-			delClassID = id;
+			delAddminID = id;
 		}
 
 		function prePage() {
