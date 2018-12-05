@@ -100,7 +100,7 @@ public partial class AdministratorManage : System.Web.UI.Page
     }
 
     [WebMethod]
-    public static string editAdministrator(string classID, string adminName, string adminGender, string adminBirthDate, string adminSocialID, string adminTel, string adminAddress,string adminRight)
+    public static string editAdministrator(string adminID, string adminName, string adminGender, string adminBirthDate, string adminSocialID, string adminTel, string adminAddress,string adminRight)
     {
         string resultStr = "";
 
