@@ -110,17 +110,19 @@
 					</button>
 					<h4 class="modal-title" id="myModalLabel" style="text-align: left;">
 						添加教师
-					</h4>
-					<table align="center">
-						<tr>
+							</h4>
+						</div>
+						
+						<div class="modal-body">
+							<table align="center">
+								<tbody>
+									<tr>
 							<td class="listItem" style="width: 100px;">
 								<label for="addTeacherrID">教师编号:</label>
 							</td>
 							<td class="listItem">
 								<input type="text" class="form-control" id="addTeacherrID" aria-describedby="basic-addon3">
 							</td>
-							<td>
-							</td class="listItem">
 							<td class="listItem" style="width: 100px;">
 								<label for="addTeacherName">姓名:</label>
 							</td>
@@ -135,7 +137,6 @@
 							<td class="listItem">
 								<input type="text" class="form-control" id="addMajorID" aria-describedby="basic-addon3">
 							</td>
-							<td></td>
 							<td class="listItem" style="width: 100px;">
 								<label for="addTeacherGender">性别:</label>
 							</td>
@@ -149,24 +150,31 @@
 							</td>	
 							<td class="listItem">
 								<input class="form-control" id="addTeacherBirthDate" size="16" type="text" value="" readonly="readonly" style="background: #fff;">
-							</td>
-							<td class="listItem" style="width: 100px;">
 								<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
 							</td>
 							<td>
-								<label for="basic-url" style="margin-right: 1.9%;">证件号码:</label>
+								<label for="basic-url" >证件号码:</label>
 							</td >
 							<td class="listItem">
 								<input type="text" class="form-control" id="addTeacherSocialID" aria-describedby="basic-addon3">	
-							</td>
-						</tr>
+								</td>	
+							</tr>
+						</tbody>
 					</table>
-					<button type="button" class="btn btn-default" data-dismiss="modal">关闭
-					</button>
-					<button type="button" class="btn btn-primary" id="addClass">
-						确定
-					</button>
-	<!-- 结束增加模态框 -->
+				</div>
+									
+			<div class="modal-footer">
+			
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+				  </button>
+				<button type="button" class="btn btn-primary" id="addClass">
+							确定
+				</button>
+			</div>
+		</div><!-- /.modal-content -->
+		</div><!-- /.modal -->
+	</div>
+<!-- 结束增加模态框 -->
 	
 	<!-- 删除警告模态框 -->
 	<div class="modal fade" id="DeleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
