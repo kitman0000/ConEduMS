@@ -713,31 +713,29 @@ function switchPage(num)
 	for(i=(num-1)*5;i<obj.length&&s<5;i++)
 	{
 		try{
-			insert = "<tr><th>"+
+			insert = "<tr><td>"+
 			obj[i].stuID+
-			"</th><th id=class"+obj[i].stuID+">"+
+			"</td><td>"+
 			obj[i].classID+
-			"</th><th id=major"+obj[i].stuID+">"+
+			"</td><td>"+
 			obj[i].majorID+
-			"</th><th id=stuGender"+obj[i].stuID+">"+
+			"</td><td>"+
 			obj[i].stuGender+
-			"</th><th id=stuBirthDate"+obj[i].stuID+">"+
+			"</td><td>"+
 			obj[i].stuBirthDate+
-			"</th><th id=startDate"+obj[i].stuID+">"+
-			obj[i].startDate+
-			"</th><th id=stuSocial"+obj[i].stuID+">"+
+			"</td><td>"+
 			obj[i].stuSocialID+
-			"</th><th id=stuTel"+obj[i].stuID+">"+
+			"</td><td>"+
 			obj[i].stuTel+
-			"</th><th id=stuAddress"+obj[i].stuID+">"+
+			"</td><td>"+
 			obj[i].stuAddress+
-			"</th><th id=stuRemark"+obj[i].stuID+">"+
+			"</td><td>"+
 			obj[i].stuRemark+
-			"</th><th>"+
-			"<button type=\"button\"  data-toggle=\"modal\" data-target=\"#ChangeModal\" student=\"btn btn-primary btn-xs StudentListButton\" onclick=\"edit(\'" + obj[i].stuID + "\')\">修改</button>"+
-			"<button type=\"button\" student=\"btn btn-danger StudentListButton  btn-xs \" data-toggle=\"modal\" data-target=\"#DeleteModal\"  onclick=\"del(\'" + obj[i].stuID + "\')\">删除</button>"+
+			"</td><td>"+
+			"<button type=\"button\"  data-toggle=\"modal\" data-target=\"#ChangeModal\" class=\"btn btn-primary btn-xs ClassListButton\" onclick=\"edit(\'" + obj[i].stuID + "\')\">修改</button>"+
+			"<button type=\"button\" class=\"btn btn-danger StudentListButton  btn-xs \" data-toggle=\"modal\" data-target=\"#DeleteModal\"  onclick=\"del(\'" + obj[i].stuID + "\')\">删除</button>"+
 			"</th></tr>";
-			$("#studentListBody").append(insert);
+			$("#studentListBody").append(insert); 	
 		}
 		catch(err){}
 		s++;
