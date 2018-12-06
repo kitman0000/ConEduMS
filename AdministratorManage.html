@@ -362,8 +362,7 @@
 		var obj;
 
 		$(function() {
-			$("#navbar").html(getNavbar());
-			$("#AdministratorManage").addAdministrator("active");
+			
 
 			$.ajax({
 				type: "POST",
@@ -380,6 +379,7 @@
 
 			$("#addAdministrator").click(function() {
 				//warningInfo
+				
 				if ($("#addAdminID").val().length != 6) {
 					$("#warningInfo").html("管理员编号为6位");
 					$("#warningInfoModal").modal("show");
@@ -565,19 +565,19 @@
 				try {
 					insert = "<tr><td>" +
 						obj[i].adminID +
-						"</td><td " + obj[i].adminID + ">" +
+						"</td><td >" +
 						obj[i].adminName +
-						"</td><td " + obj[i].adminID + ">" +
+						"</td><td >" +
 						obj[i].adminGender +
-						"</td><td " + obj[i].adminID + ">" +
+						"</td><td >" +
 						obj[i].adminBirthDate +
-						"</td><td " + obj[i].adminID + ">" +
+						"</td><td >" +
 						obj[i].adminSocialID +
-						"</td><td " + obj[i].adminID + ">" +
+						"</td><td >" +
 						obj[i].adminTel +
-						"</td><td " + obj[i].adminID + ">" +
+						"</td><td >" +
 						obj[i].adminAddress +
-						"</td><td " + obj[i].adminID + ">" +
+						"</td><td >" +
 						obj[i].adminRight +
 						"</td><td>" +
 						"<button type=\"button\"  data-toggle=\"modal\" data-target=\"#ChangeModal\" administrator=\"btn btn-primary btn-xs ListOperButton\" onclick=\"edit(\'" +
@@ -651,19 +651,19 @@
 				try {
 					insert = "<tr><td>" +
 						obj[i].adminID +
-						"</td><td " + obj[i].adminID + ">" +
+						"</td><td >" +
 						obj[i].adminName +
-						"</td><td " + obj[i].adminID + ">" +
+						"</td><td >" +
 						obj[i].adminGender +
-						"</td><td " + obj[i].adminID + ">" +
+						"</td><td >" +
 						obj[i].adminBirthDate +
-						"</td><td " + obj[i].adminID + ">" +
+						"</td><td >" +
 						obj[i].adminSocialID +
-						"</td><td " + obj[i].adminID + ">" +
+						"</td><td >" +
 						obj[i].adminTel +
-						"</td><td " + obj[i].adminID + ">" +
+						"</td><td >" +
 						obj[i].adminAddress +
-						"</td><td " + obj[i].adminID + ">" +
+						"</td><td >" +
 						obj[i].adminRight +
 						
 						"</td><td>" +
