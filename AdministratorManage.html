@@ -57,7 +57,7 @@
 					<button id="addItem" data-toggle="modal" data-target="#addModal" class="btn btn-primary">添加</button>
 				</div>
 				<div class="bs-example" data-example-id="simple-table">
-					<table class="table" id="ClassList">
+					<table class="table" id="AdministratorList">
 						<thead class="row">
 							<th class="col-sm-2 col-xs-2 ">
 								管理员编号
@@ -87,7 +87,7 @@
 
 							</th>
 						</thead>
-						<tbody id="classListBody">
+						<tbody id="administratorListBody">
 
 						</tbody>
 					</table>
@@ -141,10 +141,10 @@
 
 								<tr>
 									<td class="listItem">
-										<label for="addAdminAddress" style="margin-right: 3px;">性别:</label>
+										<label for="addAdminGender" style="margin-right: 3px;">性别:</label>
 									</td>
 									<td class="listItem">
-										<input type="text" class="form-control" id="addAdminAddress" aria-describedby="basic-addon3">
+										<input type="text" class="form-control" id="addAdminGender" aria-describedby="basic-addon3">
 									</td>
 									<td class="listItem">
 										<label for="addAdminBirthDate" style="marAgin-right: 0.5%;">出生日期:</label>
@@ -195,7 +195,7 @@
 
 							<button type="button" class="btn btn-default" data-dismiss="modal">关闭
 							</button>
-							<button type="button" class="btn btn-primary" id="addClass">
+							<button type="button" class="btn btn-primary" id="addAdministrator">
 								确定
 							</button>
 						</div>
@@ -243,7 +243,7 @@
 							&times;
 						</button>
 						<h4 class="modal-title" id="myModalLabel" style="text-align: left;">
-							修改班级
+							修改管理员
 						</h4>
 					</div>
 					<div class="modal-body">
@@ -322,7 +322,7 @@
 
 						<button type="button" class="btn btn-default" data-dismiss="modal">关闭
 						</button>
-						<button type="button" class="btn btn-primary" id="editClass">
+						<button type="button" class="btn btn-primary" id="editAdministrator">
 							提交更改
 						</button>
 					</div>
@@ -355,7 +355,7 @@
 			</div><!-- /.modal -->
 		</div>
 		<!-- 结束删除警告模态框 -->
-		</div>
+		
 	</body>
 
 	<script>
@@ -431,7 +431,7 @@
 
 
 				for (i = 0; i < obj.length; i++) {
-					if (obj[i].addAdminIDID == $("#addAdminID").val()) {
+					if (obj[i].addAdminID == $("#addAdminID").val()) {
 						$("#warningInfo").html("该管理员ID已经被占用");
 						$("#warningInfoModal").modal("show");
 						return;
@@ -696,7 +696,7 @@
 		}
 
 		function del(id) {
-			delAddminID = id;
+			delAdminID = id;
 		}
 
 		function prePage() {
