@@ -271,7 +271,7 @@ $(function(){
 		},
 		success:
 			function (data, textStatus) {
-				showClasses(data.d);
+				showCourses(data.d);
 			},
 	});
 	
@@ -284,31 +284,22 @@ $(function(){
 			return;
 		}
 		
-		if($("#addCourseName").val().length <=30)
+		if($("#addCourseName").val().length >30)
 		{
-			$("#warningInfo").html("课程信息小于等于30位");
+			$("#warningInfo").html("课程信息不大于30位");
 			$("#warningInfoModal").modal("show");
 			return;
 		}
 		
-		if($("#addCourseRemark").val().length <=500)
+		if($("#addCourseRemark").val().length >500)
 		{
-			$("#warningInfo").html("备注小于等于500字");
+			$("#warningInfo").html("备注不大于500字");
 			$("#warningInfoModal").modal("show");
 			return;
 		}
 		
 		
-		for(i = 0;i<obj.length;i++)
-		{
-			if(obj[i].courseID == $("#addCourseID").val())
-			{
-				$("#warningInfo").html("该课程ID已经被占用");
-				$("#warningInfoModal").modal("show");
-				return;
-			}
-		}
-
+		
 		$("#addModal").modal("hide");
 		
 		$.ajax({
