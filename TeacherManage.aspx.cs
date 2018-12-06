@@ -70,6 +70,7 @@ public partial class TeacherManage : System.Web.UI.Page
         SqlCommand cmd = new SqlCommand("INSERT INTO DB_ConEduMS.dbo.tb_teacher VALUES (@teacherID,@teacherName,@teacherGender,@teacherBirthDate,@teacherSocialID,@teacherTel,@teacherAddress,@teacherRemark,@majorID);", sqlcon);
         cmd.Parameters.AddWithValue("@teacherID", teacherID);
         cmd.Parameters.AddWithValue("@teacherName", teacherName);
+        cmd.Parameters.AddWithValue("@teacherGender", teacherGender);   
         cmd.Parameters.AddWithValue("@teacherBirthDate", teacherBirthDate);
         cmd.Parameters.AddWithValue("@teacherSocialID", teacherSocialID);
         cmd.Parameters.AddWithValue("@teacherTel", teacherTel);
@@ -108,7 +109,7 @@ public partial class TeacherManage : System.Web.UI.Page
         SqlConnection sqlcon = null;
         SQLserverOper.open(ref sqlcon);
 
-        SqlCommand cmd = new SqlCommand("UPDATE DB_ConEduMS.dbo.tb_teacher SET teacherName = @teacherName,teacherGender = @teacherGender,teacherBirthDate = @teacherBirthDate, teacherSocialID = @teacherSocialID,teacherTel = @teacherTel,teacherAddress = @teacherAddress, teacherRemark = @teacherRemark,majorID = @majorID WHERE classID = @classID;", sqlcon);
+        SqlCommand cmd = new SqlCommand("UPDATE DB_ConEduMS.dbo.tb_teacher SET teacherName = @teacherName,teacherGender = @teacherGender,teacherBirthDate = @teacherBirthDate, teacherSocialID = @teacherSocialID,teacherTel = @teacherTel,teacherAddress = @teacherAddress, teacherRemark = @teacherRemark,majorID = @majorID WHERE teacherID = @teacherID;", sqlcon);
         cmd.Parameters.AddWithValue("@teacherID", teacherID);
         cmd.Parameters.AddWithValue("@teacherName", teacherName);
         cmd.Parameters.AddWithValue("@teacherGender", teacherGender);
