@@ -54,7 +54,7 @@ public partial class CourseManage : System.Web.UI.Page
     }
 
     [WebMethod]
-    public static string addCourse(string courseID, string courseNameD, string courseRemark)
+    public static string addCourse(string courseID, string courseName, string courseRemark)
     {
         string resultStr = "";
 
@@ -90,14 +90,14 @@ public partial class CourseManage : System.Web.UI.Page
     }
 
     [WebMethod]
-    public static string editCourse(string courseID, string courseName, string courseRemark, string counselorName, string counselorTel, string startDate, string endDate)
+    public static string editCourse(string courseID, string courseName, string courseRemark)
     {
         string resultStr = "";
 
         SqlConnection sqlcon = null;
         SQLserverOper.open(ref sqlcon);
 
-        SqlCommand cmd = new SqlCommand("UPDATE DB_ConEduMS.dbo.tb_course SET courseName = @courseName,courseRemark = @courseRemark;", sqlcon);
+        SqlCommand cmd = new SqlCommand("UPDATE DB_ConEduMS.dbo.tb_course SET courseName = @courseName,courseRemark = @courseRemark WHERE courseID = @courseID;", sqlcon);
         cmd.Parameters.AddWithValue("@courseID", courseID);
         cmd.Parameters.AddWithValue("@courseName", courseName);
         cmd.Parameters.AddWithValue("@courseRemark", courseRemark);
@@ -108,4 +108,4 @@ public partial class CourseManage : System.Web.UI.Page
 
         return resultStr;
     }
-}
+}   
