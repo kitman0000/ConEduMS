@@ -57,7 +57,7 @@
 					<button id="addItem" data-toggle="modal" data-target="#addModal" class="btn btn-primary">添加</button>
 				</div>
 				<div class="bs-example" data-example-id="simple-table">
-					<table class="table" id="ClassList">
+					<table class="table" id="AdministratorList">
 						<thead class="row">
 							<th class="col-sm-2 col-xs-2 ">
 								管理员编号
@@ -87,7 +87,7 @@
 
 							</th>
 						</thead>
-						<tbody id="classListBody">
+						<tbody id="administratorListBody">
 
 						</tbody>
 					</table>
@@ -243,7 +243,7 @@
 							&times;
 						</button>
 						<h4 class="modal-title" id="myModalLabel" style="text-align: left;">
-							修改班级
+							修改管理员
 						</h4>
 					</div>
 					<div class="modal-body">
@@ -355,15 +355,14 @@
 			</div><!-- /.modal -->
 		</div>
 		<!-- 结束删除警告模态框 -->
-		</div>
+		
 	</body>
 
 	<script>
 		var obj;
 
 		$(function() {
-			$("#navbar").html(getNavbar());
-			$("#AdministratorManage").addAdministrator("active");
+			
 
 			$.ajax({
 				type: "POST",
@@ -380,6 +379,7 @@
 
 			$("#addAdministrator").click(function() {
 				//warningInfo
+				
 				if ($("#addAdminID").val().length != 6) {
 					$("#warningInfo").html("管理员编号为6位");
 					$("#warningInfoModal").modal("show");
@@ -431,7 +431,7 @@
 
 
 				for (i = 0; i < obj.length; i++) {
-					if (obj[i].addAdminIDID == $("#addAdminID").val()) {
+					if (obj[i].addAdminID == $("#addAdminID").val()) {
 						$("#warningInfo").html("该管理员ID已经被占用");
 						$("#warningInfoModal").modal("show");
 						return;
@@ -565,19 +565,19 @@
 				try {
 					insert = "<tr><td>" +
 						obj[i].adminID +
-						"</td><td " + obj[i].adminID + ">" +
+						"</td><td >" +
 						obj[i].adminName +
-						"</td><td " + obj[i].adminID + ">" +
+						"</td><td >" +
 						obj[i].adminGender +
-						"</td><td " + obj[i].adminID + ">" +
+						"</td><td >" +
 						obj[i].adminBirthDate +
-						"</td><td " + obj[i].adminID + ">" +
+						"</td><td >" +
 						obj[i].adminSocialID +
-						"</td><td " + obj[i].adminID + ">" +
+						"</td><td >" +
 						obj[i].adminTel +
-						"</td><td " + obj[i].adminID + ">" +
+						"</td><td >" +
 						obj[i].adminAddress +
-						"</td><td " + obj[i].adminID + ">" +
+						"</td><td >" +
 						obj[i].adminRight +
 						"</td><td>" +
 						"<button type=\"button\"  data-toggle=\"modal\" data-target=\"#ChangeModal\" administrator=\"btn btn-primary btn-xs ListOperButton\" onclick=\"edit(\'" +
@@ -651,19 +651,19 @@
 				try {
 					insert = "<tr><td>" +
 						obj[i].adminID +
-						"</td><td " + obj[i].adminID + ">" +
+						"</td><td >" +
 						obj[i].adminName +
-						"</td><td " + obj[i].adminID + ">" +
+						"</td><td >" +
 						obj[i].adminGender +
-						"</td><td " + obj[i].adminID + ">" +
+						"</td><td >" +
 						obj[i].adminBirthDate +
-						"</td><td " + obj[i].adminID + ">" +
+						"</td><td >" +
 						obj[i].adminSocialID +
-						"</td><td " + obj[i].adminID + ">" +
+						"</td><td >" +
 						obj[i].adminTel +
-						"</td><td " + obj[i].adminID + ">" +
+						"</td><td >" +
 						obj[i].adminAddress +
-						"</td><td " + obj[i].adminID + ">" +
+						"</td><td >" +
 						obj[i].adminRight +
 						
 						"</td><td>" +
@@ -696,7 +696,7 @@
 		}
 
 		function del(id) {
-			delAddminID = id;
+			delAdminID = id;
 		}
 
 		function prePage() {
