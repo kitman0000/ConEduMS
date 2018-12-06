@@ -298,7 +298,15 @@ $(function(){
 			return;
 		}
 		
-		
+		for(i = 0;i < obj.length;i++)  
+		 {
+			if(obj[i].courseID == $("#addCourseID").val())
+			{
+				$("#warningInfo").html("该课程ID已经被占用");
+				$("#warningInfoModal").modal("show");
+				return;
+			}
+		 }
 		
 		$("#addModal").modal("hide");
 		
