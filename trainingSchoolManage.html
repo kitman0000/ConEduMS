@@ -5,12 +5,10 @@
 		<meta charset="utf-8" />
 		<link rel="stylesheet" href="css/bootstrap.min.css">
 		<link rel="stylesheet" href="css/webStyle.css">
-		<link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css">
 
 		<script src="js/System.js"></script>
 		<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
-		<script src="js/bootstrap-datetimepicker.zh-CN.js"></script>
 		<script src="js/System.js"></script>
 
 	</head>
@@ -66,6 +64,8 @@
 							</th>
 							<th class="col-sm-2 col-xs-2 ">
 								备注信息
+							</th>
+							<th>
 							</th>
 						</thead>
 						<tbody id="trainingSchoolListBody">
@@ -362,7 +362,7 @@
 						"'schoolName':'" + $("#addSchoolName").val() + "'," +
 						"'schoolAddress':'" + $("#addSchoolAddress").val() + "'," +
 						"'schoolTel':'" + $("#addSchoolTel").val() + "'," +
-						"'schoolRemark':'" + $("#addSchoolRemark").val() + "'," +
+						"'schoolRemark':'" + $("#addSchoolRemark").val() + "'" +
 						"}",
 					success: function(data, textStatus) {
 						setCookie("add", 1);
@@ -433,7 +433,7 @@
 						"'schoolName':'" + $("#editSchoolName").val() + "'," +
 						"'schoolAddress':'" + $("#editSchoolAddress").val() + "'," +
 						"'schoolTel':'" + $("#editSchoolTel").val() + "'," +
-						"'schoolRemark':'" + $("#editSchoolRemark").val() + "'," +
+						"'schoolRemark':'" + $("#editSchoolRemark").val() + "'" +
 						"}",
 					success: function(data, textStatus) {
 						if (data.d == "success") {
@@ -460,9 +460,9 @@
 						"</td><td>" +
 						obj[i].schoolRemark +
 						"</td><td>" +
-						"<button type=\"button\"  data-toggle=\"modal\" data-target=\"#ChangeModal\" trainingSchool=\"btn btn-primary btn-xs ListOperButton\" onclick=\"edit(\'" +
+						"<button type=\"button\"  data-toggle=\"modal\" data-target=\"#ChangeModal\" class=\"btn btn-primary btn-xs ListOperButton\" onclick=\"edit(\'" +
 						obj[i].schoolID + "\')\">修改</button>" +
-						"<button type=\"button\" trainingSchool=\"btn btn-danger ListOperButton  btn-xs \" data-toggle=\"modal\" data-target=\"#DeleteModal\"  onclick=\"del(\'" +
+						"<button type=\"button\" class=\"btn btn-danger ListOperButton  btn-xs \" data-toggle=\"modal\" data-target=\"#DeleteModal\"  onclick=\"del(\'" +
 						obj[i].schoolID + "\')\">删除</button>" +
 						"</td></tr>";
 					$("#trainingSchoolListBody").append(insert);
@@ -489,16 +489,6 @@
 				setCookie("delete", 0);
 			}
 
-			$('.form_date').datetimepicker({
-				language: 'zh-CN',
-				weekStart: 1,
-				todayBtn: 1,
-				autoclose: 1,
-				todayHighlight: 1,
-				startView: 2,
-				minView: 2,
-				forceParse: 0
-			});
 		}
 
 		function deleteSuccess() {
@@ -537,9 +527,9 @@
 						"</td><td>" +
 						obj[i].schoolRemark +
 						"</td><td>" +
-						"<button type=\"button\"  data-toggle=\"modal\" data-target=\"#ChangeModal\" trainingSchool=\"btn btn-primary btn-xs ListOperButton\" onclick=\"edit(\'" +
+						"<button type=\"button\"  data-toggle=\"modal\" data-target=\"#ChangeModal\" class=\"btn btn-primary btn-xs ListOperButton\" onclick=\"edit(\'" +
 						obj[i].schoolID + "\')\">修改</button>" +
-						"<button type=\"button\" trainingSchool=\"btn btn-danger ListOperButton  btn-xs \" data-toggle=\"modal\" data-target=\"#DeleteModal\"  onclick=\"del(\'" +
+						"<button type=\"button\" class=\"btn btn-danger ListOperButton  btn-xs \" data-toggle=\"modal\" data-target=\"#DeleteModal\"  onclick=\"del(\'" +
 						obj[i].schoolID + "\')\">删除</button>" +
 						"</td></tr>";
 					$("#trainingSchoolListBody").append(insert);
@@ -553,8 +543,8 @@
 			for (i = 0; i < obj.length; i++) {
 				if (obj[i].schoolID == id) {
 					$("#editSchoolID").val(obj[i].schoolID);
-					$("#editSchoolNameID").val(obj[i].schoolNameID);
-					$("#editSchoolAddress").val(obj[i].schooladdress);
+					$("#editSchoolName").val(obj[i].schoolName);
+					$("#editSchoolAddress").val(obj[i].schoolAddress);
 					$("#editSchoolTel").val(obj[i].schoolTel);
 					$("#editSchoolRemark").val(obj[i].schoolRemark);
 					break;

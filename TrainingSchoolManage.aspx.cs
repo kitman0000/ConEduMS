@@ -40,7 +40,7 @@ public partial class TrainingSchoolManage : System.Web.UI.Page
                      "\"schoolName\":\"" + dr[1].ToString().Trim() + "\"," +
                          "\"schoolAddress\":\"" + dr[2].ToString().Trim() + "\"," +
                           "\"schoolTel\":\"" + dr[3].ToString().Trim() + "\"," +
-                           "\"schoolRemark\":\"" + dr[4].ToString().Trim() + "\"," +                          
+                           "\"schoolRemark\":\"" + dr[4].ToString().Trim() + "\"" +                          
                      "}";
 
             if (i != ds.Tables[0].Rows.Count)
