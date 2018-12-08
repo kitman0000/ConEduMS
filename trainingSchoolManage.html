@@ -100,7 +100,9 @@
 								添加教学点
 							</h4>
 						</div>
+						<div class="modal-body">
 						<table align="center">
+							<tbody>
 
 							<tr>
 								<td class="listItem" style="width: 100px;">
@@ -143,9 +145,9 @@
 								</td>
 								
 							</tr>
-
+							</tbody>
 						</table>
-						
+						</div>
 						
 						<div class="modal-footer">
 
@@ -202,7 +204,9 @@
 							修改教学点
 						</h4>
 					</div>
+					<div class="modal-body">
 					<table align="center">
+						<tbody>
 						<tr>
 							<td class="listItem" style="width: 100px;">
 								<label for="editSchoolID" >教学点编号:</label>
@@ -241,8 +245,10 @@
 								<input type="text" class="form-control" id="editSchoolRemark" aria-describedby="basic-addon3">
 							</td>
 						</tr>	
-						
-			
+						</tbody>
+					</table>
+					</div>
+					
 					<div class="modal-footer">
 
 						<button type="button" class="btn btn-default" data-dismiss="modal">关闭
@@ -313,32 +319,32 @@
 				}
 
 				if ($("#addSchoolName").val().length >= 30 || $("#addSchoolName").val().length ==0) {
-					$("#warningInfo").html("教学点名称为30位");
+					$("#warningInfo").html("教学点名称小于30位");
 					$("#warningInfoModal").modal("show");
 					return;
 				}
 
 				if ($("#addSchoolAddress").val().length >= 50 || $("#addSchoolAddress").val().length==0) {
-					$("#warningInfo").html("教学点地址为50位");
+					$("#warningInfo").html("教学点地址小于50位");
 					$("#warningInfoModal").modal("show");
 					return;
 				}
 
 				if ($("#addSchoolTel").val().length >=30 || $("#addSchoolTel").val().length ==0) {
-					$("#warningInfo").html("教学点对外咨询电话为30位");
+					$("#warningInfo").html("教学点对外咨询电话小于30位");
 					$("#warningInfoModal").modal("show");
 					return;
 				}
 
 				if ($("#addSchoolRemark").val().length >=500 || $("#addSchoolRemark").val().length==0) {
-					$("#warningInfo").html("备注信息为500位");
+					$("#warningInfo").html("备注信息小于500位");
 					$("#warningInfoModal").modal("show");
 					return;
 				}
 
 				for (i = 0; i < obj.length; i++) {
 					if (obj[i].trainingSchoolID == $("#addSchoolID").val()) {
-						$("#warningInfo").html("该班级ID已经被占用");
+						$("#warningInfo").html("该教学点ID已经被占用");
 						$("#warningInfoModal").modal("show");
 						return;
 					}
@@ -391,25 +397,25 @@
 				}
 
 				if ($("#editSchoolName").val().length >= 30 || $("#editSchoolName").val().length ==0) {
-					$("#warningInfo").html("教学点名称为30位");
+					$("#warningInfo").html("教学点名称小于30位");
 					$("#warningInfoModal").modal("show");
 					return;
 				}
 
 				if ($("#editSchoolAddress").val().length >= 50 || $("#editSchoolAddress").val().length ==0) {
-					$("#warningInfo").html("教学点地址为50位");
+					$("#warningInfo").html("教学点地址小于50位");
 					$("#warningInfoModal").modal("show");
 					return;
 				}
 
 				if ($("#editSchoolTel").val().length >= 30 || $("#editSchoolTel").val().length ==0) {
-					$("#warningInfo").html("教学点对外咨询电话为30位");
+					$("#warningInfo").html("教学点对外咨询电话小于30位");
 					$("#warningInfoModal").modal("show");
 					return;
 				}
 
 				if ($("#editSchoolRemark").val().length >= 500 || $("#editSchoolRemark").val().length ==0) {
-					$("#warningInfo").html("备注信息为500位");
+					$("#warningInfo").html("备注信息小于500位");
 					$("#warningInfoModal").modal("show");
 					return;
 				}
@@ -446,8 +452,6 @@
 					insert = "<tr><td>" +
 						obj[i].schoolID +
 						"</td><td>" +
-						obj[i].schoolID +
-						"</td><td>" +
 						obj[i].schoolName +
 						"</td><td>" +
 						obj[i].schoolAddress +
@@ -457,9 +461,9 @@
 						obj[i].schoolRemark +
 						"</td><td>" +
 						"<button type=\"button\"  data-toggle=\"modal\" data-target=\"#ChangeModal\" trainingSchool=\"btn btn-primary btn-xs ListOperButton\" onclick=\"edit(\'" +
-						obj[i].trainingSchoolID + "\')\">修改</button>" +
+						obj[i].schoolID + "\')\">修改</button>" +
 						"<button type=\"button\" trainingSchool=\"btn btn-danger ListOperButton  btn-xs \" data-toggle=\"modal\" data-target=\"#DeleteModal\"  onclick=\"del(\'" +
-						obj[i].trainingSchoolID + "\')\">删除</button>" +
+						obj[i].schoolID + "\')\">删除</button>" +
 						"</td></tr>";
 					$("#trainingSchoolListBody").append(insert);
 				} catch (err) {}
@@ -525,8 +529,6 @@
 					insert = "<tr><td>" +
 						obj[i].schoolID +
 						"</td><td>" +
-						obj[i].schoolID +
-						"</td><td>" +
 						obj[i].schoolName +
 						"</td><td>" +
 						obj[i].schoolAddress +
@@ -536,9 +538,9 @@
 						obj[i].schoolRemark +
 						"</td><td>" +
 						"<button type=\"button\"  data-toggle=\"modal\" data-target=\"#ChangeModal\" trainingSchool=\"btn btn-primary btn-xs ListOperButton\" onclick=\"edit(\'" +
-						obj[i].trainingSchoolID + "\')\">修改</button>" +
+						obj[i].schoolID + "\')\">修改</button>" +
 						"<button type=\"button\" trainingSchool=\"btn btn-danger ListOperButton  btn-xs \" data-toggle=\"modal\" data-target=\"#DeleteModal\"  onclick=\"del(\'" +
-						obj[i].trainingSchoolID + "\')\">删除</button>" +
+						obj[i].schoolID + "\')\">删除</button>" +
 						"</td></tr>";
 					$("#trainingSchoolListBody").append(insert);
 				} catch (err) {}
@@ -561,7 +563,7 @@
 		}
 
 		function del(id) {
-			delschoolID = id;
+			delSchoolID = id;
 		}
 
 		function prePage() {
