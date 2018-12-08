@@ -61,7 +61,7 @@ public partial class CourseManage : System.Web.UI.Page
         SqlConnection sqlcon = null;
         SQLserverOper.open(ref sqlcon);
 
-        SqlCommand cmd = new SqlCommand("INSERT INTO DB_ConEduMS.dbo.tb_course VALUES (@courseID,@courseName,@courseRemark;", sqlcon);
+        SqlCommand cmd = new SqlCommand("INSERT INTO DB_ConEduMS.dbo.tb_course VALUES (@courseID,@courseName,@courseRemark）;", sqlcon);
         cmd.Parameters.AddWithValue("@courseID", courseID);
         cmd.Parameters.AddWithValue("@courseName", courseName);
         cmd.Parameters.AddWithValue("@courseRemark", courseRemark);
