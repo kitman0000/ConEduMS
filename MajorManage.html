@@ -120,7 +120,7 @@
 										<input type="text" class="form-control" id="addMajorID" aria-describedby="basic-addon3">
 								</td>
 								<td class="listItem" style="width: 100px;">
-									<label for="addMajorName">名称:</label>
+									<label for="addMajorName">专业名称:</label>
 								</td>
 								<td class="listItem">
 										<input type="text" class="form-control" id="addMajorName" aria-describedby="basic-addon3">
@@ -129,7 +129,7 @@
 							
 							<tr>
 								<td class="listItem">
-									<label for="addMajorRemark">备注:</label>
+									<label for="addMajorRemark">备注信息:</label>
 								</td>
 								<td class="listItem">
 									<input type="text" class="form-control" id="addMajorRemark" aria-describedby="basic-addon3">
@@ -195,7 +195,7 @@
 						修改专业
 					</h4>
 				</div>
-				<div class="modal-body" style="text-align: left;padding-left: 25%;">
+				<div class="modal-body" style="text-align: left;">
 
 					<table align="center">
 					
@@ -204,7 +204,7 @@
 								<label for="editMajorID">专业编号:</label>
 							</td>
 							<td class="listItem">
-								<input type="text" class="form-control" id="editMajorID" aria-describedby="basic-addon3" readonly="readonly">
+								<input type="text" class="form-control" id="editMajorID" aria-describedby="basic-addon3" readonly>
 							</td>
 							<td class="listItem" style="width: 100px;">
 								<label for="editMajorName">名称:</label>
@@ -215,10 +215,10 @@
 						</tr>
 						<tr>
 							<td class="listItem">
-								<label for="addMajorRemark">备注:</label>
+								<label for="editMajorRemark">备注:</label>
 							</td>
 							<td class="listItem">
-								<input type="text" class="form-control" id="addMajorRemark" aria-describedby="basic-addon3">
+								<input type="text" class="form-control" id="editMajorRemark" aria-describedby="basic-addon3">
 							</td>
 						</tr>
 					</table>
@@ -292,22 +292,21 @@ $(function(){
 			return;
 		}
 		
-		if($("#addMajorName").val().length <=30)
+		if($("#addMajorName").val().length >= 30 || $("#addMajorName").val().length == 0)
 		{
-			$("#warningInfo").html("专业名称小于或等于40位");
+			$("#warningInfo").html("专业名称不能大于40位或者为空");
 			$("#warningInfoModal").modal("show");
 			return;
 		}
 		
-		if($("#addMajorRemark").val().length <=500)
+		if($("#addMajorRemark").val().length >= 500 || $("#addMajorRemark").val().length == 0)
 		{
-			$("#warningInfo").html("专业名称小于或等于40字");
+			$("#warningInfo").html("专业备注不能大于500字或为空");
 			$("#warningInfoModal").modal("show");
 			return;
 		}
 		
 		
-		}
 
 		$("#addModal").modal("hide");
 		
@@ -320,7 +319,7 @@ $(function(){
 				"{"+
 				"'majorID':'" + $("#addMajorID").val()+"',"+
 				"'majorName':'" + $("#addMajorName").val()+"',"+
-				"'majorRemark':'" + $("#addMajorRemark").val()+"',"+
+				"'majorRemark':'" + $("#addMajorRemark").val()+"'"
 				+"}"
 			,
 			success:
@@ -339,7 +338,7 @@ $(function(){
 			contentType: "application/json;charset=utf-8",
 			data:
 				"{"+
-				"'MajorID':'" + delMajorID +"'"+
+				"'majorID':'" + delMajorID +"'"+
 				"}"
 			,
 			success:
@@ -361,16 +360,16 @@ $(function(){
 			return;
 		}
 		
-		if($("#editMajorName").val().length <=30)
+		if($("#editMajorName").val().length >= 30 || $("#editMajorName").val().length == 0)
 		{
-			$("#warningInfo").html("专业名称小于或等于30位");
+			$("#warningInfo").html("专业名称不能大于40位或者为空");
 			$("#warningInfoModal").modal("show");
 			return;
 		}
 		
-		if($("#editMajorRemark").val().length <=500)
+		if($("#editMajorRemark").val().length >= 500 || $("#editMajorRemark").val().length == 0)
 		{
-			$("#warningInfo").html("专业名称小于或等于500字");
+			$("#warningInfo").html("备注信息不能大于500字或为空");
 			$("#warningInfoModal").modal("show");
 			return;
 		}
@@ -388,7 +387,7 @@ $(function(){
 				"{"+
 				"'majorID':'" + $("#editMajorID").val()+"',"+
 				"'majorName':'" + $("#editMajorName").val()+"',"+
-				"'majorRemark':'" + $("#editMajorRemark").val()+"',"+
+				"'majorRemark':'" + $("#editMajorRemark").val()+"'"
 				+"}"
 			,
 			success:
@@ -416,8 +415,8 @@ function showMajors(data)
 			"</th><th>"+
 			obj[i].majorRemark+
 			"</th><th>"+
-			"<button type=\"button\"  data-toggle=\"modal\" data-target=\"#ChangeModal\" major=\"btn btn-primary btn-xs MajorListButton\" onclick=\"edit(\'" + obj[i].majorID + "\')\">修改</button>"+
-			"<button type=\"button\" major=\"btn btn-danger MajorListButton  btn-xs \" data-toggle=\"modal\" data-target=\"#DeleteModal\"  onclick=\"del(\'" + obj[i].majorID + "\')\">删除</button>"+
+			"<button type=\"button\"  data-toggle=\"modal\" data-target=\"#ChangeModal\" class=\"btn btn-primary btn-xs ListOperButton\" onclick=\"edit(\'" + obj[i].majorID + "\')\">修改</button>"+
+			"<button type=\"button\" class=\"btn btn-danger ListOperButton  btn-xs \" data-toggle=\"modal\" data-target=\"#DeleteModal\"  onclick=\"del(\'" + obj[i].majorID + "\')\">删除</button>"+
 			"</th></tr>";
 			$("#majorListBody").append(insert);
 		}
@@ -498,8 +497,8 @@ function switchPage(num)
 			"</th><th>"+
 			obj[i].majorRemark+
 			"</th><th>"+
-			"<button type=\"button\"  data-toggle=\"modal\" data-target=\"#ChangeModal\" major=\"btn btn-primary btn-xs MajorListButton\" onclick=\"edit(\'" + obj[i].majorID + "\')\">修改</button>"+
-			"<button type=\"button\" major=\"btn btn-danger MajorListButton  btn-xs \" data-toggle=\"modal\" data-target=\"#DeleteModal\"  onclick=\"del(\'" + obj[i].majorID + "\')\">删除</button>"+
+			"<button type=\"button\"  data-toggle=\"modal\" data-target=\"#ChangeModal\" class=\"btn btn-primary btn-xs ListOperButton\" onclick=\"edit(\'" + obj[i].majorID + "\')\">修改</button>"+
+			"<button type=\"button\" class=\"btn btn-danger ListOperButton btn-xs \" data-toggle=\"modal\" data-target=\"#DeleteModal\"  onclick=\"del(\'" + obj[i].majorID + "\')\">删除</button>"+
 			"</th></tr>";
 			$("#majorListBody").append(insert);
 		}
@@ -525,7 +524,7 @@ function edit(id)
 
 function del(id)
 {
-	del	MajorID = id;
+	delMajorID = id;
 }
 
 function prePage()
@@ -536,11 +535,9 @@ function prePage()
 	}
 }
 
-function nextPage()
-{
+function nextPage() {
 	obj = JSON.parse(_data);
-	if(nowPage!=obj.length/5 + 1)
-	{
+	if (nowPage != Math.floor(obj.length / 5 + 1)) {
 		switchPage(nowPage + 1);
 	}
 }

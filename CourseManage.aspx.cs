@@ -38,7 +38,7 @@ public partial class CourseManage : System.Web.UI.Page
         {
             resultStr += "{\"courseID\":\"" + dr[0].ToString().Trim() + "\"," +
                      "\"courseName\":\"" + dr[1].ToString().Trim() + "\"," +
-                         "\"courseRemark\":\"" + dr[2].ToString().Trim() + "\"," +
+                         "\"courseRemark\":\"" + dr[2].ToString().Trim() + "\"" +
                      "}";
 
             if (i != ds.Tables[0].Rows.Count)
@@ -61,7 +61,7 @@ public partial class CourseManage : System.Web.UI.Page
         SqlConnection sqlcon = null;
         SQLserverOper.open(ref sqlcon);
 
-        SqlCommand cmd = new SqlCommand("INSERT INTO DB_ConEduMS.dbo.tb_course VALUES (@courseID,@courseName,@courseRemark）;", sqlcon);
+        SqlCommand cmd = new SqlCommand("INSERT INTO DB_ConEduMS.dbo.tb_course VALUES (@courseID,@courseName,@courseRemark);", sqlcon);
         cmd.Parameters.AddWithValue("@courseID", courseID);
         cmd.Parameters.AddWithValue("@courseName", courseName);
         cmd.Parameters.AddWithValue("@courseRemark", courseRemark);

@@ -28,7 +28,7 @@ public partial class MajorManage : System.Web.UI.Page
         SqlConnection sqlcon = null;
         SQLserverOper.open(ref sqlcon);
 
-        SqlCommand cmd = new SqlCommand("SELECT * FROM DB_ConEduMS.dbo.tb_ major;", sqlcon);
+        SqlCommand cmd = new SqlCommand("SELECT * FROM DB_ConEduMS.dbo.tb_major;", sqlcon);
         DataSet ds;
         ds = SQLserverOper.executeSqlWithReturn(cmd);
 
@@ -73,7 +73,7 @@ public partial class MajorManage : System.Web.UI.Page
     }
 
     [WebMethod]
-    public static string delMajors(string majorID)
+    public static string delMajor(string majorID)
     {
         string resultStr = "";
 

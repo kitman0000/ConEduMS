@@ -69,7 +69,7 @@
 							
 						</th>
 					</thead>
-					<tbody id="CourseListBody">
+					<tbody id="courseListBody">
 						
 					</tbody>
 				</table>
@@ -318,7 +318,7 @@ $(function(){
 				"{"+
 				"'courseID':'" + $("#addCourseID").val()+"',"+
 				"'courseName':'" + $("#addCourseName").val()+"',"+
-				"'courseRemark':'" + $("#addCourseRemark").val()+"',"+
+				"'courseRemark':'" + $("#addCourseRemark").val()+"'"
 				+"}"
 			,
 			success:
@@ -337,7 +337,7 @@ $(function(){
 			contentType: "application/json;charset=utf-8",
 			data:
 				"{"+
-				"'CourseID':'" + delCourseID +"'"+
+				"'courseID':'" + delCourseID +"'"+
 				"}"
 			,
 			success:
@@ -359,16 +359,16 @@ $(function(){
 			return;
 		}
 		
-		if($("#editCourseName").val().length <=30)
+		if($("#editCourseName").val().length >= 30||$("#editCourseName").val().length == 0)
 		{
-			$("#warningInfo").html("课程名称小于等于30位");
+			$("#warningInfo").html("课程名称不得超过30个字或为空");
 			$("#warningInfoModal").modal("show");
 			return;
 		}
 		
-		if($("#editCourseRemark").val().length <=500)
+		if($("#editCourseRemark").val().length >=500||$("#editCourseRemark").val().length == 0)
 		{
-			$("#warningInfo").html("备注信息小于等于500字");
+			$("#warningInfo").html("备注不得超过500个字或为空");
 			$("#warningInfoModal").modal("show");
 			return;
 		}
@@ -386,8 +386,8 @@ $(function(){
 			data:
 				"{"+
 				"'courseID':'" + $("#editCourseID").val()+"',"+
-				"'courseNameID':'" + $("#editCourseNameID").val()+"',"+
-				"'courseRemarkID':'" + $("#editCourseRemarkID").val()+"',"+
+				"'courseName':'" + $("#editCourseName").val()+"',"+
+				"'courseRemark':'" + $("#editCourseRemark").val()+"'"
 				+"}"
 			,
 			success:
@@ -415,8 +415,8 @@ function showCourses(data)
 			"</td><td>"+
 			obj[i].courseRemark+
 			"</td><td>"+
-			"<button type=\"button\"  data-toggle=\"modal\" data-target=\"#ChangeModal\" course=\"btn btn-primary btn-xs CourseListButton\" onclick=\"edit(\'" + obj[i].classID + "\')\">修改</button>"+
-			"<button type=\"button\" course=\"btn btn-danger CourseListButton  btn-xs \" data-toggle=\"modal\" data-target=\"#DeleteModal\"  onclick=\"del(\'" + obj[i].classID + "\')\">删除</button>"+
+			"<button type=\"button\"  data-toggle=\"modal\" data-target=\"#ChangeModal\" class=\"btn btn-primary btn-xs ListOperButton\" onclick=\"edit(\'" + obj[i].courseID + "\')\">修改</button>"+
+			"<button type=\"button\" class=\"btn btn-danger ListOperButton  btn-xs \" data-toggle=\"modal\" data-target=\"#DeleteModal\"  onclick=\"del(\'" + obj[i].courseID + "\')\">删除</button>"+
 			"</td></tr>";
 			$("#courseListBody").append(insert);
 		}
@@ -497,8 +497,8 @@ function switchPage(num)
 			"</td><td>"+
 			obj[i].courseRemark+
 			"</td><td>"+
-			"<button type=\"button\"  data-toggle=\"modal\" data-target=\"#ChangeModal\" course=\"btn btn-primary btn-xs CourseListButton\" onclick=\"edit(\'" + obj[i].classID + "\')\">修改</button>"+
-			"<button type=\"button\" course=\"btn btn-danger CourseListButton  btn-xs \" data-toggle=\"modal\" data-target=\"#DeleteModal\"  onclick=\"del(\'" + obj[i].classID + "\')\">删除</button>"+
+		"<button type=\"button\"  data-toggle=\"modal\" data-target=\"#ChangeModal\" class=\"btn btn-primary btn-xs ListOperButton\" onclick=\"edit(\'" + obj[i].courseID + "\')\">修改</button>"+
+		"<button type=\"button\" class=\"btn btn-danger ListOperButton  btn-xs \" data-toggle=\"modal\" data-target=\"#DeleteModal\"  onclick=\"del(\'" + obj[i].courseID + "\')\">删除</button>"+
 			"</td></tr>";
 			$("#courseListBody").append(insert);
 		}
@@ -515,7 +515,7 @@ function edit(id)
 		if(obj[i].courseID == id)
 		{
 			$("#editCourseID").val(obj[i].courseID);
-			$("#editCourseName").val(obj[i].courseNameID);
+			$("#editCourseName").val(obj[i].courseName);
 			$("#editCourseRemark").val(obj[i].courseRemark);
 			break;
 		}
@@ -535,11 +535,9 @@ function prePage()
 	}
 }
 
-function nextPage()
-{
+function nextPage() {
 	obj = JSON.parse(_data);
-	if(nowPage!=obj.length/5 + 1)
-	{
+	if (nowPage != Math.floor(obj.length / 5 + 1)) {
 		switchPage(nowPage + 1);
 	}
 }
