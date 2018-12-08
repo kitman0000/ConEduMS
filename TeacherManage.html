@@ -1,21 +1,18 @@
-<!-- author:2333 -->
+<!--author:233333 -->
 <!DOCTYPE html>
 <html>
 <head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<meta charset="utf-8" />
-		<link rel="stylesheet" href="css/bootstrap.css">
-		<link rel="stylesheet" href="css/bootstrap.min.css">
-		<link rel="stylesheet" href="css/webStyle.css">
-		<link rel="stylesheet" href="css/bootstrap-datetimepicker.css">
-		<link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css">
-
-		<script src="js/System.js"></script>
-		<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
-		<script src="js/bootstrap-datetimepicker.js"></script>
-		<script src="js/bootstrap-datetimepicker.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
-		<script src="js/bootstrap-datetimepicker.zh-CN.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" href="css/bootstrap.min.css">  
+	<link rel="stylesheet" href="css/webStyle.css">  
+	<link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css">
+	
+	<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+	<script src="js/bootstrap-datetimepicker.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/bootstrap-datetimepicker.zh-CN.js"></script>
 	
 </head>
 <body>
@@ -63,30 +60,39 @@
 			<div class="bs-example" data-example-id="simple-table">
 				<table class="table" id="ClassList">
 					<thead class="row">
-						<th teacher="col-sm-2 col-xs-2 ">
+						<th class="col-sm-1 col-xs-1 ">
 							教师编号
 						</th>
-						<th teacher="col-sm-2 col-xs-2 ">
+						<th class="col-sm-1 col-xs-1 ">
 							姓名
 						</th>
-						<th teacher="col-sm-2 col-xs-2 ">
+						<th class="col-sm-1 col-xs-1 ">
 							所属专业
 						</th>
-						<th teacher="col-sm-2 col-xs-2 ">
+						<th class="col-sm-1 col-xs-1 ">
 							性别
 						</th>
-						<th teacher="col-sm-2 col-xs-2 ">
+						<th class="col-sm-1 col-xs-1 ">
 							出身年月日
 						</th>
-						<th teacher="col-sm-2 col-xs-2 ">
+						<th class="col-sm-2 col-xs-2 ">
 							证件号码
 						</th>
-						<th teacher="col-sm-2 col-xs-2 ">
+						<th class="col-sm-1 col-xs-1 ">
+							联系电话
+						</th>
+						<th class="col-sm-1 col-xs-1 ">
+							教师地址
+						</th>
+						<th class="col-sm-1 col-xs-1 ">
+							教师备注
+						</th>
+						<th class="col-sm-2 col-xs-2 ">
 							
 						</th>
 					</thead>
-					<tbody id="classListBody">
-						
+					<tbody id="teacherListBody">
+
 					</tbody>
 				</table>
 				<!-- 分页开始 -->
@@ -122,10 +128,10 @@
 						<tbody>
 							<tr>
 								<td class="listItem" style="width: 100px;">
-									<label for="addTeacherrID">教师编号:</label>
+									<label for="addTeacherID">教师编号:</label>
 								</td>
 								<td class="listItem">
-									<input type="text" class="form-control" id="addTeacherrID" aria-describedby="basic-addon3">
+									<input type="text" class="form-control" id="addTeacherID" aria-describedby="basic-addon3">
 								</td>
 								<td class="listItem" style="width: 100px;">
 									<label for="addTeacherName">姓名:</label>
@@ -153,8 +159,7 @@
 									<label for="addTeacherBirthDate" >出生年月日:</label>
 								</td>	
 								<td class="listItem">
-									<div class="input-group date form_date" style="" data-date="" data-date-format="yyyy年mm月dd日"
-										data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+									<div class="input-group date form_date" style="width: 100%;" data-date="" data-date-format="yyyymmdd" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
 										<input class="form-control" id="addTeacherBirthDate" size="16" type="text" value="" readonly="readonly" style="background: #fff;">
 										<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
 									</div>
@@ -166,6 +171,28 @@
 									<input type="text" class="form-control" id="addTeacherSocialID" aria-describedby="basic-addon3">	
 								</td>	
 							</tr>
+							<tr>
+								<td class="listItem">
+									<label>联系电话</label>
+								</td>
+								<td class="listItem">
+									<input type="text" class="form-control" id="addTeacherTel" aria-describedby="basic-addon3">	
+								</td>
+								<td class="listItem" style="width: 150px;">
+									<label>教师通讯（住）地址</label>
+								</td>
+								<td class="listItem">
+									<input type="text" class="form-control" id="addTeacherAddress" aria-describedby="basic-addon3">	
+								</td>
+							</tr>
+							<tr>
+								<td class="listItem">
+									<label>备注信息</label>
+								</td>
+								<td class="listItem">
+									<input type="text" class="form-control" id="addTeacherRemark" aria-describedby="basic-addon3">	
+								</td>
+							</tr>
 						</tbody>
 					</table>
 				</div>
@@ -174,19 +201,19 @@
 
 			<button type="button" class="btn btn-default" data-dismiss="modal">关闭
 			</button>
-			<button type="button" class="btn btn-primary" id="addClass">
+			<button type="button" class="btn btn-primary" id="addTeacher">
 			确定
 			</button>
 			</div>
 			</div><!-- /.modal-content -->
 		</div><!-- /.modal -->
 	</div>
+	
 <!-- 结束增加模态框 -->
 	
 	<!-- 删除警告模态框 -->
 	<div class="modal fade" id="DeleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-		<div class="modal-dia
-		log" style="width: 10%;">
+		<div class="modal-dialog" style="width: 10%;">
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
@@ -197,10 +224,10 @@
 					</h4>
 				</div>
 				<div class="modal-body" style="text-align: left;">
-					确认要删除此班级？
+					确认要删除此教师？
 				</div>
 				<div class="modal-footer" style=" 	width: 100%;display: table; text-align: center;">
-					
+
 					<button type="button" class="btn btn-default" data-dismiss="modal">关闭
 					</button>
 					<button type="button" id="confirmDelete" class="btn btn-danger" data-dismiss="modal">
@@ -211,6 +238,7 @@
 		</div><!-- /.modal -->
 	</div>
 	<!-- 结束删除警告模态框 -->
+
 	
 			
 	<!-- 修改模态框 -->
@@ -223,55 +251,87 @@
 						&times;
 					</button>
 					<h4 class="modal-title" id="myModalLabel" style="text-align: left;">
-						修改班级
+						修改教师
 					</h4>
 				</div>
 				
-				<div class="modal-body" style="text-align: left;padding-left: 25%;">
-					<tr>
-						<td class="listItem">
-							<label for="basic-url" style="margin-right: 3%;">教师编号:</label>
-						</td>
-						<td class="listItem">
-							<input type="text" teacher="form-control" id="editTeacherID" aria-describedby="basic-addon3" readonly="readonly">
-						</td>
-						<td class="listItem">
-							<label for="basic-url" style="margin-right: 4.3%;">姓名:</label>
-						</td>
-						<td class="listItem">
-							<input type="text" class="form-control" id="editTeacherName" aria-describedby="basic-addon3">
-						</td>
-					</tr>
-					<tr>
-						<td class="listItem">
-							<label for="basic-url" style="margin-right: 3%;">所属专业:</label>
-						</td>
-						<td class="listItem">
-							<input type="text" class="form-control" id="editMajorID" aria-describedby="basic-addon3">
-						</td>
-						<td class="listItem">
-							<label for="basic-url" style="margin-right: 2.4%;">性别:</label>
-						</td>
-						<td class="listItem">
-							<input type="text" class="form-control" id="editTeacherGender" aria-describedby="basic-addon3">
-						</td>
-					</tr>
-					<tr>
-						<label for="basic-url" style="margin-right: 0.5%;">出生年月日:</label>
-						<div class="input-group date form_date col-md-4" style="width: 24%;" data-date="" data-date-format="yyyy年mm月dd日" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
-							<input class="form-control" id="editStartDate" size="16" type="text" value="" readonly="readonly" style="background: #fff;">
-							<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
-						</div>
-					</tr>
-					<tr>
-						<label for="basic-url" style="margin-right: 1%;">证件号码:</label>
-						<input type="text" class="form-control" id="editCounselorTel" aria-describedby="basic-addon3">
-					</tr>
+				<div class="modal-body" style="text-align: left;">
+					<table align="center">
+						<tbody>
+							<tr>
+								<td class="listItem" style="width: 120px;">
+									<label for="basic-url" style="margin-right: 3%;">教师编号:</label>
+								</td>
+								<td class="listItem">
+									<input type="text" class="form-control" id="editTeacherID" aria-describedby="basic-addon3" readonly="readonly">
+								</td>
+								<td class="listItem">
+									<label for="basic-url" style="margin-right: 4.3%;">姓名:</label>
+								</td>
+								<td class="listItem">
+									<input type="text" class="form-control" id="editTeacherName" aria-describedby="basic-addon3">
+								</td>
+							</tr>
+							<tr>
+								<td class="listItem">
+									<label for="basic-url" style="margin-right: 3%;">所属专业:</label>
+								</td>
+								<td class="listItem">
+									<input type="text" class="form-control" id="editMajorID" aria-describedby="basic-addon3">
+								</td>
+								<td class="listItem">
+									<label for="basic-url" style="margin-right: 2.4%;">性别:</label>
+								</td>
+								<td class="listItem">
+									<input type="text" class="form-control" id="editTeacherGender" aria-describedby="basic-addon3">
+								</td>
+							</tr>
+							<tr>
+								<td class="listItem">
+									<label for="basic-url" style="margin-right: 0.5%;">出生年月日:</label>
+								</td>
+								<td class="listItem">
+									<div class="input-group date form_date" data-date="" data-date-format="yyyymmdd" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+										<input class="form-control" id="editTeacherBirthDate" size="16" type="text" value="" readonly="readonly" style="background: #fff;">
+										<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+									</div>
+								</td>
+								<td class="listItem">
+									<label for="basic-url" style="margin-right: 1%;">证件号码:</label>
+								</td>
+								<td class="listItem">
+									<input type="text" class="form-control" id="editTeacherSocialID" aria-describedby="basic-addon3">
+								</td>
+							</tr>
+							<tr>
+								<td class="listItem">
+									<label>联系电话</label>
+								</td>
+								<td class="listItem">
+									<input type="text" class="form-control" id="editTeacherTel" aria-describedby="basic-addon3">	
+								</td>
+								<td class="listItem" style="width: 150px;">
+									<label>教师通讯（住）地址</label>
+								</td>
+								<td class="listItem">
+									<input type="text" class="form-control" id="editTeacherAddress" aria-describedby="basic-addon3">	
+								</td>
+							</tr>
+							<tr>
+								<td class="listItem">
+									<label>备注信息</label>
+								</td>
+								<td class="listItem">
+									<input type="text" class="form-control" id="editTeacherRemark" aria-describedby="basic-addon3">	
+								</td>
+							</tr>
+						</tbody>
+					</table>	
 				</div>
 				
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-					<button type="button" class="btn btn-primary" id="editClass">提交更改</button>
+					<button type="button" class="btn btn-primary" id="editTeacher">提交更改</button>
 				</div>
 				
 			</div><!-- /.modal-content -->
@@ -295,7 +355,6 @@
 					<span id="warningInfo"></span>
 				</div>
 				<div class="modal-footer" style="width: 100%;display: table; text-align: center;">
-					
 					<button type="button" class="btn btn-default" data-dismiss="modal">确定
 					</button>
 				</div>
@@ -311,7 +370,7 @@ var obj;
 $(function(){
 	$.ajax({
 		type: "POST",
-		url: "TeacherManage.aspx/getAllTeacheres",
+		url: "TeacherManage.aspx/getAllTeachers",
 		datatype: "json",
 		contentType: "application/json;charset=utf-8",
 		data:
@@ -320,53 +379,75 @@ $(function(){
 		},
 		success:
 			function (data, textStatus) {
-				showClasses(data.d);
+				showTeachers(data.d);
 			},
 	});
 	
 	$("#addTeacher").click(function(){
 		//warningInfo
-		if($("#addTeacherID").val().length !=6)
+		if($("#addTeacherID").val().length != 6)
 		{
-			$("#warningInfo").html("教师编号为6位 ");
+			$("#warningInfo").html("教师编号应为6位");
 			$("#warningInfoModal").modal("show");
 			return;
 		}
 		
-		if($("#addTeacherName").val().length !=30)
+		if($("#addTeacherName").val().length > 4)
 		{
-			$("#warningInfo").html("教师姓名为4位");
+			$("#warningInfo").html("教师姓名不得大于4位");
 			$("#warningInfoModal").modal("show");
 			return;
 		}
 		
-		if($("#addMajorID").val().length !=4)
+		if($("#addMajorID").val().length != 4)
 		{
-			$("#warningInfo").html("该教师所属专业的编号为4位");
+			$("#warningInfo").html("专业编号应为4位");
 			$("#warningInfoModal").modal("show");
 			return;
 		}
 		
-		if($("#addTeacherGender").val().length !=1)
+		if($("#addTeacherGender").val().length != 1)
 		{
-			$("#warningInfo").html("教师性别为1位");
+			$("#warningInfo").html("教师性别应为1位");
 			$("#warningInfoModal").modal("show");
 			return;
 		}
 		
-		if($("#addTeacherBrithData").val().length ==0)
+		if($("#addTeacherBirthDate").val().length == 0)
 		{
 			$("#warningInfo").html("教师出生日期，例如：19800125");
 			$("#warningInfoModal").modal("show");
 			return;
 		}
 
-		if($("#addTeacherSocialID").val().length ==18)
+		if($("#addTeacherSocialID").val().length != 18)
 		{
-			$("#warningInfo").html("教师身份证号。若为外籍教师则为护照号，在护照号的前面补0，使其构成18位。");
+			$("#warningInfo").html("教师身份证号。若为外籍教师则为护照号，在护照号的前面补0，使其构成18位");
 			$("#warningInfoModal").modal("show");
 			return;
 		}
+		
+		if($("#addTeacherTel").val().length >= 12)
+		{
+			$("#warningInfo").html("联系电话不得大于11位");
+			$("#warningInfoModal").modal("show");
+			return;
+		}
+		
+		if($("#addTeacherAddress").val().length > 50||$("#addTeacherAddress").val().length == 0)
+		{
+			$("#warningInfo").html("教师通讯(住)地址不能大于50个字符");
+			$("#warningInfoModal").modal("show");
+			return;
+		}
+		
+		if($("#addTeacherRemark").val().length > 500||$("#addTeacherRemark").val().length == 0)
+		{
+			$("#warningInfo").html("教师备注不能大于500个字符或为空");
+			$("#warningInfoModal").modal("show");
+			return;
+		}
+		
 		
 		for(i = 0;i<obj.length;i++)
 		{
@@ -391,8 +472,11 @@ $(function(){
 				"'teacherName':'" + $("#addTeacherName").val()+"',"+
 				"'majorID':'" + $("#addMajorID").val()+"',"+
 				"'teacherGender':'" + $("#addTeacherGender").val()+"',"+
-				"'teacherBirthData':'" + $("#addTeacherBirthData").val()+"',"+
+				"'teacherBirthDate':'" + $("#addTeacherBirthDate").val()+"',"+
+				"'teacherTel':'" + $("#addTeacherTel").val()+"',"+
 				"'teacherSocialID':'" + $("#addTeacherSocialID").val()+"',"+
+				"'teacherAddress':'"+$("#addTeacherAddress").val()+"',"+
+				"'teacherRemark':'"+$("#addTeacherRemark").val()+"'"
 				+"}"
 			,
 			success:
@@ -433,14 +517,14 @@ $(function(){
 			return;
 		}
 		
-		if($("#editTeacherName").val().length !=30)
+		if($("#editTeacherName").val().length > 30)
 		{
 			$("#warningInfo").html("教师姓名为30位");
 			$("#warningInfoModal").modal("show");
 			return;
 		}
 		
-		if($("#editMajorID").val().length !=4)
+		if($("#editMajorID").val().length > 4)
 		{
 			$("#warningInfo").html("该教师所属专业的编号为4位");
 			$("#warningInfoModal").modal("show");
@@ -454,16 +538,30 @@ $(function(){
 			return;
 		}
 		
-		if($("#editTeacherBirthData").val().length ==0)
+		if($("#editTeacherBirthDate").val().length ==0)
 		{
 			$("#warningInfo").html("教师出生年月日，例如：19800125");
 			$("#warningInfoModal").modal("show");
 			return;
 		}
 
-		if($("#editTeacherSocialID").val().length =18)
+		if($("#editTeacherSocialID").val().length != 18)
 		{
-			$("#warningInfo").html("教师身份证号。若为外籍教师则为护照号，在护照号的前面补0，使其构成18位。");
+			$("#warningInfo").html("教师身份证号。若为外籍教师则为护照号，在护照号的前面补0，使其构成18位");
+			$("#warningInfoModal").modal("show");
+			return;
+		}
+		
+		if($("#editTeacherAddress").val().length >50||$("#editTeacherAddress").val().length ==0)
+		{
+			$("#warningInfo").html("教师通讯(住)地址，不能大于50个字符");
+			$("#warningInfoModal").modal("show");
+			return;
+		}
+		
+		if($("#editTeacherRemark").val().length > 500||$("#editTeacherRemark").val().length == 0)
+		{
+			$("#warningInfo").html("教师备注不能大于500个字符或为空");
 			$("#warningInfoModal").modal("show");
 			return;
 		}
@@ -481,9 +579,11 @@ $(function(){
 				"'teacherName':'" + $("#editTeacherName").val()+"',"+
 				"'majorID':'" + $("#editMajorID").val()+"',"+
 				"'teacherGender':'" + $("#editTeacherGender").val()+"',"+
-				"'teacherBirthData':'" + $("#editTeacherBirthData").val()+"',"+
+				"'teacherBirthDate':'" + $("#editTeacherBirthDate").val()+"',"+
 				"'teacherSocialID':'" + $("#editTeacherSocialID").val()+"',"+
-
+				"'teacherTel':'" + $("#editTeacherTel").val()+"',"+
+				"'teacherAddress':'"+$("#editTeacherAddress").val()+"',"+
+				"'teacherRemark':'"+$("#editTeacherRemark").val()+"'"
 				+"}"
 			,
 			success:
@@ -497,7 +597,7 @@ $(function(){
 	});
 });
 	
-function showClasses(data)
+function showTeachers(data)
 {
 	obj = JSON.parse(data);
 	_data = data;
@@ -506,22 +606,26 @@ function showClasses(data)
 		try{
 			insert = "<tr><th>"+
 			obj[i].teacherID+
-			"</th><th"+obj[i].teacherID+">"+
+			"</td><td>"+
 			obj[i].teacherName+
-			"</th><th"+obj[i].teacherID+">"+
+			"</td><td>"+
 			obj[i].majorID+
-			"</th><th"+obj[i].teacherID+">"+
+			"</td><td>"+
 			obj[i].teacherGender+
-			"</th><th"+obj[i].teacherID+">"+
-			obj[i].teacherBirthData+
-			"</th><th"+obj[i].teacherID+">"+
+			"</td><td>"+
+			obj[i].teacherBirthDate+
+			"</td><td>"+
 			obj[i].teacherSocialID+
-			"</th><th"+obj[i].teacherID+">"+
-			obj[i].endDate+
-			"</th><th>"+
-			"<button type=\"button\"  data-toggle=\"modal\" data-target=\"#ChangeModal\" class=\"btn btn-primary btn-xs ClassListButton\" onclick=\"edit(\'" + obj[i].classID + "\')\">修改</button>"+
-			"<button type=\"button\" class=\"btn btn-danger ClassListButton  btn-xs \" data-toggle=\"modal\" data-target=\"#DeleteModal\"  onclick=\"del(\'" + obj[i].classID + "\')\">删除</button>"+
-			"</th></tr>";
+			"</td><td>"+
+			obj[i].teacherTel+
+			"</td><td>"+
+			obj[i].teacherAddress+
+			"</td><td>"+
+			obj[i].teacherRemark+
+			"</td><td>"+
+			"<button type=\"button\"  data-toggle=\"modal\" data-target=\"#ChangeModal\" class=\"btn btn-primary btn-xs ListOperButton\" onclick=\"edit(\'" + obj[i].teacherID + "\')\">修改</button>"+
+			"<button type=\"button\" class=\"btn btn-danger ListOperButton  btn-xs \" data-toggle=\"modal\" data-target=\"#DeleteModal\"  onclick=\"del(\'" + obj[i].teacherID + "\')\">删除</button>"+
+			"</td></tr>";
 			$("#teacherListBody").append(insert);
 		}
 		catch(err){}
@@ -551,7 +655,7 @@ function showClasses(data)
 		setCookie("delete",0);
 	}
 	
-	$('.form_date').datetimepicker({
+	$(".form_date").datetimepicker({
 		language:  'zh-CN',
 		weekStart: 1,
 		todayBtn:  1,
@@ -582,6 +686,9 @@ function editSuccess()
 			obj[i].teacherGender = $("#editTeacherGender").val();
 			obj[i].teacherBirthData = $("#editTeacherBirthData").val();
 			obj[i].teacherSocialID = $("#editTeacherSocialID").val();
+			obj[i].teacherTel = $("#editTeacherTel").val();
+			obj[i].teacherAddress = $("#editTeacherAddress").val();
+			obj[i].teacherRemark = $("#editTeacherRemark").val();
 			switchPage(nowPage);
 		}
 	}
@@ -590,7 +697,7 @@ function editSuccess()
 function switchPage(num)
 {
 	nowPage = num;
-	$("#classListBody").html("");
+	$("#teacherListBody").html("");
 	//obj = JSON.parse(_data);
 	s=0;
 	console.log(num);
@@ -599,20 +706,26 @@ function switchPage(num)
 		try{
 			insert = "<tr><th>"+
 			obj[i].teacherID+
-			"</th><th"+obj[i].teacherID+">"+
+			"</td><td>"+
 			obj[i].teacherName+
-			"</th><th"+obj[i].teacherID+">"+
+			"</td><td>"+
 			obj[i].majorID+
-			"</th><th"+obj[i].teacherID+">"+
+			"</td><td>"+
 			obj[i].teacherGender+
-			"</th><th"+obj[i].teacherID+">"+
-			obj[i].teacherBirthData+
-			"</th><th"+obj[i].teacherID+">"+
+			"</td><td>"+
+			obj[i].teacherBirthDate+
+			"</td><td>"+
 			obj[i].teacherSocialID+
-			"</th><th>"+
-			"<button type=\"button\"  data-toggle=\"modal\" data-target=\"#ChangeModal\" class=\"btn btn-primary btn-xs ClassListButton\" onclick=\"edit(\'" + obj[i].classID + "\')\">修改</button>"+
-			"<button type=\"button\" class=\"btn btn-danger ClassListButton  btn-xs \" data-toggle=\"modal\" data-target=\"#DeleteModal\"  onclick=\"del(\'" + obj[i].classID + "\')\">删除</button>"+
-			"</th></tr>";
+			"</td><td>"+
+			obj[i].teacherTel+
+			"</td><td>"+
+			obj[i].teacherAddress+
+			"</td><td>"+
+			obj[i].teacherRemark+
+			"</td><td>"+
+			"<button type=\"button\"  data-toggle=\"modal\" data-target=\"#ChangeModal\" class=\"btn btn-primary btn-xs ListOperButton\" onclick=\"edit(\'" + obj[i].teacherID + "\')\">修改</button>"+
+			"<button type=\"button\" class=\"btn btn-danger ListOperButton  btn-xs \" data-toggle=\"modal\" data-target=\"#DeleteModal\"  onclick=\"del(\'" + obj[i].teacherID + "\')\">删除</button>"+
+			"</td></tr>";
 			$("#teacherListBody").append(insert);
 		}
 		catch(err){}
@@ -630,9 +743,12 @@ function edit(id)
 			$("#editTeacherID").val(obj[i].teacherID);
 			$("#editTeacherName").val(obj[i].teacherName);
 			$("#editMajorID").val(obj[i].majorID);
-			$("#editTeacherGender").val(obj[i].teachergender);
-			$("#editTeacherBirthData").val(obj[i].teacherBirthData);
+			$("#editTeacherGender").val(obj[i].teacherGender);
+			$("#editTeacherBirthDate").val(obj[i].teacherBirthDate);
 			$("#editTeacherSocialID").val(obj[i].teacherSocialID);
+			$("#editTeacherTel").val(obj[i].teacherTel);
+			$("#editTeacherAddress").val(obj[i].teacherAddress);
+			$("#editTeacherRemark").val(obj[i].teacherRemark);
 			break;
 		}
 	}
@@ -651,11 +767,9 @@ function prePage()
 	}
 }
 
-function nextPage()
-{
+function nextPage() {
 	obj = JSON.parse(_data);
-	if(nowPage!=obj.length/5 + 1)
-	{
+	if (nowPage != Math.floor(obj.length / 5 + 1)) {
 		switchPage(nowPage + 1);
 	}
 }
