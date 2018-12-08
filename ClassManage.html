@@ -58,7 +58,7 @@
 							<th class="col-sm-1 col-xs-1 ">
 								ID
 							</th>
-							<th class="col-sm-2 col-xs-2 ">
+							<th class="col-sm-1 col-xs-1 ">
 								专业
 							</th>
 							<th class="col-sm-1 col-xs-1 ">
@@ -492,7 +492,7 @@
 				}
 
 				if ($("#editCounselorTel").val().length > 30 || $("#editCounselorTel").val().length == 0) {
-					$("#warningInfo").html("电话不班主任得大于30或为空");
+					$("#warningInfo").html("班主任电话不得大于30或为空");
 					$("#warningInfoModal").modal("show");
 					return;
 				}
