@@ -330,7 +330,7 @@
 					return;
 				}
 
-				if ($("#addSchoolTel").val().length >=30 || $("#addSchoolTel").val().length ==0) {
+				if ($("#addSchoolTel").val().length >= 12 || $("#addSchoolTel").val().length ==0) {
 					$("#warningInfo").html("教学点对外咨询电话小于30位");
 					$("#warningInfoModal").modal("show");
 					return;
@@ -378,7 +378,7 @@
 					datatype: "json",
 					contentType: "application/json;charset=utf-8",
 					data: "{" +
-						"'TrainingSchoolID':'" + delTrainingSchoolID + "'" +
+						"'schoolID':'" + delSchoolID + "'" +
 						"}",
 					success: function(data, textStatus) {
 						if (data.d == "success") {
@@ -408,7 +408,7 @@
 					return;
 				}
 
-				if ($("#editSchoolTel").val().length >= 30 || $("#editSchoolTel").val().length ==0) {
+				if ($("#editSchoolTel").val().length >= 12 || $("#editSchoolTel").val().length ==0) {
 					$("#warningInfo").html("教学点对外咨询电话小于30位");
 					$("#warningInfoModal").modal("show");
 					return;
