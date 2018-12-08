@@ -42,8 +42,8 @@ public partial class AdministratorManage : System.Web.UI.Page
                           "\"adminBirthDate\":\"" + dr[3].ToString().Trim() + "\"," +
                            "\"adminSocialID\":\"" + dr[4].ToString().Trim() + "\"," +
                            "\"adminTel\":\"" + dr[5].ToString().Trim() + "\"," +
-                           "\"adminAddress\":\"" + dr[6].ToString().Trim() + "\"" +
-                            "\"adminRight\":\"" + dr[6].ToString().Trim() + "\"" +
+                           "\"adminAddress\":\"" + dr[6].ToString().Trim() + "\"," +
+                            "\"adminRight\":\"" + dr[7].ToString().Trim() + "\"" +
                      "}";
 
             if (i != ds.Tables[0].Rows.Count)
