@@ -111,7 +111,7 @@
 						&times;
 					</button>
 					<h4 class="modal-title" id="myModalLabel" style="text-align: left;">
-						添加学生信息
+						添加学生
 					</h4>
 				</div>
 				<table align="center">
@@ -243,7 +243,7 @@
 						&times;
 					</button>
 					<h4 class="modal-title" id="myModalLabel" style="text-align: left;">
-						修改班级
+						修改学生
 					</h4>
 				</div>
 					<table>
@@ -407,7 +407,7 @@ $(function(){
 		
 		if($("#addStuGender").val().length !=1)
 		{
-			$("#warningInfo").html("学生性别为1位");
+			$("#warningInfo").html("学生性别为男或女");
 			$("#warningInfoModal").modal("show");
 			return;
 		}
@@ -532,7 +532,7 @@ $(function(){
 		
 		if($("#editStuGender").val() !=1)
 		{
-			$("#warningInfo").html("学生性别为1位");
+			$("#warningInfo").html("学生性别为男或女");
 			$("#warningInfoModal").modal("show");
 			return;
 		}
