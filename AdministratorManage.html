@@ -377,49 +377,49 @@
 				//warningInfo
 				
 				if ($("#addAdminID").val().length != 6) {
-					$("#warningInfo").html("管理员编号为6位");
+					$("#warningInfo").html("管理员编必须为6位");
 					$("#warningInfoModal").modal("show");
 					return;
 				}
 
 				if ($("#addAdminName").val().length >30 || $("#addAdminName").val().length==0) {
-					$("#warningInfo").html("管理员姓名");
+					$("#warningInfo").html("管理员姓名不得超过30位或为空");
 					$("#warningInfoModal").modal("show");
 					return;
 				}
 
 				if ($("#addAdminGender").val().length != 1) {
-					$("#warningInfo").html("管理员性别（男或女）");
+					$("#warningInfo").html("管理员性别必须为1位(男或女)");
 					$("#warningInfoModal").modal("show");
 					return;
 				}
 
 				if ($("#addAdminBirthDate").val().length  == 0) {
-					$("#warningInfo").html("管理员出生年月");
+					$("#warningInfo").html("管理员出生年月未填写");
 					$("#warningInfoModal").modal("show");
 					return;
 				}
 
 				if ($("#addAdminSocialID").val().length !=18) {
-					$("#warningInfo").html("管理员身份证号");
+					$("#warningInfo").html("管理员身份证号必须为18位");
 					$("#warningInfoModal").modal("show");
 					return;
 				}
 
-				if ($("#addAdminTel").val().length >30 || $("#addAdminTel").val().length==0) {
-					$("#warningInfo").html("管理员电话号码");
+				if ($("#addAdminTel").val().length >12 || $("#addAdminTel").val().length==0) {
+					$("#warningInfo").html("管理员电话号码不得超过11位或为空");
 					$("#warningInfoModal").modal("show");
 					return;
 				}
 
 				if ($("#addAdminAddress").val().length >=50 || $("#addAdminAddress").val().length==0) {
-					$("#warningInfo").html("管理员通讯（住）地址");
+					$("#warningInfo").html("管理员通讯（住）地址不得超过50位或为空");
 					$("#warningInfoModal").modal("show");
 					return;
 				}
 				
 				if ($("#addAdminRight").val().length !=4) {
-					$("#warningInfo").html("该管理员所管理的教学点编号。其中学院级管理权限为“9999”");
+					$("#warningInfo").html("管理员权限必须为4位");
 					$("#warningInfoModal").modal("show");
 					return;
 				}
