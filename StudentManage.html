@@ -386,21 +386,21 @@ $(function(){
 		//warningInfo
 		if($("#addStuID").val().length !=8)
 		{
-			$("#warningInfo").html("学生编号为8位，入学年（4位）+序号（4位）");
+			$("#warningInfo").html("学生编号必须为8位，入学年（4位）+序号（4位）");
 			$("#warningInfoModal").modal("show");
 			return;
 		}
 		
 		if($("#addClassID").val().length !=8)
 		{
-			$("#warningInfo").html("班级编号为8位");
+			$("#warningInfo").html("班级编号必须为8位");
 			$("#warningInfoModal").modal("show");
 			return;
 		}
 		
 		if($("#addMajorID").val().length !=4)
 		{
-			$("#warningInfo").html("专业编号为4位");
+			$("#warningInfo").html("专业编号必须为4位");
 			$("#warningInfoModal").modal("show");
 			return;
 		}
@@ -414,14 +414,14 @@ $(function(){
 		
 		if($("#addStuBirthDate").val().length ==0)
 		{
-			$("#warningInfo").html("出生日期");
+			$("#warningInfo").html("出生日期不得为空");
 			$("#warningInfoModal").modal("show");
 			return;
 		}
 
 		if($("#addStuSocialID").val().length !=18)
 		{
-			$("#warningInfo").html("学生身份证号。若是外籍学生则为护照号，在护照号的前面补0，使其构成18位。");
+			$("#warningInfo").html("学生身份证号必须为18位。若是外籍学生则为护照号，在护照号的前面补0，使其构成18位。");
 			$("#warningInfoModal").modal("show");
 			return;
 		}
@@ -429,21 +429,21 @@ $(function(){
 		
 		if($("#addStuTel").val().length >30 || $("#addStuTel").val().length ==0)
 		{
-			$("#warningInfo").html("学生电话号码");
+			$("#warningInfo").html("学生电话号码不得大于30位或为空");
 			$("#warningInfoModal").modal("show");
 			return;
 		}
 		
 		if($("#addStuAddress").val().length >50 || $("#addStuAddress").val().length ==0)
 		{
-			$("#warningInfo").html("学生通讯（住）地址");
+			$("#warningInfo").html("学生通讯（住）地址不得大于50位或为空");
 			$("#warningInfoModal").modal("show");
 			return;
 		}
 		
-		if($("#addStuRemark").val().length >500)
+		if($("#addStuRemark").val().length >500 || $("#addStuRemark").val().length ==0)
 		{
-			$("#warningInfo").html("备注信息");
+			$("#warningInfo").html("备注信息不得大于500位或为空");
 			$("#warningInfoModal").modal("show");
 			return;
 		}
@@ -511,21 +511,21 @@ $(function(){
 		
 		if($("#editStuID").val().length !=8)
 		{
-			$("#warningInfo").html("学生编号为8位，入学年（4位）+序号（4位）");
+			$("#warningInfo").html("学生编号必须为8位，入学年（4位）+序号（4位）");
 			$("#warningInfoModal").modal("show");
 			return;
 		}
 		
 		if($("#editClassID").val().length !=8)
 		{
-			$("#warningInfo").html("班级编号为4位");
+			$("#warningInfo").html("班级编号必须为4位");
 			$("#warningInfoModal").modal("show");
 			return;
 		}
 		
 		if($("#editMajorID").val().length !=4)
 		{
-			$("#warningInfo").html("专业编号为4位");
+			$("#warningInfo").html("专业编号必须为4位");
 			$("#warningInfoModal").modal("show");
 			return;
 		}
@@ -539,21 +539,21 @@ $(function(){
 		
 		if($("#editBirthDate").val()==0)
 		{
-			$("#warningInfo").html("出生年月日，例如：19800125");
+			$("#warningInfo").html("出生年月日不得为空，例如：19800125");
 			$("#warningInfoModal").modal("show");
 			return;
 		}
 
 		if($("#editStuSocialID").val().length !=18)
 		{
-			$("#warningInfo").html("学生身份证号。若是外籍学生则为护照号，在护照号的前面补0，使其构成18位。");
+			$("#warningInfo").html("学生身份证号必须为18位。若是外籍学生则为护照号，在护照号的前面补0，使其构成18位。");
 			$("#warningInfoModal").modal("show");
 			return;
 		}
 
 		if($("#editStuTel").val().length >30 || $("#editStuTel").val().length ==0)
 		{
-			$("#warningInfo").html("学生电话号码");
+			$("#warningInfo").html("学生电话号码不得大于30位或为空");
 			$("#warningInfoModal").modal("show");
 			return;
 		}
@@ -561,14 +561,14 @@ $(function(){
 		
 		if($("#editStuAddress").val().length >50 || $("#editStuAddress").val().length ==0)
 		{
-			$("#warningInfo").html("学生通讯（住）地址");
+			$("#warningInfo").html("学生通讯（住）地址不得大于50位或为空");
 			$("#warningInfoModal").modal("show");
 			return;
 		}
 		
-		if($("#editStuRemark").val() >500)
+		if($("#editStuRemark").val().length >500 || $("#editStuRemark").val().length ==0)
 		{
-			$("#warningInfo").html("备注信息");
+			$("#warningInfo").html("备注信息不得大于500位或为空");
 			$("#warningInfoModal").modal("show");
 			return;
 		}
