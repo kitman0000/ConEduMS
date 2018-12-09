@@ -369,43 +369,43 @@
 			$("#addClass").click(function() {
 				//warningInfo
 				if ($("#addClassID").val().length != 8) {
-					$("#warningInfo").html("班级编号为8位，开班年月（6位）+序号（2位）");
+					$("#warningInfo").html("班级编号必须为8位，开班年月（6位）+序号（2位）");
 					$("#warningInfoModal").modal("show");
 					return;
 				}
 
 				if ($("#addMajorID").val().length != 4) {
-					$("#warningInfo").html("专业编号为4位");
+					$("#warningInfo").html("专业编号必须为4位");
 					$("#warningInfoModal").modal("show");
 					return;
 				}
 
 				if ($("#addSchoolID").val().length != 4) {
-					$("#warningInfo").html("教学点编号为4位");
+					$("#warningInfo").html("教学点编号必须为4位");
 					$("#warningInfoModal").modal("show");
 					return;
 				}
 
 				if ($("#addCounselorName").val().length > 30 || $("#addCounselorName").val().length == 0) {
-					$("#warningInfo").html("班主任姓名不得大于30或为空");
+					$("#warningInfo").html("班主任姓名不得超过30位或为空");
 					$("#warningInfoModal").modal("show");
 					return;
 				}
 
 				if ($("#addCounselorTel").val().length > 30 || $("#addCounselorTel").val().length == 0) {
-					$("#warningInfo").html("班主任电话不得大于30或为空");
+					$("#warningInfo").html("班主任电话不得超过30位或为空");
 					$("#warningInfoModal").modal("show");
 					return;
 				}
 
 				if ($("#addStartDate").val().length == 0) {
-					$("#warningInfo").html("开班时间未选");
+					$("#warningInfo").html("开班时间不能为空");
 					$("#warningInfoModal").modal("show");
 					return;
 				}
 
 				if ($("#addEndDate").val().length == 0) {
-					$("#warningInfo").html("结班时间未选");
+					$("#warningInfo").html("结班时间不能为空");
 					$("#warningInfoModal").modal("show");
 					return;
 				}
