@@ -285,7 +285,7 @@ $(function(){
 	
 	$("#addMajor").click(function(){
 		//warningInfo
-		if($("#addMajorID").val().length !=4)
+		if($("#addMajorID").val().length !=4 || $("#addMajorID").val().length == 0)
 		{
 			$("#warningInfo").html("专业编号为4位");
 			$("#warningInfoModal").modal("show");
@@ -294,7 +294,7 @@ $(function(){
 		
 		if($("#addMajorName").val().length >= 30 || $("#addMajorName").val().length == 0)
 		{
-			$("#warningInfo").html("专业名称不能大于40位或者为空");
+			$("#warningInfo").html("专业名称不能大于40位或为空");
 			$("#warningInfoModal").modal("show");
 			return;
 		}
@@ -353,7 +353,7 @@ $(function(){
 	
 	$("#editMajor").click(function(){
 		
-		if($("#editMajorID").val().length !=4)
+		if($("#editMajorID").val().length != 4 || $("#editMajorID").val().length == 0)
 		{
 			$("#warningInfo").html("专业编号为4位");
 			$("#warningInfoModal").modal("show");
@@ -362,7 +362,7 @@ $(function(){
 		
 		if($("#editMajorName").val().length >= 30 || $("#editMajorName").val().length == 0)
 		{
-			$("#warningInfo").html("专业名称不能大于40位或者为空");
+			$("#warningInfo").html("专业名称不能大于40字或为空");
 			$("#warningInfoModal").modal("show");
 			return;
 		}
