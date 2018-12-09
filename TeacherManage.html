@@ -387,56 +387,56 @@ $(function(){
 		//warningInfo
 		if($("#addTeacherID").val().length != 6)
 		{
-			$("#warningInfo").html("教师编号应为6位");
+			$("#warningInfo").html("教师编号必须为6位");
 			$("#warningInfoModal").modal("show");
 			return;
 		}
 		
-		if($("#addTeacherName").val().length > 4)
+		if($("#addTeacherName").val().length > 4||$("#addTeacherName").val().length ==0)
 		{
-			$("#warningInfo").html("教师姓名不得大于4位");
+			$("#warningInfo").html("教师姓名不得超过4位或为空");
 			$("#warningInfoModal").modal("show");
 			return;
 		}
 		
 		if($("#addMajorID").val().length != 4)
 		{
-			$("#warningInfo").html("专业编号应为4位");
+			$("#warningInfo").html("专业编号必须为4位");
 			$("#warningInfoModal").modal("show");
 			return;
 		}
 		
 		if($("#addTeacherGender").val().length != 1)
 		{
-			$("#warningInfo").html("教师性别应为1位");
+			$("#warningInfo").html("教师性别必须为1位");
 			$("#warningInfoModal").modal("show");
 			return;
 		}
 		
 		if($("#addTeacherBirthDate").val().length == 0)
 		{
-			$("#warningInfo").html("教师出生日期，例如：19800125");
+			$("#warningInfo").html("教师出生日期不能为空");
 			$("#warningInfoModal").modal("show");
 			return;
 		}
 
 		if($("#addTeacherSocialID").val().length != 18)
 		{
-			$("#warningInfo").html("教师身份证号。若为外籍教师则为护照号，在护照号的前面补0，使其构成18位");
+			$("#warningInfo").html("教师身份证号必须为18位。若为外籍教师则为护照号，在护照号的前面补0，使其构成18位");
 			$("#warningInfoModal").modal("show");
 			return;
 		}
 		
-		if($("#addTeacherTel").val().length >= 12)
+		if($("#addTeacherTel").val().length >= 12||$("#addTeacherTel").val().length ==0)
 		{
-			$("#warningInfo").html("联系电话不得大于11位");
+			$("#warningInfo").html("联系电话不得大于11位或为空");
 			$("#warningInfoModal").modal("show");
 			return;
 		}
 		
 		if($("#addTeacherAddress").val().length > 50||$("#addTeacherAddress").val().length == 0)
 		{
-			$("#warningInfo").html("教师通讯(住)地址不能大于50个字符");
+			$("#warningInfo").html("教师通讯(住)地址不能大于50个字符或为空");
 			$("#warningInfoModal").modal("show");
 			return;
 		}
@@ -510,51 +510,51 @@ $(function(){
 	
 	$("#editTeacher").click(function(){
 		
-		if($("#editTeacherID").val().length !=6)
+		if($("#editTeacherID").val().length != 6)
 		{
-			$("#warningInfo").html("教师编号为6位");
+			$("#warningInfo").html("教师编号必须为6位");
 			$("#warningInfoModal").modal("show");
 			return;
 		}
 		
-		if($("#editTeacherName").val().length > 30)
+		if($("#editTeacherName").val().length > 30||$("#editTeacherName").val().length == 0)
 		{
-			$("#warningInfo").html("教师姓名为30位");
+			$("#warningInfo").html("教师姓名不能超过30位或为空");
 			$("#warningInfoModal").modal("show");
 			return;
 		}
 		
-		if($("#editMajorID").val().length > 4)
+		if($("#editMajorID").val().length != 4)
 		{
-			$("#warningInfo").html("该教师所属专业的编号为4位");
+			$("#warningInfo").html("该教师所属专业的编号必须为4位");
 			$("#warningInfoModal").modal("show");
 			return;
 		}
 		
 		if($("#editTeacherGender").val().length !=1)
 		{
-			$("#warningInfo").html("教师性别为1位");
+			$("#warningInfo").html("教师性别必须为1位");
 			$("#warningInfoModal").modal("show");
 			return;
 		}
 		
 		if($("#editTeacherBirthDate").val().length ==0)
 		{
-			$("#warningInfo").html("教师出生年月日，例如：19800125");
+			$("#warningInfo").html("教师出生年月日不能为空");
 			$("#warningInfoModal").modal("show");
 			return;
 		}
 
 		if($("#editTeacherSocialID").val().length != 18)
 		{
-			$("#warningInfo").html("教师身份证号。若为外籍教师则为护照号，在护照号的前面补0，使其构成18位");
+			$("#warningInfo").html("教师身份证号必须为18位。若为外籍教师则为护照号，在护照号的前面补0，使其构成18位");
 			$("#warningInfoModal").modal("show");
 			return;
 		}
 		
 		if($("#editTeacherAddress").val().length >50||$("#editTeacherAddress").val().length ==0)
 		{
-			$("#warningInfo").html("教师通讯(住)地址，不能大于50个字符");
+			$("#warningInfo").html("教师通讯(住)地址，不能大于50个字符或为空");
 			$("#warningInfoModal").modal("show");
 			return;
 		}

@@ -313,31 +313,31 @@
 			$("#addTrainingSchool").click(function() {
 				//warningInfo
 				if ($("#addSchoolID").val().length != 4) {
-					$("#warningInfo").html("教学点编号（学院的ID为9999）为4位");
+					$("#warningInfo").html("教学点编号（学院的ID为9999）必须为4位");
 					$("#warningInfoModal").modal("show");
 					return;
 				}
 
 				if ($("#addSchoolName").val().length >= 30 || $("#addSchoolName").val().length ==0) {
-					$("#warningInfo").html("教学点名称小于30位");
+					$("#warningInfo").html("教学点名称不得超过30位或为空");
 					$("#warningInfoModal").modal("show");
 					return;
 				}
 
 				if ($("#addSchoolAddress").val().length >= 50 || $("#addSchoolAddress").val().length==0) {
-					$("#warningInfo").html("教学点地址小于50位");
+					$("#warningInfo").html("教学点地址不得超过50位或为空");
 					$("#warningInfoModal").modal("show");
 					return;
 				}
 
 				if ($("#addSchoolTel").val().length >= 12 || $("#addSchoolTel").val().length ==0) {
-					$("#warningInfo").html("教学点对外咨询电话小于30位");
+					$("#warningInfo").html("教学点对外咨询电话不得超过11位或为空");
 					$("#warningInfoModal").modal("show");
 					return;
 				}
 
 				if ($("#addSchoolRemark").val().length >=500 || $("#addSchoolRemark").val().length==0) {
-					$("#warningInfo").html("备注信息小于500位");
+					$("#warningInfo").html("备注信息不得超过500位或为空");
 					$("#warningInfoModal").modal("show");
 					return;
 				}
@@ -391,31 +391,31 @@
 			$("#editTrainingSchool").click(function() {
 
 				if ($("#editSchoolID").val().length != 4) {
-					$("#warningInfo").html("教学点编号（学院的ID为9999）为4位");
+					$("#warningInfo").html("教学点编号（学院的ID为9999）必须为4位");
 					$("#warningInfoModal").modal("show");
 					return;
 				}
 
 				if ($("#editSchoolName").val().length >= 30 || $("#editSchoolName").val().length ==0) {
-					$("#warningInfo").html("教学点名称小于30位");
+					$("#warningInfo").html("教学点名称不得超过30位或为空");
 					$("#warningInfoModal").modal("show");
 					return;
 				}
 
 				if ($("#editSchoolAddress").val().length >= 50 || $("#editSchoolAddress").val().length ==0) {
-					$("#warningInfo").html("教学点地址小于50位");
+					$("#warningInfo").html("教学点地址不得超过50位或为空");
 					$("#warningInfoModal").modal("show");
 					return;
 				}
 
 				if ($("#editSchoolTel").val().length >= 12 || $("#editSchoolTel").val().length ==0) {
-					$("#warningInfo").html("教学点对外咨询电话小于30位");
+					$("#warningInfo").html("教学点对外咨询电话不得超过11位或为空");
 					$("#warningInfoModal").modal("show");
 					return;
 				}
 
 				if ($("#editSchoolRemark").val().length >= 500 || $("#editSchoolRemark").val().length ==0) {
-					$("#warningInfo").html("备注信息小于500位");
+					$("#warningInfo").html("备注信息不能超过500位或为空");
 					$("#warningInfoModal").modal("show");
 					return;
 				}
