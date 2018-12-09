@@ -333,7 +333,7 @@ $(function(){
 		//warningInfo
 		if($("#addStuID").val().length !=8)
 		{
-			$("#warningInfo").html("学生编号为8位，入学年（4位）+序号（4位）");
+			$("#warningInfo").html("学生编号必须为8位，入学年（4位）+序号（4位）");
 			$("#warningInfoModal").modal("show");
 			return;
 		}
@@ -347,7 +347,7 @@ $(function(){
 		
 		if($("#addSemesterID").val().length !=6)
 		{
-			$("#warningInfo").html("学期编号为6位，年（4位）+序号（2位）");
+			$("#warningInfo").html("学期编号必须为6位，年（4位）+序号（2位）");
 			$("#warningInfoModal").modal("show");
 			return;
 		}
@@ -369,6 +369,13 @@ $(function(){
 		if($("#addClassID").val().length !=6)
 		{
 			$("#warningInfo").html("班级编号必须为6位");
+			$("#warningInfoModal").modal("show");
+			return;
+		}
+		
+		if($("#addScore").val().length ==0)
+		{
+			$("#warningInfo").html("成绩不得为空");
 			$("#warningInfoModal").modal("show");
 			return;
 		}
@@ -430,6 +437,13 @@ $(function(){
 	
 	$("#confirmEdit").click(function(){
 	
+		if($("#editStuID").val().length !=8)
+		{
+			$("#warningInfo").html("学生编号必须为8位，入学年（4位）+序号（4位）");
+			$("#warningInfoModal").modal("show");
+			return;
+		}
+		
 		if($("#editCourseID").val().length !=5)
 		{
 			$("#warningInfo").html("课程编号必须为5位");
@@ -439,7 +453,7 @@ $(function(){
 		
 		if($("#editSemesterID").val().length !=6)
 		{
-			$("#warningInfo").html("学期编号为6位，年（4位）+序号（2位）");
+			$("#warningInfo").html("学期编号必须为6位，年（4位）+序号（2位）");
 			$("#warningInfoModal").modal("show");
 			return;
 		}
@@ -454,6 +468,13 @@ $(function(){
 		if($("#editClassID").val().length !=6)
 		{
 			$("#warningInfo").html("班级编号必须为6位");
+			$("#warningInfoModal").modal("show");
+			return;
+		}
+		
+		if($("#editScore").val().length ==0)
+		{
+			$("#warningInfo").html("成绩不得为空");
 			$("#warningInfoModal").modal("show");
 			return;
 		}
