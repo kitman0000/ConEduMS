@@ -13,7 +13,8 @@
 	<script src="js/bootstrap-datetimepicker.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/bootstrap-datetimepicker.zh-CN.js"></script>
-	
+	<script src="js/System.js"></script>
+
 </head>
 <body>
 	<div class="page">
@@ -32,15 +33,8 @@
                 <a class="navbar-brand" href="#">继续教育管理系统(管理端)</a>
             </div>
             <div class="collapse navbar-collapse" id="example-navbar-collapse">
-                <ul class="nav navbar-nav">
-                    <li role="presentation"><a href="#">专业管理</a></li>
-   					<li role="presentation"><a href="#">教学点管理</a></li>
-					<li role="presentation"><a href="#">课程管理</a></li>
-					<li role="presentation"  class="active"><a href="#">教师管理</a></li>
-					<li role="presentation"><a href="#">学生管理</a></li>
-					<li role="presentation"><a href="#">成绩管理</a></li>
-					<li role="presentation"><a href="#">学生查询</a></li>
-				</ul>  
+                <ul class="nav navbar-nav" id="navbar">
+								</ul>  
             </div>
             </div>
         </nav>
@@ -368,6 +362,9 @@
 var obj;
 
 $(function(){
+	$("#navbar").html(getNavbar());
+	$("#TeacherManage").addClass("active");
+	
 	$.ajax({
 		type: "POST",
 		url: "TeacherManage.aspx/getAllTeachers",
@@ -604,7 +601,7 @@ function showTeachers(data)
 	for(i=0;i<obj.length&&i<5;i++)
 	{
 		try{
-			insert = "<tr><th>"+
+			insert = "<tr><td>"+
 			obj[i].teacherID+
 			"</td><td>"+
 			obj[i].teacherName+
@@ -704,7 +701,7 @@ function switchPage(num)
 	for(i=(num-1)*5;i<obj.length&&s<5;i++)
 	{
 		try{
-			insert = "<tr><th>"+
+			insert = "<tr><td>"+
 			obj[i].teacherID+
 			"</td><td>"+
 			obj[i].teacherName+
